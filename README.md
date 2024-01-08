@@ -10,24 +10,37 @@ Le site est consulté par cinq utilisateurs :
 
 # Invité :
 
-peut consulter uniquement des informations sur les filières et leurs contenus et voir les annonces publiques liées aux départements (Soutenances de PFE, Journées portes ouvertes … ). 
+- peut consulter uniquement des informations sur les filières et leurs contenus 
+- voir les annonces publiques liées aux départements (Soutenances de PFE, Journées portes ouvertes … ). 
 
 # Étudiant:
 
-peut consulter son emploi du temps et les annonces postées par les professeurs responsables des modules, le responsable de filière et le chef de département. Il peut aussi faire une demande de lettre de recommandation ou d’un rendez-vous avec un professeur, justifier une absence, demander le changement de groupe de TP … . Le délégué de classe peut signaler au responsable de filière les pannes matérielles, les incidents du quotidien liés aux objets endommagés (chaise, tableau, Prise internet …).
+- peut consulter son emploi du temps .
+- peut consulter les annonces postées par les professeurs responsables des modules, le responsable de filière et le chef de département.
+- Il peut aussi faire une demande de lettre de recommandation ou d’un rendez-vous avec un professeur, justifier une absence, demander le changement de groupe de TP … .
+- Le délégué de classe peut signaler au responsable de filière les pannes matérielles, les incidents du quotidien liés aux objets endommagés (chaise, tableau, Prise internet …).
 
-# Professeur :
+# Professeur responsable d’un module :
 
-responsable d’un module: peut gérer les annonces liées à ses modules (Annulation d’une séance, CC …  ) et répondre aux demandes postées par les étudiants. 
+- peut gérer les annonces liées à ses modules (Annulation d’une séance, CC …  ) 
+- répondre aux demandes postées par les étudiants. 
 
-# Responsable :
+# Responsable d’une filière: 
 
-d’une filière: peut gérer les annonces (arrêt des cours, planning des soutenances … ) et répondre aux demandes postées par les étudiants.
+- peut gérer les annonces (arrêt des cours, planning des soutenances … )
+- répondre aux demandes postées par les étudiants.
 
 # Chef d’un département : 
 
 peut gérer les emplois  du temps des salles de son département et les annonces ( Rencontres, périodes des soutenances des PFEs… ).  
 
-Responsable du service pédagogique : Gère les emplois du temps des salles qui ne sont liées à aucun département - Affecter une salle à un département - Modifier le professeur responsable d’un département, d’une filière ou d’un module  - Inscrire une nouvelle classe d’étudiants dans un module - Ajouter et modifier le contenu d’une filière … . 
+# Responsable du service pédagogique : 
+
+- Gère les emplois du temps des salles qui ne sont liées à aucun département 
+- Affecter une salle à un département
+- Modifier le professeur responsable d’un département, d’une filière ou d’un module
+- Inscrire une nouvelle classe d’étudiants dans un module
+-  Ajouter et modifier le contenu d’une filière … .
+
 
 Après authentification, chaque utilisateur à accès à un tableau de bord qui contient les fonctionnalités qui lui sont associées. 
