@@ -38,7 +38,7 @@ body{
                   @if (Route::has('login') && !request()->is('login'))
                         <div dir="rtl">
                         @auth
-                            <a href="{{ url('Auth/home') }}" class="" style="font-size:25px;color:#e5e7eb;padding:10px">Home</a>
+                            <a href="{{ route('Logout') }}" class="" style="font-size:25px;color:#e5e7eb;padding:10px">Logout</a>
                         @else
                             <a href="{{ route('login') }}" class="" style="font-size:25px;color:#e5e7eb;padding:10px">Log in</a>
                         @endauth

@@ -2,7 +2,6 @@
 @section('title',' dashboard')
 @section('content')
 
-   <h1>success
-   </h1>
+   <h1>welcome to Auth , {{ Auth::user()->name}}</h1>
 
 @endsection

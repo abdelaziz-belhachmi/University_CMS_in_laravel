@@ -2,8 +2,7 @@
 @section('title',' espace etudiant')
 @section('content')
 
-   <h1>Welcome,
-   {{ Auth::user()->name}}
+   <h1>Welcome User, {{ Auth::user()->name}}
      </h1>
 
 @endsection
