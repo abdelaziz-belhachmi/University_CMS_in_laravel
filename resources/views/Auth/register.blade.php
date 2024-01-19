@@ -4,10 +4,57 @@
 
   
    <br>
-   
-   <div class="centered-div" style="width: 100vw;align-items: center;justify-content: center;display:flex">
+   <link rel="stylesheet" href="../css/loginStyle.css">
 
-    <form action="{{route('register')}}" method="post" style="width: 40vw;"  id="contact_form">
+   {{-- <link rel="stylesheet" href="../css/style.css"> --}}
+{{--    
+
+ <!-- Registration Form -->
+        <form id="register" class="input-group">
+            
+            <input type="text" class="input-field" placeholder=" Prenom" required="required">
+            <input type="text" class="input-field" placeholder=" Nom" required="required">
+            <br>
+            <br>
+            <label for="role">Role:</label>
+<select id="role" onclick="checkrole()"> 
+<option value="0">
+    Étudiant
+</option>
+<option value="1">Professeur</option>
+<option value="2">Chef filière</option>
+<option value="3"> Chef département</option>
+<option value="4">Chef service</option>
+</select>
+            <input type="email" class="input-field" placeholder="Adresse e-mail" required="required">
+            <input type="password" class="input-field" placeholder="Creer mot de passe" name="psame" required="required">
+            <input type="password" class="input-field" placeholder="Confirmer mot de passe" name="psame" required="required">
+            <br>
+            <br>
+            <label for="dob">Date de naissance:</label>
+<input type="date" id="dob" name="dob" required>
+<input type="text" class="input-field" id="apogee"  placeholder="Code apogée" required="required">
+<input type="text" class="input-field" id="cne" placeholder=" CNE" required="required">
+<input type="text" class="input-field" id="code_doti" placeholder="Code Doti"  required="required">
+
+<input type="text" class="input-field" placeholder="CIN" required="required">
+<input type="text" class="input-field" placeholder="Telephone" required="required">
+<input type="text" class="input-field" placeholder="Adresse" required="required">
+<input type="text" class="input-field" placeholder="Ville" required="required">
+<input type="text" class="input-field" placeholder="Pays" required="required">
+<input type="text" class="input-field" placeholder="code zip" required="required">
+
+            <button type="submit" id="btnSubmit" class="submit-btn reg-btn">Register</button>
+        </form>
+
+
+    --}}
+
+
+<div class="container">
+   {{-- <div class="scrollbar" > --}}
+
+    {{-- <form action="{{route('register')}}" method="post" style="width: 40vw;"  id="contact_form">
         @csrf
         <fieldset>
 
@@ -131,8 +178,49 @@
             </div>
 
         </fieldset>
+    </form> --}}
+
+    {{--  --}}
+
+    <form id="register" class="input-group scrollbar"  id="scrollbar1">
+            
+        <input type="text" class="input-field" placeholder=" Prenom" required="required">
+        <input type="text" class="input-field" placeholder=" Nom" required="required">
+        <br>
+        <br>
+        <label for="role">Role:</label>
+<select id="role" onclick="checkrole()"> 
+<option value="0">Étudiant</option>
+<option value="1">Professeur</option>
+<option value="2">Chef filière</option>
+<option value="3"> Chef département</option>
+<option value="4">Chef service</option>
+</select>
+        <input type="email" class="input-field" placeholder="Adresse e-mail" required="required">
+        <input type="password" class="input-field" placeholder="Creer mot de passe" name="psame" required="required">
+        <input type="password" class="input-field" placeholder="Confirmer mot de passe" name="psame" required="required">
+        <br>
+        <br>
+        <label for="dob">Date de naissance:</label>
+<input type="date" id="dob" name="dob" required>
+
+<input type="text" class="input-field" id="apogee"  placeholder="Code apogée" >
+<input type="text" class="input-field" id="cne" placeholder=" CNE" style="display: none">
+<input type="text" class="input-field" id="code_doti" placeholder="Code Doti"  style="display: none">
+
+<input type="text" class="input-field" placeholder="CIN" required="required">
+<input type="text" class="input-field" placeholder="Telephone" required="required">
+<input type="text" class="input-field" placeholder="Adresse" required="required">
+<input type="text" class="input-field" placeholder="Ville" required="required">
+<input type="text" class="input-field" placeholder="Pays" required="required">
+<input type="text" class="input-field" placeholder="code zip" required="required">
+
+        <button type="submit" id="btnSubmit" class="submit-btn reg-btn">Register</button>
     </form>
+
+{{--  --}}
 </div>
+{{-- </div> --}}
     <script>
 
         function checkrole(){
@@ -155,5 +243,6 @@
     }
     </script>
 
+    <script src="../js/script2.js"></script>
 
 @endsection

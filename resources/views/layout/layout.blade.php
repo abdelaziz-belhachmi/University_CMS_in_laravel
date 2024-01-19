@@ -7,7 +7,8 @@
     <!-- Include your CSS stylesheets, scripts, or any other head elements here -->
 
 <style>
-    
+  
+
 body{
     margin: 0;
     padding: 0;
@@ -22,18 +23,28 @@ body{
             padding: 20px;
             background-color: #f0f0f0;
         }
+		.logo-Nav-bar{
+			/* margin-top: -30px; */
+			
+			font-size: 30px;
+			color: #f0f0f0;
+			text-decoration: none; 
+		}
+		
 
      
     </style>
 </head>
 
 <body>
-    <div id="app" style="width:100%">
-        <nav class="" style="background: #4b5563 ;padding:0">
-            <div class="">
-                <a style="font-size:35px;color:#e5e7eb;padding:15px" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
+    <div id="app" style="">
+        <nav class="" style="background: #4b5563;">
+            <div >
+				<div class="nav-bar">
+					<a class="logo-Nav-bar" href="{{ url('/') }}">
+						{{ config('app.name', 'Laravel') }}
+					</a>
+				</div>
 
                   @if (Route::has('login') && !request()->is('login'))
                         <div dir="rtl">

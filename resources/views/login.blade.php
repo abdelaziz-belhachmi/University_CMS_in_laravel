@@ -3,73 +3,85 @@
 @extends('layout.layout') <!-- Assuming you have a master layout, modify this as needed -->
 @section('title','Login Page')
 @section('content')
-    <div class="container" style="">
-        <div class="">
-            <div class="">
-                <div class="">
-                    <div class="">{{ __('Login') }}</div>
 
-                    <div class="">
-                        <form method="POST" action="{{ route('login') }}">
-                            @csrf
+<link rel="stylesheet" href="css/loginStyle.css">
+    <div class="container backgroundImage" style="">
+           
+    {{--  --}}
+    <div class="form-box scrollbar" id="scrollbar1"">
+        <form id="login" class="input-group" method="POST" action="{{route('login')}}">
+            @csrf
 
-                            <div class="">
-                                <label for="email" class="">{{ __('E-Mail Address') }}</label>
-
-                                <div class="">
-                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                                    @error('email')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                            </div>
-
-                            <div class="">
-                                <label for="password" class="">{{ __('Password') }}</label>
-
-                                <div class="">
-                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
-                                    @error('password')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                            </div>
-
-                            <div class="">
-                                <div class="">
-                                    <div class="">
-                                        <input class="" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                        <label class="" for="remember">
-                                            {{ __('Remember Me') }}
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="">
-                                <div class="">
-                                    <button type="submit" class="">
-                                        {{ __('Login') }}
-                                    </button>
-
-                                    @if (Route::has('password.request'))
-                                        <a class="" href="{{ route('password.request') }}">
-                                            {{ __('Forgot Your Password?') }}
-                                        </a>
-                                    @endif
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+            <div class="inp">
+                <img src="{{ asset("/images/user.png") }}">
+                <input type="text" id="email" name="email" class="input-field" placeholder="Adresse e-mail" style="width: 88%; border:none;" required>
             </div>
-        </div>
+            <div class="inp">
+                <img src="{{ asset("/images/password.png") }}">
+                <input type="password" id="password" name="password" class="input-field" placeholder="Mot de Passe" style="width: 88%; border: none;" required>
+            </div>
+            {{-- <input type="checkbox" class="check-box">Remember Password --}}
+            <button  style="margin-top: 50px" type="submit" class="submit-btn"> {{ __('Login') }}</button>
+            
+        </form>
+
+
+
+        
+       
+    </div>
+   <script>
+      // For LOGIN
+  var x = document.getElementById("login");
+  var y = document.getElementById("register");
+  var z = document.getElementById("btn");
+  var a = document.getElementById("log");
+  var b = document.getElementById("reg");
+  
+  function register() {
+    x.style.left = "-400px";
+    y.style.left = "50px";
+    z.style.left = "110px";
+    b.style.color = "#fff";
+    a.style.color = "#000";
+  }
+  
+  function login() {
+    x.style.left = "50px";
+    y.style.left = "450px";
+    z.style.left = "0px";
+    a.style.color = "#fff";
+    b.style.color = "#000";
+  }
+
+
+  function checkrole(){
+    var selectedRole = document.getElementById('role').value;
+
+   if( selectedRole == 0 ){
+
+       document.getElementById('apogee').setAttribute("style","");
+       document.getElementById('cne').setAttribute("style","");
+       document.getElementById('code_doti').setAttribute("style","display:none");
+
+   }else {
+
+       document.getElementById('apogee').setAttribute("style","display:none");
+       document.getElementById('cne').setAttribute("style","display:none");
+
+       document.getElementById('code_doti').setAttribute("style","");
+
+
+   } 
+   
+
+}
+
+
+  
+
+ 
+   </script>
+    {{--  --}}
     </div>
 @endsection
