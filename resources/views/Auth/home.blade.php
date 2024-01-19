@@ -7,11 +7,11 @@
    <div>
 
 <header>
-  <h1><a href="{{route('Auth.home')}}">Accueil</a></h1>
+  <h1><a href="{{route('Auth.accueil')}}">Accueil</a></h1>
   <nav>
     <ul>
       <li>
-        <a href="{{route('Auth.gerer_annonces')}}" data-title="Annonces">Annonces</a>
+        <a href="{{route('Auth.gerer_annonces')}}" data-title="Annonces">Cree Annonces</a>
       </li>
       <li>
         <a href="javascript:void(0);" data-title="Team">Gèrer emplois</a>

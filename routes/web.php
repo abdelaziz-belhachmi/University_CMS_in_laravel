@@ -40,6 +40,9 @@ Route::get('/Auth/home/gerer_annonces',function () {
     return view('Auth.gerer_annonces');
 })->name('Auth.gerer_annonces');
 
+Route::get('/Auth/home/accueil',function () {
+    return view('Auth.accueil');
+})->name('Auth.accueil');
 
 Route::get('/user/home', function () {
     return view('user.home');
