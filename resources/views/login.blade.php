@@ -8,16 +8,16 @@
     <div class="container backgroundImage" style="">
            
     {{--  --}}
-    <div class="form-box scrollbar" id="scrollbar1"">
+    <div class="form-box scrollbar" id="scrollbar1">
         <form id="login" class="input-group" method="POST" action="{{route('login')}}">
             @csrf
 
             <div class="inp">
-                <img src="{{ asset("/images/user.png") }}">
+                <img src="/images/user.png">
                 <input type="text" id="email" name="email" class="input-field" placeholder="Adresse e-mail" style="width: 88%; border:none;" required>
             </div>
             <div class="inp">
-                <img src="{{ asset("/images/password.png") }}">
+                <img src="/images/password.png">
                 <input type="password" id="password" name="password" class="input-field" placeholder="Mot de Passe" style="width: 88%; border: none;" required>
             </div>
             {{-- <input type="checkbox" class="check-box">Remember Password --}}

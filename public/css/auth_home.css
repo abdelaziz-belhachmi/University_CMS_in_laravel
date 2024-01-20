@@ -203,3 +203,82 @@ a:hover {
     }
   }
 }
+
+
+
+
+#contact {
+  /* overflow: auto; */
+  display: flex;
+  justify-content: center;
+  margin-top: 7vh;
+}
+#contact #form {
+  width:410px;
+  float:left;
+}
+#contact #form h2 {
+  font: 48px 'Bree Serif', Georgia, serif;
+}
+#contact #form span {
+  display:block;
+  float:left;
+  width:100px;
+  padding-top:5px;
+  /* font: 14px/16px'Bree Serif', Georgia, serif; */
+}
+#contact #form input {
+  float:left;
+  width:255px;
+  border:0px;
+  color:#ffffff;
+  background:#222222 ;
+
+  padding:10px 10px 10px 30px;
+  /* font: 11px/20px'Open Sans', Verdana, Helvetica, sans-serif; */
+  margin-bottom:10px;
+}
+#contact #form textarea {
+  float:left;
+  border:0px;
+  width:255px;
+  height:140px;
+  padding:10px 10px 10px 30px;
+  /* font: 11px/20px'Open Sans', Verdana, Helvetica, sans-serif; */
+  color:#f0f0f0;
+  resize: none;
+}
+#contact #form input.name {
+  background:#222222 
+}
+#contact #form input.email {
+  background:#222222 
+}
+#contact #form input.captcha {
+  background:#222222 
+}
+#contact #form textarea.message {
+    background:#222222 
+
+}
+#contact #form input.submit {
+  cursor: pointer;
+  width:85px;
+  height:30px;
+  float:right;
+  padding:0px 0px 5px 0px;
+  margin:10px 16px 0px 0px;
+  background:#222222 ;
+  color:#F1F1F1;
+  font: 14px/16px'Bree Serif', Georgia, serif;
+}
+#contact  span{
+  width: 44px;
+}
+#contact input{
+  margin: 5px 0 0;
+  padding: 0;
+  border: medium none;
+  cursor: pointer;
+  width: 15px;
+}

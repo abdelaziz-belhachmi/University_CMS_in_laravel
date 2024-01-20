@@ -11,7 +11,7 @@
   <nav>
     <ul>
       <li>
-        <a href="{{route('Auth.gerer_annonces')}}" data-title="Annonces">Cree Annonces</a>
+        <a href="{{route('Auth.annonce.gerer_annonces')}}" data-title="Annonces">Gere Annonces</a>
       </li>
       <li>
         <a href="javascript:void(0);" data-title="Team">Gèrer emplois</a>
@@ -26,12 +26,14 @@
         <a href="javascript:void(0);" data-title="Settings">Inscrire class</a>
       </li>
       <li>
-        <a href="javascript:void(0);" data-title="Search">Gèrer filière </a>
+        <a href="#" data-title="Search">Gèrer filière </a>
       </li>
       <li>
-         <a href="{{url('logout')}}"data-title="Logout">Logout</a>
+         <a href="{{url('logout')}}" data-title="Logout">Logout</a>
       </li>
     </ul>
+
+
   </nav>
 </header>
 <main>

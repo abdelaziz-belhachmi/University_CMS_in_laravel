@@ -1,9 +1,13 @@
 <?php
 
+use App\Http\Controllers\AnnonceController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use Illuminate\Routing\Controllers\Middleware;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Request as FacadesRequest;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,9 +20,8 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
+Route::get('/' ,  function () { return view('welcome');}   )->name('welcome');
+
 
 Route::get('/home', function () {
     if(Auth::user()->role == 0 ){ return redirect('user/home');}
@@ -32,20 +35,32 @@ Route::post('/login', [LoginController::class, 'login']);
 Route::get('/Auth/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
 Route::post('/Auth/register', [RegisterController::class, 'register']);
 
+
 Route::get('/Auth/home',function () {
     return view('Auth.home');
 })->name('Auth.home');
 
-Route::get('/Auth/home/gerer_annonces',function () {
-    return view('Auth.gerer_annonces');
-})->name('Auth.gerer_annonces');
+Route::get('/Auth/home/annonce/gerer_annonces',function () {
+    return view('Auth.annonce.gerer_annonces');
+})->name('Auth.annonce.gerer_annonces');
 
-Route::get('/Auth/home/accueil',function () {
-    return view('Auth.accueil');
-})->name('Auth.accueil');
+Route::get('/Auth/home/annonce/cree_annonce',function () {
+    return view('Auth.annonce.cree_annonce');
+})->name('Auth.annonce.cree_annonce');
+
+Route::post('/Auth/home/annonce/cree_annonce',[AnnonceController::class , "store"]);
+
+
+// Route::get('/Auth/home/accueil',function () {
+//     return view('Auth.accueil');
+// })->name('Auth.accueil');
+
+Route::get('/Auth/home/accueil',[AnnonceController::class,'index'] )->name('Auth.accueil');
 
 Route::get('/user/home', function () {
     return view('user.home');
 })->name('user.home');
 
 Route::get('/logout', [LoginController::class, 'logout'] )->name('Logout');
+
+// POST "/reserver/${anne}/${mois}/${jours}/${creneau}/${local}" 
