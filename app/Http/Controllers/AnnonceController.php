@@ -81,7 +81,7 @@ class AnnonceController extends Controller
 
 
     
-    public function show()
+    public function showAll()
     {
         
         $myId = Auth::user()->id;
@@ -90,36 +90,34 @@ class AnnonceController extends Controller
         return view('Auth.annonce.gerer_annonces', compact('annonces'));
     }
     
-
-    public function edit($id)
+    public function showOne($id)
     {
-        $audiences = Audience::all();
-        return view('annonce.edit', compact('annonce', 'audiences'));
+        $annonce = Annonce::with(['audience'])->find($id);
+
+        return view('Auth.annonce.modifier_annonce', compact('annonce'));
     }
 
-// 
-    public function update(Request $request, Annonce $annonce)
+    public function edit(Request $request)
     {
-        $request->validate([
-            'titre' => 'required|string',
-            'description' => 'required|string',
-            'date_creation' => 'required|date',
-            'audience_id' => 'required|exists:audiences,id',
-        ]);
 
-        $annonceData = $request->all();
+            $annonce = Annonce::with('audience')->findOrFail($request->input('id'));
 
-        // You can customize this logic based on your needs
-        $audience = Audience::find($annonceData['audience_id']);
+            $annonce->titre = $request->input('object');
+            $annonce->description = $request->input('message');
 
-        if (!$audience->visiteur && !$audience->etudiants && !$audience->professeurs
-            && !$audience->chef_departement && !$audience->chef_filliere && !$audience->chef_service) {
-            return redirect()->back()->with('error', 'Annonce cannot be updated. No target audience selected.');
-        }
+            $annonce->save();
 
-        $annonce->update($annonceData);
+            $audience = $annonce->audience;
+            $audience->visiteur = $request->has('Visiteurs');
+            $audience->etudiants = $request->has('Etudiant');
+            $audience->professeurs = $request->has('Proffesseur');
+            $audience->chef_departement = $request->has('Chef_Departement');
+            $audience->chef_filliere = $request->has('chef_filliere');
+            $audience->chef_service = $request->has('Chef_Service');
 
-        return redirect()->route('annonce.index')->with('success', 'Annonce updated successfully.');
+            $audience->save();
+
+            return redirect(route('Auth.accueil'));
     }
 
 
@@ -127,6 +125,7 @@ class AnnonceController extends Controller
     public function destroy($id)
 {
     $annonce = Annonce::findOrFail($id);
+    $annonce->audience()->delete();
     $annonce->delete();
 
     return redirect()->route('Auth.annonce.gerer_annonces')->with('success', 'Annonce deleted successfully.');
