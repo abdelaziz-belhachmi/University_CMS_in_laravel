@@ -23,7 +23,7 @@
               <label><input  type="checkbox" name="Chef_Departement" value="Chef_Departement"> Chef Departement</label><br /><br>
               <label><input  type="checkbox" name="Chef_Service" value="Chef_Service"> Chef Service</label><br /><br>
             </div>
-            
+
             <input type="hidden" name="id" value="{{ $annonce->id }}">
 
 
@@ -32,6 +32,7 @@
         </form>
       </div>
   </section>
+  
 
 <script src="../../../js/auth_home.js"></script>
 

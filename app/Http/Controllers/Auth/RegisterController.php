@@ -16,10 +16,10 @@ class RegisterController extends Controller
 
     protected $redirectTo = RouteServiceProvider::HOME;
 
-    public function __construct()
-    {
-        $this->middleware('guest');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('guest');
+    // }
 
     public function showRegistrationForm()
     {
