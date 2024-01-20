@@ -22,7 +22,7 @@ return new class extends Migration
             $table->integer('code_postale')->nullable(true);
             $table->string('pays')->nullable(true);
             $table->string('cin');
-            $table->tinyInteger('role')->default(0); // 0 normal user / 1 prof /2 chef filiere / 3 chef departement / 4 chef_service
+            $table->tinyInteger('role')->default(0); // 0 student / 1 professor /2 chef filiere / 3 chef departement / 4 chef_service
             $table->string('numero_telephone');
 
             $table->string('email')->unique();

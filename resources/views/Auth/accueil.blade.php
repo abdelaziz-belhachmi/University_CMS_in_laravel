@@ -6,8 +6,8 @@
 <article class="larg">
 @foreach ($annonces as $annoce)
 <div>
-  <h3> {{$annoce->name }}<span class="entypo-down-open"></span></h3>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus iste quia incidunt ad provident ullam quo assumenda expedita quae sapiente ipsa qui esse similique! Modi obcaecati natus sapiente quaerat omnis.</p>
+  <h3> {{ $annoce->titre }}<span class="entypo-down-open"></span></h3>
+  <p>{{ $annoce->description }}</p>
 </div>
 @endforeach
    

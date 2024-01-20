@@ -5,13 +5,42 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Audience;
 use App\Models\Annonce;
+use Illuminate\Support\Facades\Auth;
 
 class AnnonceController extends Controller
 {
 
     public function index()
     {
-        $annonces = Annonce::with('audience')->get();
+        
+        $myRole = Auth::user()->role;
+        
+        switch ($myRole) {
+            case 0:
+                $userRole = "etudiants";
+                break;
+            case 1:
+                $userRole = "professeurs";
+                break;
+            case 2:
+                $userRole = "chef_filliere";
+                break;
+            case 3:
+                $userRole = "chef_departement";
+                break;
+            case 4:
+                $userRole = "chef_service";
+                break;
+            default:
+                $userRole = "etudiants";
+        }
+
+        $annonces = Annonce::whereHas('audience', function ($query) use ($userRole) {
+                
+            $query->where($userRole, true);
+
+        })->with('audience')->get();
+
         return view('Auth.accueil', compact('annonces'));
     }
 
@@ -20,30 +49,34 @@ class AnnonceController extends Controller
 
     public function store(Request $request)
     {
-        // $request->validate([
-        //     'object' => 'required|string',
-        //     'message' => 'required|string',
-        //     // Add other validation rules as needed
-        // ]);
-
-        // Create the Annonce with title, description, and date_creation
-        $annonce = Annonce::create([
-            'titre' => $request->input('object'), // 'object' corresponds to the title in the form
-            'description' => $request->input('message'), // 'message' corresponds to the description in the form
-            'date_creation' => now(), // Use now() to get the current date and time
+        $request->validate([
+            'object' => 'required|string',
+            'message' => 'required|string',
         ]);
+
 
         // Create the Audience based on the form values
         $audienceData = [
-            'visiteur' => $request->has('Visiteurs') ? 1 : 0,
-            'etudiants' => $request->has('Etudiant') ? 1 : 0,
-            'professeurs' => $request->has('Proffesseur') ? 1 : 0,
-            'chef_departement' => $request->has('Chef_Departement') ? 1 : 0,
-            'chef_filliere' => $request->has('Chef_Filiere') ? 1 : 0,
-            'chef_service' => $request->has('Chef_Service') ? 1 : 0,
+            'visiteur' => $request->has('Visiteurs'),
+            'etudiants' => $request->has('Etudiant'),
+            'professeurs' => $request->has('Proffesseur'),
+            'chef_departement' => $request->has('Chef_Departement'),
+            'chef_filliere' => $request->has('Chef_Filiere'),
+            'chef_service' => $request->has('Chef_Service'),
         ];
 
-        $annonce->audience()->create($audienceData);
+        $audience = Audience::create($audienceData);
+
+        // Create the Annonce with title, description, date_creation, and associate it with the Audience
+        $annonce = new Annonce([
+            'titre' => $request->input('object'),
+            'description' => $request->input('message'),
+            'date_creation' => now(),
+        ]);
+    
+        $annonce->audience_id = $audience->id;
+        $annonce->save();
+
 
         return redirect()->route('Auth.accueil')->with('success', 'Annonce created successfully.');
     }

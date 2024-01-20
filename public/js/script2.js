@@ -28,14 +28,13 @@
    if( selectedRole == 0 ){
 
        document.getElementById('apogee').setAttribute("style","");
-       document.getElementById('cne').setAttribute("style","");
+      //  document.getElementById('cne').setAttribute("style","");
        document.getElementById('code_doti').setAttribute("style","display:none");
 
    }else {
 
        document.getElementById('apogee').setAttribute("style","display:none");
-       document.getElementById('cne').setAttribute("style","display:none");
-
+      //  document.getElementById('cne').setAttribute("style","display:none");
        document.getElementById('code_doti').setAttribute("style","");
 
 

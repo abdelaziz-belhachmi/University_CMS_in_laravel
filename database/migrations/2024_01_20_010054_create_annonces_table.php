@@ -17,8 +17,10 @@ return new class extends Migration
             $table->string('titre');
             $table->string('description');
             $table->date('date_creation');
-            $table->unsignedBigInteger('audience_id')->default(null); 
-            $table->foreign('audience_id')->references('id')->on('audiences');
+            // $table->unsignedBigInteger('audience_id'); 
+            $table->foreignId('audience_id')->constrained('audiences')->onDelete('cascade');
+
+            // $table->foreign('audience_id')->references('id')->on('audiences');
 
             $table->timestamps();
         });

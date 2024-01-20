@@ -11,13 +11,19 @@ class Annonce extends Model
 
 
     protected $fillable = [
-        'titre', 'description', 'date_creation','audience'
+        'titre', 
+        'description', 
+        'date_creation',
+        // 'audience'
     ];
 
     // Define the one-to-one relationship with Audience
     public function audience()
     {
-        return $this->hasOne(Audience::class);
+        
+        // return $this->belongsTo(Audience::class);
+        return $this->belongsTo(Audience::class, 'audience_id');
+
     }
 
 }

@@ -203,9 +203,9 @@
         <label for="dob">Date de naissance:</label>
 <input type="date" id="dob" name="birthdate" required>
 
-<input type="text" class="input-field" id="apogee"  placeholder="Code apogée" >
-{{-- <input type="text" class="input-field" id="cne" placeholder=" CNE" style="display: none"> --}}
-<input type="text" class="input-field" id="code_doti" placeholder="Code Doti"  style="display: none">
+<input type="text" class="input-field" id="apogee" name="apogee"  placeholder="Code apogée" >
+{{-- <input type="text" class="input-field" id="cne" name="cne" placeholder=" CNE" style="display: none"> --}}
+<input type="text" class="input-field" id="code_doti" name="code_doti" placeholder="Code Doti"  style="display: none">
 
 <input type="text" class="input-field" name="cin" placeholder="CIN" required="required">
 <input type="text" class="input-field" name="phone" placeholder="Telephone" required="required">
@@ -220,7 +220,7 @@
 {{--  --}}
 </div>
 {{-- </div> --}}
-    <script>
+    {{-- <script>
 
         function checkrole(){
          var selectedRole = document.getElementById('role').value;
@@ -232,15 +232,15 @@
 
         }else {
 
-            document.getElementById('apogee').setAttribute("style","display:none");
             document.getElementById('code_doti').setAttribute("style","");
+            document.getElementById('apogee').setAttribute("style","display:none");
 
 
         } 
         
 
     }
-    </script>
+    </script> --}}
 
     <script src="../js/script2.js"></script>
 
