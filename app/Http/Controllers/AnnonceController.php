@@ -6,13 +6,14 @@ use Illuminate\Http\Request;
 use App\Models\Audience;
 use App\Models\Annonce;
 use Illuminate\Support\Facades\Auth;
+use Nette\Utils\Strings;
 
 class AnnonceController extends Controller
 {
 
+    // get annonces based on my role 
     public function index()
-    {
-        
+    {        
         $myRole = Auth::user()->role;
         
         switch ($myRole) {
@@ -39,14 +40,13 @@ class AnnonceController extends Controller
                 
             $query->where($userRole, true);
 
-        })->with('audience')->get();
+        })->with(['audience', 'user'])->get();
 
         return view('Auth.accueil', compact('annonces'));
     }
 
-
    
-
+// make annonce
     public function store(Request $request)
     {
         $request->validate([
@@ -54,8 +54,6 @@ class AnnonceController extends Controller
             'message' => 'required|string',
         ]);
 
-
-        // Create the Audience based on the form values
         $audienceData = [
             'visiteur' => $request->has('Visiteurs'),
             'etudiants' => $request->has('Etudiant'),
@@ -67,33 +65,39 @@ class AnnonceController extends Controller
 
         $audience = Audience::create($audienceData);
 
-        // Create the Annonce with title, description, date_creation, and associate it with the Audience
         $annonce = new Annonce([
             'titre' => $request->input('object'),
             'description' => $request->input('message'),
             'date_creation' => now(),
+            'user_id' => auth()->user()->id,
         ]);
     
         $annonce->audience_id = $audience->id;
         $annonce->save();
-
 
         return redirect()->route('Auth.accueil')->with('success', 'Annonce created successfully.');
     }
 
 
 
-    public function show(Annonce $annonce)
+    
+    public function show()
     {
-        return view('annonce.show', compact('annonce'));
-    }
+        
+        $myId = Auth::user()->id;
+        $annonces =  Annonce::where('user_id', $myId)->with(['audience', 'user'])->get();
 
-    public function edit(Annonce $annonce)
+        return view('Auth.annonce.gerer_annonces', compact('annonces'));
+    }
+    
+
+    public function edit($id)
     {
         $audiences = Audience::all();
         return view('annonce.edit', compact('annonce', 'audiences'));
     }
 
+// 
     public function update(Request $request, Annonce $annonce)
     {
         $request->validate([
@@ -118,7 +122,19 @@ class AnnonceController extends Controller
         return redirect()->route('annonce.index')->with('success', 'Annonce updated successfully.');
     }
 
-    public function destroy(Annonce $annonce)
+
+// 
+    public function destroy($id)
+{
+    $annonce = Annonce::findOrFail($id);
+    $annonce->delete();
+
+    return redirect()->route('Auth.annonce.gerer_annonces')->with('success', 'Annonce deleted successfully.');
+}
+    
+
+// 
+    public function delete_annonce(Annonce $annonce)
     {
         $annonce->delete();
 

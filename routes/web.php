@@ -40,16 +40,22 @@ Route::get('/Auth/home',function () {
     return view('Auth.home');
 })->name('Auth.home');
 
-Route::get('/Auth/home/annonce/gerer_annonces',function () {
-    return view('Auth.annonce.gerer_annonces');
-})->name('Auth.annonce.gerer_annonces');
+// Route::get('/Auth/home/annonce/gerer_annonces',function () {
+//     return view('Auth.annonce.gerer_annonces');
+// })->name('Auth.annonce.gerer_annonces');
 
+// voir mes annonces
+Route::get('/Auth/home/annonce/gerer_annonces', [AnnonceController::class , 'show'] )->name('Auth.annonce.gerer_annonces');
+
+// cree une nouvell annonce
 Route::get('/Auth/home/annonce/cree_annonce',function () {
     return view('Auth.annonce.cree_annonce');
 })->name('Auth.annonce.cree_annonce');
 
+// save new annonce
 Route::post('/Auth/home/annonce/cree_annonce',[AnnonceController::class , "store"]);
 
+Route::get('Auth/supprimer_annonce/{id}',[AnnonceController::class,"destroy"]);
 
 // Route::get('/Auth/home/accueil',function () {
 //     return view('Auth.accueil');

@@ -14,16 +14,17 @@ class Annonce extends Model
         'titre', 
         'description', 
         'date_creation',
-        // 'audience'
+        'user_id',
     ];
 
-    // Define the one-to-one relationship with Audience
     public function audience()
     {
-        
-        // return $this->belongsTo(Audience::class);
         return $this->belongsTo(Audience::class, 'audience_id');
+    }
 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 
 }

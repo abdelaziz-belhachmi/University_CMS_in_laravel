@@ -11,7 +11,7 @@
   <nav>
     <ul>
       <li>
-        <a href="{{route('Auth.annonce.gerer_annonces')}}" data-title="Annonces">Gere Annonces</a>
+        <a href="{{route('Auth.annonce.gerer_annonces')}}" data-title="Annonces">Gere Mes Annonces</a>
       </li>
       <li>
         <a href="javascript:void(0);" data-title="Team">Gèrer emplois</a>

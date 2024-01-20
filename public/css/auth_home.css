@@ -105,7 +105,7 @@ header {
       
       & a {
         line-height:55px;
-        font-size:18px;
+        font-size:12px;
         position:relative;
         letter-spacing:1px;
         transition:all 0.6s;
@@ -281,4 +281,25 @@ a:hover {
   border: medium none;
   cursor: pointer;
   width: 15px;
+}
+
+
+.button.-dark{
+  padding-inline: 25px;
+ background-color: #fff; 
+  /* font-size: 18px; */
+} 
+.button.-black{
+/* width: 100px; */
+/* height: 80px; */
+padding: 5px;
+margin: 10px;
+color: #222222;
+border-color: #222222;
+background-color: silver;
+display: flex;
+text-align: center;
+text:center;
+
+
 }

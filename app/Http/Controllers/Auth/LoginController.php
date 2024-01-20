@@ -28,7 +28,7 @@ class LoginController extends Controller
         $u = User::where('email', $req->email)->first();
             if($u->role != 0 ){
             // return "welcome back , ".$u->name;
-            return redirect()->intended(route('Auth.home'));
+            return redirect()->intended(route('Auth.accueil'));
         }else {
             return redirect()->intended(route('user.home'));
 

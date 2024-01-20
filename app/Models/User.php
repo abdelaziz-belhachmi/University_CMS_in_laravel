@@ -63,5 +63,10 @@ public function etudiant()
     return $this->hasOne(Etudiant::class);
 }
 
+public function annonces()
+{
+    return $this->hasMany(Annonce::class);
+}
+
 
 }
