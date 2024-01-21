@@ -2,7 +2,10 @@
 @section('title',' espace etudiant')
 @section('content')
 
-   <h1>Welcome User, {{ Auth::user()->name}}
-     </h1>
+<div style="min-height: 80vh">
+
+  <h1>Welcome User, {{ Auth::user()->name}}
+  </h1>
+</div>
 
 @endsection

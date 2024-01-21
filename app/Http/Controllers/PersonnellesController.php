@@ -6,6 +6,7 @@ use App\Models\Etudiant;
 use App\Models\Professeur;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class PersonnellesController extends Controller
 {
@@ -101,6 +102,7 @@ a revoir
 
 }
 
+
 function delete($id){
 
     $user = User::where('id',$id)->first();
@@ -132,16 +134,35 @@ function delete($id){
     return redirect(route('gerer_perso'));
 }
 
-function edit(Request $request){
-    /*
-    
-    
-    A revoir
 
+public function edit(Request $request)
+{
+    $id = $request->input('id');
+
+    $request->validate([
+        'first_name' => ['required', 'string', 'max:255'],
+        'last_name' => ['required', 'string', 'max:255'],
+        'password' => ['required', 'string'],
+    ]);
+
+    // try {
+        $user = User::find($id);
+
+        $user->name = $request->input('first_name');
+        $user->prenom = $request->input('last_name');
+        $user->numero_telephone = $request->input('phone');
+        $user->date_naissance = $request->input('birthdate');
+        $user->adresse = $request->input('address');
+        $user->ville = $request->input('city');
+        $user->code_postale = $request->input('zip');
+        $user->cin = $request->input('cin');
+        $user->password = Hash::make($request->input('password'));
     
-    */
-    return redirect(route('gerer_perso'));
+        $user->save();
+
+     
+        return redirect(route('gerer_perso'))->with('success', 'User information updated successfully.');
+ 
 }
-
 
 }

@@ -4,8 +4,8 @@
 <link rel="stylesheet" href="../../../css/auth_home.css">
 
 {{-- <h1>afficher ici dashboard de curd annonces</h1> --}}
-<div style="background-color:#000;height:80px ; display:flex;justify-content:end">
-  <button class='button -dark ' style="margin:10px;" onclick="cree();">Cree Une annonce</button>
+<div style="background-color:#d8d8d8;height:80px ; display:flex;justify-content:end">
+  <button class='button -dark ' style="margin:11px;" onclick="cree();">Cree Une annonce</button>
   {{-- <button class='button -dark ' style="margin:10px" onclick="modifier();">Modifer Une annonce</button> --}}
 </div>
 

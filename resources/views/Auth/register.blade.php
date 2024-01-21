@@ -17,7 +17,7 @@
 
    <div style="margin-top:4vh;display:flex; justify-content:center">
 
-    <form  style="width:45vw;" method="POST" action="{{route('update_user_info')}}">
+    <form  style="width:45vw;" method="POST" action="{{url('/Auth/register')}}">
         <div  class="crrr" >
             @csrf
          

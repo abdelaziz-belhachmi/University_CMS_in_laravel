@@ -10,14 +10,14 @@
     <div  class="crrr" >
         @csrf
      
-        <label for="role">Role:</label>
+        {{-- <label for="role">Role:</label>
         <select style="height: 45px;margin:10px" id="role" name="role" onclick="checkrole()"> 
         <option value="0">Étudiant</option>
         <option value="1">Professeur</option>
         <option value="2">Chef filière</option>
         <option value="3"> Chef département</option>
         <option value="4">Chef service</option>
-        </select>
+        </select> --}}
 
 
         <div>
@@ -33,7 +33,7 @@
   <div>
 
       <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="password" id="psw"  value="{{$details->user->password}}" required>
+      <input type="password" placeholder="Enter Password" name="password" id="psw"  value="" required>
     </div>
 
     <div>
@@ -52,10 +52,10 @@
 <input type="text" class="input-field" name="address" placeholder="Adresse" required="required" value="{{$details->user->adresse}}">
 <input type="text" class="input-field" name="city" placeholder="Ville" required="required" value="{{$details->user->ville}}">
 <input type="text" class="input-field" name="zip" placeholder="code zip" required="required" value="{{$details->user->code_postale}}">
-<input type="text" id="" style="display: none;" value='{{ $details->user->id }}'>
+<input type="text" id="id" name="id" style="display: none;" value='{{ $details->user->id }}' >
          
   
-      <button type="submit" class="registerbtn">Register</button>
+      <button type="submit" class="registerbtn">Update</button>
     </div>
     
    
