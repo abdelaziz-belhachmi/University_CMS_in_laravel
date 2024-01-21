@@ -295,9 +295,20 @@ a:hover {
 
 .button.-dark{
   padding-inline: 25px;
- background-color: #fff; 
+ background-color: #000; 
+ border: none;
   /* font-size: 18px; */
+  /* border-radius: 10px; */
+
+  color: #fff;
+
 } 
+
+.button.-dark:hover{
+  cursor: pointer;
+  background-color: #1c1c1c;
+}
+
 .button.-black{
 /* width: 100px; */
 /* height: 80px; */

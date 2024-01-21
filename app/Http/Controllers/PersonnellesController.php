@@ -65,7 +65,7 @@ function get($id){
             return view('Auth.personnelles.modifier',compact('details','prole'));
            break;
 
-
+ 
         case 2:
 /*
 

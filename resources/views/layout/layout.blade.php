@@ -70,7 +70,7 @@ body{
 <body>
     <div style="width:100%;display:block;">
 
-    <div id="" style="background: #262626;height:80px;width:100%;align-items:center;display:flex;">
+    <div id="" style="background: #000000;height:80px;width:100%;align-items:center;display:flex;">
         <div style="margin-right:50px;;margin-left:50px;display:flex;justify-content:space-between;width:100% ; ">
             
             <div class="" style="height:100%;align-self:center;font-size:20px" >
@@ -105,10 +105,17 @@ body{
 
         <main class="" style="width: 99vw;justify-content:center;">
             @yield('content')
+
+            <footer style="height: 100px ; background-color:#000;color:#fff;display: flex;justify-content:center">
+                <div style="display: flex;justify-content:center">
+                 <p> @c copyright fst</p>
+                 </div>
+               </footer>
         </main>
 
     </div>
-    
+
+ 
 
     <!-- Include your JavaScript scripts or any other scripts here -->
 </body>

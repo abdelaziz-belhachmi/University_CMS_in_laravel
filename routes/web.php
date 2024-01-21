@@ -27,7 +27,7 @@ Route::get('/' ,  function () { return view('welcome');}   )->name('welcome');
 
 Route::get('/home', function () {
     if(Auth::user()->role == 0 ){ return redirect('user/home');}
-    else{  return redirect('Auth/home');}
+    else{  return redirect('Auth/home/accueil');}
 })->name('home');
 
 Route::get('/Auth/home',function () {
@@ -78,7 +78,7 @@ Route::post('Auth/modifier_annonce',[AnnonceController::class,"edit"]);
 // voir mes annonces
 Route::get('/Auth/home/annonce/gerer_annonces', [AnnonceController::class , 'showAll'] )->name('Auth.annonce.gerer_annonces');
 
-
+ 
 // ** PERSONNELLES ** //
 Route::get('Auth/gerer/personnes/',[PersonnellesController::class,'index'])->name('gerer_perso');
 Route::get('Auth/gerer/etudiants',[PersonnellesController::class,'etudiants']);

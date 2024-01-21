@@ -21,18 +21,18 @@ input:focus, input:focus {
 /* Set a style for the submit button */
 .registerbtn {
     
-  background-color: #04AA6D;
+  background-color: #000000;
   color: white;
   padding: 16px 20px;
   margin: 8px 0;
   border: none;
   cursor: pointer;
   width: 95%;
-  opacity: 0.9;
+  opacity: 1;
 }
 
 .registerbtn:hover {
-  opacity: 1;
+  opacity: 0.9;
 }
 
 /* Add padding to containers */

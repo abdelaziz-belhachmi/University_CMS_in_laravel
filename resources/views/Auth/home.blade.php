@@ -56,11 +56,6 @@
 
 </div>
 
-<footer style="height: 100px ; background-color:#000;color:#fff;display: flex;justify-content:center">
- <div style="display: flex;justify-content:center">
-  <p> @c copyright fst</p>
-  </div>
-</footer>
 
 
 @endsection

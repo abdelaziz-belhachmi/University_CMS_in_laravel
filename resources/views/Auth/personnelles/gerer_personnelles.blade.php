@@ -18,7 +18,7 @@
 </div>
 
 <div class="larg">
-
+ 
 @foreach ( $utilisateurs as $utilisateur)
     <div style="display: flex">
         <h2 style="margin:20px">{{$utilisateur->user->name}}</h2>
