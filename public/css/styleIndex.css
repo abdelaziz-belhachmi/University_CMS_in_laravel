@@ -1,0 +1,371 @@
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color:  #8FB5E5 ;
+    color:white;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(77, 138, 199, 0.793);
+}
+
+.menu-left, .menu-right, .logo {
+    display: flex;
+    align-items: center;	
+}
+
+.logo img {
+    max-height: 100px;
+}
+.hamburger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+}
+
+.hamburger span {
+    background-color: white;
+    height: 3px;
+    width: 100%;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.cta-button {
+    background-color: #007bff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background: linear-gradient(to right,#EECD0C, #0094FF);
+}
+
+.mobile-menu {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: width 0.5s ease;
+    padding-top: 60px;
+}
+
+.mobile-menu a {
+    padding: 15px 25px;
+    text-decoration: none;
+    font-size: 22px;
+    color: white;
+    display: block;
+    transition: color 0.3s ease;
+}
+
+.mobile-menu a:hover {
+    color: #ddd;
+}
+
+.mobile-menu .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    cursor: pointer;
+}
+
+
+
+
+
+a:hover {
+    color: #ddd;
+}
+
+.navbar a:not(.cta-button) {
+    padding: 10px 15px;
+    margin: 0 5px;
+    transition: background-color 0.3s ease;
+}
+
+.navbar a:not(.cta-button):hover {
+    background: linear-gradient(to right,#EECD0C, #0094FF);
+    border-radius: 5px;
+}
+
+
+
+
+.head-container {
+	margin-top:min(10vw, 30px) ;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-around;
+}
+.quote {
+	width: 600px;
+	transform: translateY(-50px);
+}
+.quote h5 {
+    margin-top: 20px;
+    color: black;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+}
+
+.quote p {
+	font-size: 30px;
+	color: #2e2e2e;
+}
+.quote .play {
+	margin-top: 20px;
+	display: flex;
+	/* justify-content: center; */
+	align-items: center;
+}
+.quote .play img {
+	width: 45px;
+	cursor: pointer;
+	filter: drop-shadow(0 0 10px #0002);
+}
+.quote .play span a{
+	margin-left: 10px;
+	font-size: 20px;
+	font-weight: 900;
+	color: rgba(0, 0, 0, 0.8);
+	cursor: pointer;
+}
+
+.svg-image img{
+	width: 500px;
+	filter: drop-shadow(0 20px 10px rgba(0,0,0,0.2));
+}
+
+
+/*Formation initiales Section*/
+.service-swipe {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.7)),url("images/icon/etudiants-angle-eleve-apprenant-bibliotheque.jpg");
+	background-size: cover;
+	background-attachment: fixed;
+}
+.service-swipe .s-card img {
+	width: 100px;
+}
+.service-swipe a {
+	padding: 0;
+	margin: 40px 10px;
+}
+.service-swipe .s-card {
+	display: flex;
+	justify-content: space-around;
+	padding: 10px;
+	align-items: center;
+	text-align: center;
+	width: 350px;
+	height: 200px;
+	box-shadow: inset 0 0 20px rgba(255,255,255,0.05),
+					0 0 50px rgba(0,0,0,0.8);
+	border-radius: 5px;
+	cursor: pointer;
+	transition-duration: .5s;
+}
+.service-swipe .s-card p {
+	color: #f2f2f2;
+	font-size: 1.2em;
+	font-family: 'Open Sans',sans-serif;
+}
+.service-swipe .s-card:hover {
+	box-shadow: 0 0 50px rgba(255,255,255,0.8);
+	transform: translateY(-10px);
+}
+
+/*FOOTER*/
+footer {
+	color: #E5E8EF;
+	background: #8FB5E5;
+	padding: 50px 30; 
+}
+footer .footer-container {
+	max-width: 1300px;
+	margin: auto;
+	padding: 0 20px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap-reverse;
+}
+
+
+footer .social-media a{
+	margin-right: -15px;
+	font-size: 22px;
+	text-decoration: none;
+}
+footer .right-col h1{
+	font-size: 26px;
+}
+footer .border{
+	width: 100px;
+	height: 4px;
+	background: linear-gradient(to right,#EECD0C, #0094FF);
+	margin: 2px;
+}
+footer .newsletter-form {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+footer input::placeholder {
+  color: #8FB5E5 ;
+  font-size:smaller;
+}
+footer .txtb {
+	flex: 1;
+	padding: 10px 40px;
+	font-size: 16px;
+	background:white;
+	border: none;
+	font-weight: 700;
+	border-radius: 5px;
+	min-width: 300px;
+	margin-top: 20px;
+	color:#8FB5E5 ;
+    outline: none; 
+
+}
+footer .btn {
+	margin-top: 20px;
+	padding: 10px 40px;
+	font-size: 16px;
+	color: #f1f1f1;
+	background: linear-gradient(to right,#EECD0C, #0094FF);
+	border: none;
+	font-weight: 700;
+	outline: none;
+	border-radius: 5px;
+	margin-left: 20px;
+	cursor: pointer;
+	transition: opacity .3s linear;	
+}
+footer .btn:hover {
+	opacity: .7;
+}
+
+
+
+.slideshow-container {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+    margin: auto;
+}
+
+.slide {
+    display: none;
+}
+
+img {
+    object-fit: contain;
+    max-width: 100%;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    color: white;
+    background-color: black;
+    cursor: pointer;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+#s1and2{
+    
+        display: flex;
+       width: auto;
+        padding: 20px;
+    
+
+}
+#announcement-section {
+    border-radius: 10px;
+    text-align: center;
+    width: 30%;
+    float: left;
+    background-color: #8FB5E5;
+    color: #000000;
+    padding: 20px;
+    box-sizing: border-box;
+    border-right: 1px solid #34495e;
+}
+
+#announcement-list {
+    list-style-type: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+#announcement-list li {
+    margin-bottom: 15px;
+    border: 1px solid #000000;
+    padding: 15px;
+    background-color: #aff5e8;
+    transition: background-color 0.3s;
+    border-radius: 5px;
+}
+
+#announcement-list li:hover {
+    background-color: #EECD0C;
+}
+
+#details-section {
+    width: 70%;
+    float: right;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+#details-content {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+}
+
+h2 {
+    color: #333;
+    border-bottom: 2px solid #2c3e50;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
