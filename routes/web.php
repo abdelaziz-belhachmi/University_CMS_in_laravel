@@ -4,6 +4,7 @@ use App\Http\Controllers\AnnonceController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\PersonnellesController;
 use Illuminate\Routing\Controllers\Middleware;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -78,7 +79,14 @@ Route::post('Auth/modifier_annonce',[AnnonceController::class,"edit"]);
 Route::get('/Auth/home/annonce/gerer_annonces', [AnnonceController::class , 'showAll'] )->name('Auth.annonce.gerer_annonces');
 
 
+// ** PERSONNELLES ** //
+Route::get('Auth/gerer/personnes/',[PersonnellesController::class,'index'])->name('gerer_perso');
+Route::get('Auth/gerer/etudiants',[PersonnellesController::class,'etudiants']);
+Route::get('Auth/gerer/Proffesseurs',[PersonnellesController::class,'Proffesseurs']);
+Route::get('Auth/gerer/Chef_Filieres',[PersonnellesController::class,'Chef_Filieres']);
+Route::get('Auth/gerer/Chef_Departements',[PersonnellesController::class,'Chef_Departements']);
+Route::get('Auth/gerer/Chef_Services',[PersonnellesController::class,'Chef_Services']);
 
-
+Route::get('personnelles/modifier/{id}',[PersonnellesController::class,'edit']);
 
 // POST "/reserver/${anne}/${mois}/${jours}/${creneau}/${local}" 

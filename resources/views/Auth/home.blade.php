@@ -10,27 +10,35 @@
   <h1><a href="{{route('Auth.accueil')}}">Accueil</a></h1>
   <nav>
     <ul>
+    
       <li>
         <a href="{{route('Auth.annonce.gerer_annonces')}}" data-title="Annonces">Gere Mes Annonces</a>
       </li>
+    
+      <li>
+        <a href="{{route('gerer_perso')}}" data-title="Timeline">Personnelles</a>
+      </li>
+    
       <li>
         <a href="javascript:void(0);" data-title="Team">Gèrer emplois</a>
       </li>
+    
       <li>
         <a href="javascript:void(0);" data-title="Diary">Gèrer salles</a>
       </li>
-      <li>
-        <a href="javascript:void(0);" data-title="Timeline">Personnelles</a>
-      </li>
+    
       <li>
         <a href="javascript:void(0);" data-title="Settings">Inscrire class</a>
       </li>
+    
       <li>
         <a href="#" data-title="Search">Gèrer filière </a>
       </li>
+    
       <li>
          <a href="{{url('logout')}}" data-title="Logout">Logout</a>
       </li>
+    
     </ul>
 
 
