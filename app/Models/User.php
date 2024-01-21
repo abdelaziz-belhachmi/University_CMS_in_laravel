@@ -52,17 +52,33 @@ class User extends Authenticatable
 
 /* relation to the other models  */
 
-public function professeur()
+public function Chef_Service()
 {
     return $this->hasOne(Professeur::class);
 }
 
+public function Chef_filiere()
+{
+    return $this->hasOne(Professeur::class);
+}
+
+
+public function Chef_Departement()
+{
+    return $this->hasOne(Professeur::class);
+}
+
+public function professeur()
+{
+    return $this->hasOne(Professeur::class);
+}
 
 public function etudiant()
 {
     return $this->hasOne(Etudiant::class);
 }
 
+//
 public function annonces()
 {
     return $this->hasMany(Annonce::class);
