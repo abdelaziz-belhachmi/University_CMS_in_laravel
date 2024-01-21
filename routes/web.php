@@ -87,6 +87,11 @@ Route::get('Auth/gerer/Chef_Filieres',[PersonnellesController::class,'Chef_Filie
 Route::get('Auth/gerer/Chef_Departements',[PersonnellesController::class,'Chef_Departements']);
 Route::get('Auth/gerer/Chef_Services',[PersonnellesController::class,'Chef_Services']);
 
-Route::get('personnelles/modifier/{id}',[PersonnellesController::class,'edit']);
+Route::get('personnelles/modifier/{id}',[PersonnellesController::class,'get']);
+Route::post('personnelles/modifier/',[PersonnellesController::class,'edit'])->name('update_user_info');
+
+Route::get('personnelles/supprimer/{id}',[PersonnellesController::class,'delete'])->name('delete_user');
+
+
 
 // POST "/reserver/${anne}/${mois}/${jours}/${creneau}/${local}" 

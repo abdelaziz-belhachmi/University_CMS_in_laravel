@@ -6,7 +6,7 @@
    {{-- <span class="bckg"></span> --}}
    <div>
 
-<header>
+<header style="">
   <h1><a href="{{route('Auth.accueil')}}">Accueil</a></h1>
   <nav>
     <ul>
@@ -44,7 +44,9 @@
 
   </nav>
 </header>
-<main>
+
+<main style="min-height: 90vh;">
+
   <div class="title">
     <h2></h2>
     {{-- <a >Hello Bob !</a> --}}
@@ -55,6 +57,15 @@
   @yield('frameContent')
 
 </main>
+
+
 </div>
 
+<footer style="height: 100px ; background-color:aqua;display:flex;align-content:baseline">
+  aa
+</footer>
+
+
 @endsection
+
+  

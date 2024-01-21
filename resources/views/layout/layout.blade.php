@@ -15,6 +15,8 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow-x:hidden;
+    
     
 }
         .centered-div {
@@ -60,7 +62,7 @@ body{
             </div>
         </nav>
 
-        <main class="" style="width: 100vw">
+        <main class="" style="width: 99vw;justify-content:center;">
             @yield('content')
         </main>
     </div>

@@ -22,8 +22,16 @@
     <div style="display: flex">
         <h2 style="margin:20px">{{$utilisateur->user->name}}</h2>
         <div style="display:flex;align-items:stretch">
-            <button style="padding:18px;margin: 10px" onclick="url({{$utilisateur->user->id}})">modifier</button>
-            <button style="padding:18px;margin: 10px;background-color:#c61717;color:aliceblue">supprimer</button>
+            <button style="padding:18px;margin: 10px" onclick="murl({{$utilisateur->user->id}})">modifier</button>
+            <button  onclick="durl({{$utilisateur->user->id}})"
+                @if ($utilisateur->user->id == Auth::user()->id ) 
+                style="padding:18px;margin: 10px;color:aliceblue;display:none" 
+                @else
+                style="padding:18px;margin: 10px;background-color:#d70000;color:aliceblue;"  >supprimer
+                @endif
+            </button>
+            
+                
 
         </div>
     </div>
@@ -36,9 +44,11 @@
 
 <script src="../../../js/auth_home.js"></script>
 <script>
-    function url($x){
+    function murl($x){
         window.location.href= '/personnelles/modifier/'+$x;
-        
+    }
+    function durl($x){
+        window.location.href= '/personnelles/supprimer/'+$x;
     }
     function show(x){
         switch (x) {

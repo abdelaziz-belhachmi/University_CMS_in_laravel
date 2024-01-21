@@ -49,39 +49,98 @@ function Chef_Services(){
 }
 
 
-function edit($id){
+function get($id){
 
     $person = User::findOrFail($id);
     $prole= $person->role;
 
     switch ($prole) {
         case 0:
-            $studentDetails = Etudiant::where('user_id', $id)->first();
-            return view('Auth.personnelles.modifier',compact('studentDetails'));
+            $details = Etudiant::where('user_id', $id)->first();
+            return view('Auth.personnelles.modifier',compact('details','prole'));
         break;
         
         case 1:
-            # code...
-        break;
+            $details = Professeur::where('user_id', $id)->first();
+            return view('Auth.personnelles.modifier',compact('details','prole'));
+           break;
 
 
         case 2:
-            # code...
+/*
+
+a revoir
+
+*/           
         break;
 
         case 3:
-            # code...
+        /*
+
+a revoir
+
+*/      
         break;
     
         case 4:
-            # code...
+          /*
+
+a revoir
+
+*/      
         break;
                 
         default:
-            # code...
+           /*
+
+a revoir
+
+*/      
             break;
     }
 
+}
+
+function delete($id){
+
+    $user = User::where('id',$id)->first();
+
+    switch ($user->role) {
+        case 0:
+            $e = Etudiant::where('user_id',$id)->first();
+            $e->delete();
+            break;
+        
+            case 1:
+                $p = Professeur::where('user_id',$id)->first();
+                $p->delete();
+                break;   
+
+        default:
+            # code...
+            /*
+            
+            a revoir
+            
+            
+            */
+            break;
+    }
+
+    $user->delete();
+
+    return redirect(route('gerer_perso'));
+}
+
+function edit(Request $request){
+    /*
+    
+    
+    A revoir
+
+    
+    */
+    return redirect(route('gerer_perso'));
 }
 
 
