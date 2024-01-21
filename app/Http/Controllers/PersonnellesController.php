@@ -57,7 +57,7 @@ function edit($id){
     switch ($prole) {
         case 0:
             $studentDetails = Etudiant::where('user_id', $id)->first();
-
+            return view('Auth.personnelles.modifier',compact('studentDetails'));
         break;
         
         case 1:
