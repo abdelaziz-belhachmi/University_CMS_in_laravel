@@ -83,8 +83,11 @@ class AnnonceController extends Controller
     
     public function showAll()
     {
-        
+         // Get the authenticated user's ID
+
         $myId = Auth::user()->id;
+        //trying to Fetch user's announcements with related audience and user details !
+
         $annonces =  Annonce::where('user_id', $myId)->with(['audience', 'user'])->get();
 
         return view('Auth.annonce.gerer_annonces', compact('annonces'));
