@@ -62,7 +62,6 @@ public function Chef_filiere()
     return $this->hasOne(Professeur::class);
 }
 
-
 public function Chef_Departement()
 {
     return $this->hasOne(Professeur::class);

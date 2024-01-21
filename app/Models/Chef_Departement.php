@@ -13,9 +13,14 @@ class Chef_Departement extends Model
         'code_doti',
     ];
 
+
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function departement() {
+        return $this->belongsTo(Departement::class);
     }
 
 }

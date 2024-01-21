@@ -13,8 +13,14 @@ class Chef_filiere extends Model
         'code_doti',
     ];
 
+
     public function user()
     {
         return $this->belongsTo(User::class);
     }
+
+    public function filiere() {
+        return $this->belongsTo(filiere::class);
+    }
+
 }
