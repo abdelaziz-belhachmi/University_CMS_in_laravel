@@ -4,11 +4,11 @@
 
 <link rel="stylesheet" href="../css/auth_home.css">
    {{-- <span class="bckg"></span> --}}
-   <div>
+   <div style="display: flex">
 
-<header style="">
-  <h1><a href="{{route('Auth.accueil')}}">Accueil</a></h1>
-  <nav>
+<header style="height:auto;min-height:80vh;">
+  <h1 id="acc" style="justify-content: center;align-content:center;display:flex"><a  href="{{route('Auth.accueil')}}">Accueil</a></h1>
+  <nav style="">
     <ul>
     
       <li>
@@ -45,14 +45,9 @@
   </nav>
 </header>
 
-<main style="min-height: 90vh;">
+<main style="float: right;">
 
-  <div class="title">
-    <h2></h2>
-    {{-- <a >Hello Bob !</a> --}}
-   <a href="javascript:void(0);">welcome, {{ Auth::user()->name}}</a>
-
-  </div>
+ 
 
   @yield('frameContent')
 
@@ -61,8 +56,10 @@
 
 </div>
 
-<footer style="height: 100px ; background-color:aqua;display:flex;align-content:baseline">
-  aa
+<footer style="height: 100px ; background-color:#000;color:#fff;display: flex;justify-content:center">
+ <div style="display: flex;justify-content:center">
+  <p> @c copyright fst</p>
+  </div>
 </footer>
 
 

@@ -3,15 +3,16 @@
 
 <link rel="stylesheet" href="../../../css/auth_home.css">
 <link rel="stylesheet" href="../../../css/personnes_style.css">
+
 {{-- <h1>afficher ici dashboard de curd annonces</h1> --}}
-<div style="background-color:rgb(0, 0, 0);min-height:57px ;margin-left:200px; display:flex;justify-content:center; ">
+<div style="background-color:rgb(0, 0, 0);height:80px ; display:flex;justify-content:center; ">
    
-        <button style="height:57px;margin-inline:2vw" class="dropbtn" onclick="show(4);" >Chef Services</button>
-        <button style="height:57px;margin-inline:2vw" class="dropbtn" onclick="show(3);" >Chef Departements</button>
-        <button style="height:57px;margin-inline:2vw" class="dropbtn" onclick="show(2);" >Chef Filieres</button>
-        <button style="height:57px;margin-inline:2vw" class="dropbtn" onclick="show(1);" >Proffesseurs</button>
-        <button style="height:57px;margin-inline:2vw" class="dropbtn" onclick="show(0);" >Etudiants</button>
-        <button  style="height:57px;margin-inline:2vw;color:rgb(0, 202, 135)" onclick="show('new')" class="dropbtn" >Nouvel Utilisateur</button>
+        <button style="height:auto;margin-inline:2vw;align-self:center" class="dropbtn" onclick="show(4);" >Chef Services</button>
+        <button style="height:auto;margin-inline:2vw;align-self:center" class="dropbtn" onclick="show(3);" >Chef Departements</button>
+        <button style="height:auto;margin-inline:2vw;align-self:center" class="dropbtn" onclick="show(2);" >Chef Filieres</button>
+        <button style="height:auto;margin-inline:2vw;align-self:center" class="dropbtn" onclick="show(1);" >Proffesseurs</button>
+        <button style="height:auto;margin-inline:2vw;align-self:center" class="dropbtn" onclick="show(0);" >Etudiants</button>
+        <button  style="height:auto;margin-inline:2vw;color:rgb(0, 202, 135);align-self:center" onclick="show('new')" class="dropbtn" >Nouvel Utilisateur</button>
        
     
 </div>
