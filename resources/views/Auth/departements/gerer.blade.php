@@ -41,6 +41,5 @@
         }
     </script>
     
-    {{-- <script src="../../../../js/auth_home.js"></script> --}}
-    
+  
   @endsection

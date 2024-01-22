@@ -18,6 +18,10 @@
       <li>
         <a href="{{route('gerer_perso')}}" data-title="Timeline">Personnelles</a>
       </li>
+
+      <li>
+        <a href="{{route('gere_filieres')}}" data-title="Search">Gèrer filière </a>
+      </li>
     
       <li>
         <a href="{{route('gere_departements')}}" data-title="Team">Gèrer Departements</a>
@@ -31,10 +35,7 @@
         <a href="javascript:void(0);" data-title="Settings">Inscrire class</a>
       </li>
     
-      <li>
-        <a href="#" data-title="Search">Gèrer filière </a>
-      </li>
-    
+        
       <li>
          <a href="{{url('logout')}}" data-title="Logout">Logout</a>
       </li>

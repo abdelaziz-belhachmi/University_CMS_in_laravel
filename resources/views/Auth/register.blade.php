@@ -2,18 +2,12 @@
 @section('title',' Register A user')
 @section('content')
 
-{{-- @extends('auth.home') <!-- Assuming you have a master layout, modify this as needed -->
-@section('frameContent') --}}
-
-{{-- <link rel="stylesheet" href="../../css/auth_home.css">--}}
 <link rel="stylesheet" href="../../css/register.css"> 
 
 
    <br>
-   {{-- <link rel="stylesheet" href="../css/loginStyle.css"> --}}
+  
    <link rel="stylesheet" href="../css/auth_home.css">
-
-
 
    <div style="margin-top:4vh;display:flex; justify-content:center">
 
@@ -31,16 +25,35 @@
             <option value="4">Chef service</option>
             </select>
 
-            <label for="dep">Assosiver avec Depratement :</label>
-            <select style="height: 45px;margin:10px" id="dep" name="dep" onclick=""> 
+            <div id="filiereDIV" style="display: none">
+              <label for="dep">Associer avec Filiere :</label>
+              <select style="height: 45px;margin:15px" id="filiere" name="filiere" onclick="" required> 
+                
+              @foreach ($filieresLibres as $filieresLibre)
+              <option value="{{$filieresLibre->id}}">{{$filieresLibre->Nom_filliere}}</option>
+              @endforeach  
+              
             
-            @foreach ($collection as $item)
-            <option value="{{$item->id}}">{{$item->Nom_departement}}</option>
-            {{-- AAAAAAAAAAAAAAAAAA  hna khassni n afficher list of available departements that doesnt have chef yet, you should do same to filier --}}
+              
+            </select>
+            @if(sizeof($filieresLibres) == 0 )
+            <p style="color: red">aucune filiere libre <br> il faut cree une filiere avant associer Chef au filiere </p>
+            @endif
+            </div>
+
+          <div id="departementDIV" style="display: none">
+            <label for="dep">Assosiver avec Depratement :</label>
+            <select style="height: 45px;margin:15px" id="dep" name="dep" onclick="" required> 
+            
+            @foreach ($departementsLibres as $departementsLibre)
+            <option value="{{$departementsLibre->id}}">{{$departementsLibre->Nom_departement}}</option>
             @endforeach  
               
             </select>
-    
+            @if(sizeof($departementsLibres) == 0 )
+            <p style="color: red">aucune Depratement libre <br> il faut avoir au mois un departement libre avant lui associer un Chef  </p>
+            @endif
+          </div>
     
             <div>
                 <input type="text" class="input-field" name="first_name" required="required" placeholder="Nom" value="" >
@@ -83,8 +96,6 @@
       </form>
     
     </div>
-
-
 
     <script src="../js/script2.js"></script>
 

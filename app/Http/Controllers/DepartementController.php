@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Chef_Departement;
+use App\Models\Chef_filiere;
 use App\Models\Departement;
+use App\Models\filiere;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class DepartementController extends Controller
@@ -26,12 +30,14 @@ class DepartementController extends Controller
         return view( 'Auth/departements/modifier' , compact('de'));
     }
 
+
+
     function edit(Request $r)  {
-        $newdata = [
-            'Code_departement' => $r->input('code'),
-            'Nom_departement' =>$r->input('nom'),
-            'Description' => $r->input('desc'),
-        ];
+        // $newdata = [
+        //     'Code_departement' => $r->input('code'),
+        //     'Nom_departement' =>$r->input('nom'),
+        //     'Description' => $r->input('desc'),
+        // ];
         
         $depa = Departement::findOrFail($r->input('id'));
 
@@ -42,13 +48,16 @@ class DepartementController extends Controller
         $depa->save();
         return $this->getAll();
     }
+
+
+
     function create(Request $r){
         $data = [
             'Code_departement' => $r->input('code'),
             'Nom_departement' =>$r->input('nom'),
             'Description' => $r->input('desc'),
         ];
-        $depa = Departement::create($data);
+         Departement::create($data);
         return $this->getAll();
     }
 
@@ -56,7 +65,43 @@ class DepartementController extends Controller
     
     function delete($id){
         $de = Departement::where('id',$id)->first();
+        $allfilieres = filiere::where('departement_id',$id)->get();
+        
+        foreach ( $allfilieres as $filiere) {
+            $this->deleteFiliere($filiere->id);
+            // $filiere->delete();
+        }
+
+        $ChefID = Chef_Departement::where('departement_id',$id)->first();
+
+        if($ChefID){
+            $ChefID->delete();
+        }
+
         $de->delete();
+        
         return $this->getAll();
     }
+
+
+    function deleteFiliere($id){
+
+        $f = filiere::where('id',$id)->first();
+
+        $ChefID = Chef_filiere::where('filieres_id',$id)->first();
+        
+        if ($ChefID) {
+            $u  = User::where('id',$ChefID->user_id)->first();      
+            $ChefID->delete();
+            $u->delete();
+    }
+    
+        $f->delete();
+
+        // return $this->getAll();
+    }
+
+
+
+    
 }

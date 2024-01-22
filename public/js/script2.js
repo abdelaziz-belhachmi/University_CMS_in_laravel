@@ -30,18 +30,42 @@
        document.getElementById('apogee').setAttribute("style","");
        document.getElementById('code_doti').setAttribute("style","display:none");
        document.getElementById('code_Chef').setAttribute("style","display:none");
+       document.getElementById('departementDIV').setAttribute("style","display:none");
+       document.getElementById('filiereDIV').setAttribute("style","display:none");
 
-   }else if( selectedRole == 1) {
+
+   }else if( selectedRole == 1) {//prof
 
        document.getElementById('apogee').setAttribute("style","display:none");
        document.getElementById('code_doti').setAttribute("style","");
        document.getElementById('code_Chef').setAttribute("style","display:none");
+       document.getElementById('departementDIV').setAttribute("style","display:none");
+       document.getElementById('filiereDIV').setAttribute("style","display:none");
 
 
-   } else {
+      }else if( selectedRole == 2) {//chef filiere
+        document.getElementById('apogee').setAttribute("style","display:none");
+        document.getElementById('code_doti').setAttribute("style","display:none");
+        document.getElementById('code_Chef').setAttribute("style","");
+        document.getElementById('departementDIV').setAttribute("style","display:none");
+        document.getElementById('filiereDIV').setAttribute("style","");
+
+
+      }else if( selectedRole == 3) {//chef departement
+        document.getElementById('apogee').setAttribute("style","display:none");
+        document.getElementById('code_doti').setAttribute("style","display:none");
+        document.getElementById('code_Chef').setAttribute("style","");
+        document.getElementById('departementDIV').setAttribute("style","");
+        document.getElementById('filiereDIV').setAttribute("style","display:none");
+
+
+   } else {// chef service
     document.getElementById('apogee').setAttribute("style","display:none");
      document.getElementById('code_doti').setAttribute("style","display:none");
      document.getElementById('code_Chef').setAttribute("style","");
+     document.getElementById('departementDIV').setAttribute("style","display:none");
+     document.getElementById('filiereDIV').setAttribute("style","display:none");
+
 
    }
    

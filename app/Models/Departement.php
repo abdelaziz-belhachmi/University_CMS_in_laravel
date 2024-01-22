@@ -13,7 +13,7 @@ class Departement extends Model
     protected $fillable = [
         'Code_departement',
         'Nom_departement',
-        'Description'
+        'Description',
     ];
 
     public function filieres() {

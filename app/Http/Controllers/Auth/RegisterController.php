@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Chef_filiere;
+use App\Models\Departement;
+use App\Models\filiere;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
@@ -23,7 +26,14 @@ class RegisterController extends Controller
 
     public function showRegistrationForm()
     {
-        return view('auth.register');
+        // $departementsLibres = Departement::all(); 
+        /* hna khassni n returner data d filieres w departements bla chefs */
+
+        $departementsLibres = Departement::whereDoesntHave('chefDepartement')->get();
+
+        $filieresLibres =  filiere::whereDoesntHave('chefFiliere')->get();
+
+        return view('auth.register',compact('departementsLibres','filieresLibres'));
     }
 
     public function register(Request $r){
@@ -72,13 +82,18 @@ class RegisterController extends Controller
                 break;
 
             case 2: // Chef filliere
-                $user->Chef_filiere()->create(['code_Chef' => $data['code_Chef']]);
+
+                $user->Chef_filiere()->create([ 'code_Chef' => $data['code_Chef'] ,'filieres_id' => $data['filiere'] ]);
                 break;
             case 3: // Chef departement
-                $user->Chef_Departement()->create(['code_Chef' => $data['code_Chef']]);
+
+                $user->Chef_Departement()->create([ 'code_Chef' => $data['code_Chef'] ,'departement_id' => $data['dep'] ]);
+
                 break;
             case 4: // Chef service
-                $user->Chef_Service()->create(['code_Chef' => $data['code_Chef']]);
+
+                $user->Chef_Service()->create([ 'code_Chef' => $data['code_Chef'] ]);
+
                 break;
 
         }

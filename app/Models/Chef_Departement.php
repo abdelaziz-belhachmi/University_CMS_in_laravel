@@ -12,6 +12,7 @@ class Chef_Departement extends Model
    
     protected $fillable = [
         'code_Chef',
+        'departement_id'
     ];
 
     protected $table = '_chef__departements';

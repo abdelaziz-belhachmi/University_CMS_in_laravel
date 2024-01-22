@@ -114,22 +114,28 @@ function delete($id){
         case 0:
             $e = Etudiant::where('user_id',$id)->first();
             $e->delete();
-            break;
+        break;
         
-            case 1:
-                $p = Professeur::where('user_id',$id)->first();
-                $p->delete();
-                break;   
+        case 1:
+            $p = Professeur::where('user_id',$id)->first();
+            $p->delete();
+            break;   
 
-        default:
-            # code...
-            /*
-            
-            a revoir
-            
-            
-            */
-            break;
+
+        case 2:
+            $p = Chef_filiere::where('user_id',$id)->first();
+            $p->delete();
+        break;   
+
+        case 3:
+                $p = Chef_Departement::where('user_id',$id)->first();
+                $p->delete();
+        break;   
+        case 4:
+                $p = Chef_Service::where('user_id',$id)->first();
+                $p->delete();
+        break;   
+
     }
 
     $user->delete();
