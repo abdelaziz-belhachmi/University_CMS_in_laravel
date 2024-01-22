@@ -10,8 +10,10 @@ class Chef_filiere extends Model
     use HasFactory;
 
     protected $fillable = [
-        'code_doti',
+        'code_Chef',
     ];
+
+    protected $table = '_chef_filieres';
 
 
     public function user()

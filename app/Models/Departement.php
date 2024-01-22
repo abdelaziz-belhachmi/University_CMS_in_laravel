@@ -9,6 +9,12 @@ class Departement extends Model
 {
     use HasFactory;
 
+    
+    protected $fillable = [
+        'Code_departement',
+        'Nom_departement',
+        'Description'
+    ];
 
     public function filieres() {
         return $this->hasMany(filiere::class);
@@ -17,4 +23,5 @@ class Departement extends Model
     public function chefDepartement() {
         return $this->hasOne(Chef_Departement::class);
     }
+    
 }

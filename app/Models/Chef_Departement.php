@@ -9,9 +9,12 @@ class Chef_Departement extends Model
 {
     use HasFactory;
 
+   
     protected $fillable = [
-        'code_doti',
+        'code_Chef',
     ];
+
+    protected $table = '_chef__departements';
 
 
     public function user()

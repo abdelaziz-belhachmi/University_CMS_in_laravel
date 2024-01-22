@@ -22,7 +22,7 @@
       </div>
 
       <div class="menu-right">
-        <a href="#" class="cta-button"> Démarrer</a>
+        <a href="{{route('login')}}" class="cta-button"> Se Connecter </a>
         <div class="hamburger" onclick="toggleMobileMenu()">
           <span></span>
           <span></span>
@@ -30,6 +30,7 @@
         </div>
       </div>
     </nav>
+    
     <div id="mobileMenu" class="mobile-menu">
       <a href="#" class="closebtn" onclick="toggleMobileMenu()">&times;</a>
       <a href="#bienvenue">Acceuil</a>
@@ -40,7 +41,7 @@
       <a href="#">Services</a>
       <a href="#">About</a>
 
-      <a href="#" class="cta-button"> Démarrer </a>
+      <a href="{{route('login')}}" class="cta-button"> Se Connecter </a>
     </div>
 
     <div class="slideshow-container">
@@ -167,6 +168,7 @@
 
     <script src="../js/scriptIndex.js"></script>
     <!-- FOOTER -->
+    
    <!-- FOOTER -->
 <footer>
   <div class="footer-container">
@@ -199,5 +201,6 @@
       </div>
   </div>
 </footer>
+
   </body>
 </html>

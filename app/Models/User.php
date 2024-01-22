@@ -54,17 +54,17 @@ class User extends Authenticatable
 
 public function Chef_Service()
 {
-    return $this->hasOne(Professeur::class);
+    return $this->hasOne(Chef_Service::class);
 }
 
 public function Chef_filiere()
 {
-    return $this->hasOne(Professeur::class);
+    return $this->hasOne(Chef_filiere::class);
 }
 
 public function Chef_Departement()
 {
-    return $this->hasOne(Professeur::class);
+    return $this->hasOne(Chef_Departement::class);
 }
 
 public function professeur()

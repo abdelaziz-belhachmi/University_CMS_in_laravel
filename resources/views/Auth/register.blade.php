@@ -22,12 +22,23 @@
             @csrf
          
             <label for="role">Role:</label>
+            
             <select style="height: 45px;margin:10px" id="role" name="role" onclick="checkrole()"> 
             <option value="0">Étudiant</option>
             <option value="1">Professeur</option>
             <option value="2">Chef filière</option>
             <option value="3"> Chef département</option>
             <option value="4">Chef service</option>
+            </select>
+
+            <label for="dep">Assosiver avec Depratement :</label>
+            <select style="height: 45px;margin:10px" id="dep" name="dep" onclick=""> 
+            
+            @foreach ($collection as $item)
+            <option value="{{$item->id}}">{{$item->Nom_departement}}</option>
+            {{-- AAAAAAAAAAAAAAAAAA  hna khassni n afficher list of available departements that doesnt have chef yet, you should do same to filier --}}
+            @endforeach  
+              
             </select>
     
     
@@ -55,6 +66,9 @@
     
     <input type="text" class="input-field" id="code_doti" name="code_doti" placeholder="Code Doti" style="display: none" >
   
+    <input type="text" class="input-field" id="code_Chef" name="code_Chef" placeholder="Code Chef" style="display: none" >
+
+
     <input type="text" class="input-field" name="cin" placeholder="CIN" required="required" value="">
     <input type="text" class="input-field" name="phone" placeholder="Telephone" required="required" value="">
     <input type="text" class="input-field" name="address" placeholder="Adresse" required="required" value="">

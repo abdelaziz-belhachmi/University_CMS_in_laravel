@@ -5,23 +5,28 @@
 @section('content')
 
 <link rel="stylesheet" href="css/loginStyle.css">
-    <div class="container backgroundImage" style="">
+    <div class="ctrlogin" style="">
            
     {{--  --}}
-    <div class="form-box scrollbar" id="scrollbar1">
-        <form id="login" class="input-group" method="POST" action="{{route('login')}}">
+    <div class="form-box" id="scrollbar1">
+        <form id="login" class="iinput-group" method="POST" action="{{route('login')}}">
             @csrf
 
+            <h1 class="cn">Connectez Vous</h1>
             <div class="inp">
                 <img src="/images/user.png">
-                <input type="text" id="email" name="email" class="input-field" placeholder="Adresse e-mail" style="width: 88%; border:none;" required>
+                <input type="text" id="email" name="email" class="input-field" placeholder="Adresse e-mail" style="height:40px;width: 88%;" required>
             </div>
+
             <div class="inp">
                 <img src="/images/password.png">
-                <input type="password" id="password" name="password" class="input-field" placeholder="Mot de Passe" style="width: 88%; border: none;" required>
+                <input type="password" id="password" name="password" class="input-field" placeholder="Mot de Passe" style="height:40px;width: 88%; " required>
             </div>
+
             {{-- <input type="checkbox" class="check-box">Remember Password --}}
-            <button  style="margin-top: 50px" type="submit" class="submit-btn"> {{ __('Login') }}</button>
+            <div style="width: 100%;display: flex; justify-content: center;">
+                <button  style="" type="submit" class="btn"> {{ __('Login') }}</button>
+            </div>
             
         </form>
 

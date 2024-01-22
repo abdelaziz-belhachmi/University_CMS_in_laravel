@@ -45,6 +45,7 @@
 
 <script src="../../../js/auth_home.js"></script>
 <script>
+    
     function murl($x){
         window.location.href= '/personnelles/modifier/'+$x;
     }

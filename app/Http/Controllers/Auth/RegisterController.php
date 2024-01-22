@@ -66,13 +66,21 @@ class RegisterController extends Controller
             case 0: // Student
                 $user->etudiant()->create(['code_apogee' => $data['apogee']]);
                 break;
+
             case 1: // professeur
                 $user->professeur()->create(['code_doti' => $data['code_doti']]);
                 break;
-            default:
-                // $user->chefFiliere()->create(['specific_field' => $data['chef_filiere_specific_field']]);
+
+            case 2: // Chef filliere
+                $user->Chef_filiere()->create(['code_Chef' => $data['code_Chef']]);
                 break;
-            // Add cases for other roles
+            case 3: // Chef departement
+                $user->Chef_Departement()->create(['code_Chef' => $data['code_Chef']]);
+                break;
+            case 4: // Chef service
+                $user->Chef_Service()->create(['code_Chef' => $data['code_Chef']]);
+                break;
+
         }
 
         return $user;

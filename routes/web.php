@@ -4,7 +4,10 @@ use App\Http\Controllers\AnnonceController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\DepartementController;
 use App\Http\Controllers\PersonnellesController;
+use App\Models\Departement;
+use GuzzleHttp\Promise\Create;
 use Illuminate\Routing\Controllers\Middleware;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -91,6 +94,20 @@ Route::get('personnelles/modifier/{id}',[PersonnellesController::class,'get']);
 Route::post('personnelles/modifier/',[PersonnellesController::class,'edit'])->name('update_user_info');
 
 Route::get('personnelles/supprimer/{id}',[PersonnellesController::class,'delete'])->name('delete_user');
+
+
+// * gere_departements * //
+Route::get('Auth/departements/gerer',[DepartementController::class,'getAll'])->name('gere_departements');
+Route::get('Auth/departements/new',[DepartementController::class,'Afficher_formulaire'])->name('Afficher_formulaire_dep');
+Route::post('/Auth/new/dep',[DepartementController::class,'create']);
+
+Route::get('/Auth/departements/edit/{id}',[DepartementController::class,'getOne']);
+Route::post('/Auth/edit/dep',[DepartementController::class,'edit']);
+Route::get('/Auth/departements/delete/{id}',[DepartementController::class,'delete']);
+
+
+
+
 
 
 

@@ -20,7 +20,7 @@
       </li>
     
       <li>
-        <a href="javascript:void(0);" data-title="Team">Gèrer emplois</a>
+        <a href="{{route('gere_departements')}}" data-title="Team">Gèrer Departements</a>
       </li>
     
       <li>

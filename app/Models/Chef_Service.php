@@ -11,9 +11,10 @@ class Chef_Service extends Model
 
 
     protected $fillable = [
-        'code_doti',
+        'code_Chef',
     ];
 
+    protected $table = '_chef__services';
 
 
     public function user()

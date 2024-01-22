@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Chef_Departement;
+use App\Models\Chef_filiere;
+use App\Models\Chef_Service;
 use App\Models\Etudiant;
 use App\Models\Professeur;
 use App\Models\User;
@@ -29,21 +32,21 @@ function Proffesseurs(){
 }
 
 function Chef_Departements(){
-    $utilisateurs = [];
+    $utilisateurs = Chef_Departement::all();
 
     return view('Auth.personnelles.gerer_personnelles',compact('utilisateurs'));
 
 }
 
 function Chef_Filieres(){
-    $utilisateurs = [];
+    $utilisateurs = Chef_filiere::all();
 
     return view('Auth.personnelles.gerer_personnelles',compact('utilisateurs'));
 
 }
 
 function Chef_Services(){
-    $utilisateurs = [];
+    $utilisateurs = Chef_Service::all();
 
     return view('Auth.personnelles.gerer_personnelles',compact('utilisateurs'));
 

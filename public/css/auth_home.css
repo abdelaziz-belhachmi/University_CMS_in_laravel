@@ -34,14 +34,16 @@ a {
 }
 h1 {
     text-align: center;
-    font-weight: normal;
+    font-weight: 600;
     color: #F6F6EF;
     line-height:60px;
     margin:0;
-    font-size:20px;
+    font-size:26px;
     letter-spacing:2px;
-    background-color:#34363A;
-    border-bottom:1px solid rgba(101, 116, 134, 0.57);
+
+    /* margin-top: 5px; */
+    /* border-top:1px solid rgba(101, 116, 134, 0.57); */
+    /* box-shadow: 20px 20px 20p x rgb(143, 181, 229); */
 }
 h2 {
   font-size: 20px;
@@ -90,6 +92,7 @@ header {
   float:left;
   position:relative;
   z-index:99;
+  font-weight: 700;
   
   & nav ul li {
     /* justify-content: center; */
@@ -97,14 +100,16 @@ header {
     padding-left:48px;
     display: flex;
     transition:all 0.6s;
+
     /* border-top:1px solid #2E3036; */
       
       &:hover {
-    border-top:1px solid #2E3036;
-
-        background-color: #454952;
+            /* border-top:1px solid #2E3036; */
+        /* background-color: #454952; */
         transition: all 0.6s;
-        border-bottom: 1px solid #797979;
+        /* border-bottom: 1px solid #797979; */
+        background: linear-gradient(to right,#EECD0C, #0094FF);
+
       }
       
       &:hover a {
