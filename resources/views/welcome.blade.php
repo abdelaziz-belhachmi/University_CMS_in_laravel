@@ -15,8 +15,15 @@
         <a href="#bienvenue">Acceuil</a>
         <a href="#formations">Formations</a>
         <a href="LesDepartemennts/departements.html">Departements</a>
-        <a href="#">Espace Etudiant</a>
-
+        <div class="dropdown">
+          <a href="#" >Espace Etudiant</a>
+          <div class="dropdown-content">
+            <a href="images/icon/Tronc Commun LST_S4.pdf" target="_blank">Deust</a>
+            <a href="images/icon/Tronc Commun LST_S6.pdf" target="_blank">Licence</a>
+            <a href="images/icon/Cycle Master S2.pdf" target="_blank">Master</a>
+            <a href="images/icon/Cycle  Ingénieur _ S4.pdf" target="_blank">Cycle</a>
+          </div>
+      </div>
         <a href="#">Services</a>
         <a href="#">About</a>
       </div>
@@ -36,8 +43,15 @@
       <a href="#bienvenue">Acceuil</a>
       <a href="#formations">Formations</a>
       <a href="LesDepartemennts/departements.html">Departements</a>
-      <a href="#">Espace Etudiant</a>
-
+      <div class="dropdown">
+        <a href="#" >Espace Etudiant</a>
+        <div class="dropdown-content">
+          <a href="images/icon/Tronc Commun LST_S4.pdf" target="_blank">Deust</a>
+          <a href="images/icon/Tronc Commun LST_S6.pdf" target="_blank">Licence</a>
+          <a href="images/icon/Cycle Master S2.pdf" target="_blank">Master</a>
+          <a href="images/icon/Cycle  Ingénieur _ S4.pdf" target="_blank">Cycle</a>
+        </div>
+    </div>
       <a href="#">Services</a>
       <a href="#">About</a>
 

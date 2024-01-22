@@ -106,6 +106,58 @@ a:hover {
 
 
 
+/* The dropdown container */
+.dropdown {
+    float: right;
+    overflow: hidden;
+  }
+  
+  /* Dropdown button */
+  .dropdown .dropbtn {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.808);
+    text-align: center;
+    padding: 24px 16px;
+    border: none;
+    outline: none;
+    background-color:yellow;
+    margin: 0; /* Important for vertical align on mobile phones */
+    margin:auto;
+  }
+  
+
+  
+  /* Dropdown content (hidden by default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color:#8FB5E5 ;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;/* Permet de positionner le dropdown au-dessus des autres éléments */
+  }
+  
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    float: none;
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    font-weight: lighter;
+  }
+  
+  /* Add a grey background color to dropdown links on hover */
+  .dropdown-content a:hover {
+    background-color: #ddd;
+  }
+  
+  /* Show the dropdown menu on hover */
+  .dropdown:hover .dropdown-content {
+    display: block; /* On Affiche le contenu du dropdown lorsque le bouton est survolé */
+  }
+
 
 .head-container {
 	margin-top:min(10vw, 30px) ;
