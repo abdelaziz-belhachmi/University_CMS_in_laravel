@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\DepartementController;
+use App\Http\Controllers\FilieresController;
 use App\Http\Controllers\PersonnellesController;
 use App\Models\Departement;
 use GuzzleHttp\Promise\Create;
@@ -105,7 +106,17 @@ Route::post('/Auth/edit/dep',[DepartementController::class,'edit']);
 Route::get('/Auth/departements/delete/{id}',[DepartementController::class,'delete']);
 
 
+// * gere_filieres * //
+Route::get('/Auth/filieres/gerer',[FilieresController::class,'getAll'])->name('gere_filieres');
+Route::get('Auth/filiers/new',[FilieresController::class,'newForm'])->name('new_filiere');
+Route::post('Auth/filiers/new',[FilieresController::class,'new']);
 
+Route::get('Auth/filiers/edit/{id}',[FilieresController::class,'getOne']);
+Route::post('Auth/filiers/edit',[FilieresController::class,'edit']);
+
+Route::get('Auth/filiers/delete/{id}',[FilieresController::class,'delete']);
+
+// **  ** //
 
 
 

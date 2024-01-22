@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('code_Chef')->unique();
             $table->date('date_integration')->nullable(true);
 
-            $table->foreignId('filieres_id')->constrained(); // Foreign key to link to the filieres table
+            $table->foreignId('filieres_id')->constrained(); // i forgot to do referances on filiere
 
             $table->timestamps();
         });

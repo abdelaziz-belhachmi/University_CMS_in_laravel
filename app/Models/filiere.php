@@ -9,6 +9,12 @@ class filiere extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'Code_filiere',
+        'Nom_filliere',
+        'description',
+        'departement_id'
+    ];
 
 
     public function departement() {
@@ -16,7 +22,7 @@ class filiere extends Model
     }
 
     public function chefFiliere() {
-        return $this->hasOne(Chef_filiere::class);
+        return $this->hasOne(Chef_filiere::class,'filieres_id', 'id');
     }
 
 

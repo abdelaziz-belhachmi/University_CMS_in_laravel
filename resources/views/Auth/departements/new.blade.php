@@ -2,16 +2,9 @@
 @section('frameContent')
 
 <link rel="stylesheet" href="../../../../css/auth_home.css">
-{{-- <link rel="stylesheet" href="../../../../css/personnes_style.css"> --}}
 
 <div>
-    {{-- <h1 style="color: black">
-        aaaaaaa
-    </h1> --}}
-    {{-- <div style="display: flex;justify-content:end;">
-
-        <button  style="height:50px;padding-inline:25px;color:rgb(0, 0, 0);align-self:center; background:#70a3e0;border:none" onclick="make();" class="dropbtn" >Nouvel Departemet</button>
-    </div> --}}
+  
     <section id="contact">
         <div class="content">
           <div id="form">
@@ -38,10 +31,5 @@
     
 
 </div>
-    
-    
-    
-    
-    {{-- <script src="../../../../js/auth_home.js"></script> --}}
     
   @endsection
