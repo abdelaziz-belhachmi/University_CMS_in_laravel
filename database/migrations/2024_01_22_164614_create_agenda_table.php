@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('agenda', function (Blueprint $table) {
             $table->id();
-            $table->unsignedSmallInteger('Jour');
-            $table->unsignedSmallInteger('Mois');
-            $table->unsignedSmallInteger('Année');
+            // $table->unsignedSmallInteger('Jour');
+            // $table->unsignedSmallInteger('Mois');
+            // $table->unsignedSmallInteger('Année');
             $table->timestamps();
         });
     }

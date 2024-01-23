@@ -16,7 +16,6 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained(); 
 
             $table->string('code_Chef')->unique();
-            $table->date('date_integration')->nullable(true);
 
             $table->foreignId('filieres_id')->constrained(); // i forgot to do referances on filiere
 

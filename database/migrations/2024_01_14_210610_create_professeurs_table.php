@@ -16,7 +16,6 @@ return new class extends Migration
 
             $table->foreignId('user_id')->constrained(); // Foreign key to link to the users table
             $table->string('code_doti');
-            $table->date('date_integration')->nullable(true);
 
             $table->timestamps();
 

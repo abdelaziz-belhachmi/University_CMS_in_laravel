@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('creneaux', function (Blueprint $table) {
             $table->id();
 
-            $table->enum('heure_depart', [9, 11, 13, 15, 17]);
-            $table->timestamps();
-            $table->foreignId('agenda_id')->constrained('agenda');
+            // $table->string('start_time');
+            // $table->string('end_time');
 
+            $table->timestamps();
         });
     }
 

@@ -116,8 +116,7 @@
     <div class="service-swipe" id="formations">
       <div class="diffSection" id="services_section">
         <center>
-          <p
-            style="
+          <p style="
               font-size: 50px;
               padding: 100px;
               padding-bottom: 40px;
@@ -128,8 +127,7 @@
           </p>
         </center>
       </div>
-      <a href="Filieres/mipc_mip.html" target="_blank"
-        >
+      <a href="Filieres/mipc_mip.html" target="_blank">
         <div style="padding-right: 10%">
           <div class="s-card">
           <img
@@ -139,14 +137,16 @@
           <p>Deust</p>
         </div></a
       >
-      <a href="Filieres/lst_idai.html" target="_blank"
-        > 
-      </div>
+      
+    </div>
+
+      <a href="Filieres/lst_idai.html" target="_blank"> 
+
       <div class="s-card">
           <img src="images/icon/papers.jpg" style="width: 40%" />
           <p>Licence en Sciences et Techniques</p>
-        </div></a
-      >
+        </div></a>
+
       <a href="Filieres/master_AI.html" target="_blank"
         ><div class="s-card">
           <img src="images/icon/p3.png" style="width: 40%" />
@@ -160,8 +160,7 @@
             style="width: 60%"
           />
           <p>Ingénieur d'Etat</p>
-        </div></a
-      >
+        </div></a>
     </div>
 
     
