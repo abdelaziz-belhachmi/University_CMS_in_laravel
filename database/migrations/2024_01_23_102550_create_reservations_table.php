@@ -17,8 +17,8 @@ return new class extends Migration
             $table->string('Titre_reservation');
             $table->string('sujet_reservation');
             $table->string('start_time');
-            
-            $table->foreignId('reserve_par')->constrained('users');
+
+            $table->foreignId('user_id')->constrained('users');
             $table->foreignId('local_id')->constrained('locals');
             $table->foreignId('creneau_id')->constrained('creneaux');
     
