@@ -51,7 +51,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 content = ` 
                 <p> Le Doyen de la Faculté des Sciences et Techniques de Tanger porte à la connaissance des étudiants du cycle licence que les examens de la session de rattrapage du semestre d’automne 2023-2024 débuteront le Lundi 15 Janvier 2024 selon le calendrier ci-dessous.  </p>
                 <br> Listes des examens 
-                <a href="https://drive.google.com/drive/folders/1iDlOdVT6tQGPZY639xixbcobI8PAgou1" target="_blank">: Cliquez-ici.</a>`;
+                <a href="https://drive.google.com/drive/folders/1iDlOdVT6tQGPZY639xixbcobI8PAgou1" target="_blank" style="color: blue;" onclick="this.style.color='green'">: Cliquez-ici.</a>`;
+
                 break;
             case "2":
                 title = "10ÈME ÉDITION DU CONCOURS FRANCOPHONE INTERNATIONAL";
@@ -74,12 +75,12 @@ document.addEventListener("DOMContentLoaded", function() {
                             </p>
                             <p></p>
                             <p></p>
-                            <p></p>
-                            <a href="www.google.com" target="_blank">Link to Hult Prize</a>`;
+                            <a href="https://www.google.com" target="_blank" style="color: blue;" onclick="this.style.color='green'">Link to Hult Prize</a>`;
+
                 break;
             case "4":
                 title = "5ÈME CONCLAVE DE SÉCURITÉ AU MAROC";
-                content = "Details for 5ÈME CONCLAVE DE SÉCURITÉ AU MAROC...";
+                content = ` <p>Le 5ème Conclave de Sécurité au Maroc est créé pour échanger des connaissances sur les stratégies de cybersécurité avec plus de 300 responsables gouvernementaux, RSSI et professionnels de la sécurité. Un programme de conférence solide avec les idées de leaders d'opinion est en cours de création pour accroître les connaissances sur les cyberstratégies solides. Le dernier délai d'inscription le 24 janvier 2024.</p>`;
                 break;
             default:
                 title = "Details of Actualités";

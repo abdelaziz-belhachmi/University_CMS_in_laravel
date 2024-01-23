@@ -301,7 +301,7 @@ img {
 
 .prev, .next {
     position: absolute;
-    top: 50%;
+    top: 40%;
     width: auto;
     padding: 16px;
     margin-top: -22px;
@@ -334,7 +334,7 @@ img {
     width: 30%;
     float: left;
     background-color: #8FB5E5;
-    color: white;
+    color: rgb(11, 78, 141) ;
     padding: 20px;
     box-sizing: border-box;
     border-right: 3px solid #0778e9;
@@ -350,7 +350,7 @@ img {
     margin-bottom: 15px;
     border: 1px solid #0094FF;
     padding: 15px;
-    background-color: #1ed9e0d4;
+    background-color: #ede91bd4;
     transition: background-color 0.3s;
     border-radius: 5px;
 }
@@ -375,7 +375,7 @@ img {
 }
 
 h2 {
-    color:#faffffea ;
+    color:rgb(11, 78, 141) ;
     border-bottom: 2px solid #0094FF;
     padding-bottom: 10px;
     margin-bottom: 20px;
