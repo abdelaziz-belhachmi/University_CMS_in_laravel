@@ -27,8 +27,9 @@
 
             <div id="filiereDIV" style="display: none">
               <label for="dep">Associer avec Filiere :</label>
-              <select style="height: 45px;margin:15px" id="filiere" name="filiere" onclick="" required> 
-                
+              <select style="height: 45px;margin:15px" id="filiere" name="filiere" onclick="" > 
+                <option disabled selected value> -- select a filiere -- </option>
+
               @foreach ($filieresLibres as $filieresLibre)
               <option value="{{$filieresLibre->id}}">{{$filieresLibre->Nom_filliere}}</option>
               @endforeach  
@@ -43,8 +44,9 @@
 
           <div id="departementDIV" style="display: none">
             <label for="dep">Assosiver avec Depratement :</label>
-            <select style="height: 45px;margin:15px" id="dep" name="dep" onclick="" required> 
-            
+            <select style="height: 45px;margin:15px" id="dep" name="dep" onclick="" > 
+              <option disabled selected value> -- select a Depratement -- </option>
+
             @foreach ($departementsLibres as $departementsLibre)
             <option value="{{$departementsLibre->id}}">{{$departementsLibre->Nom_departement}}</option>
             @endforeach  
