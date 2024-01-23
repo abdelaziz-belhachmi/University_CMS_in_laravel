@@ -1,17 +1,27 @@
-a {
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Pour éviter la barre de défilement horizontale */
+}a {
     color: inherit;
     text-decoration: none;
     transition: color 0.3s ease;
 }
-
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color:  #8FB5E5 ;
     color:white;
-    padding: 10px 20px;
+    padding:0% 1%;
     box-shadow: 0 2px 5px rgba(77, 138, 199, 0.793);
+    margin: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    
 }
 
 .menu-left, .menu-right, .logo {
@@ -19,30 +29,19 @@ a {
     align-items: center;	
 }
 
+.menu-right{
+    padding-right: 2%;
+}
+
 .logo img {
     max-height: 100px;
 }
-.hamburger {
-    display: none;
-    cursor: pointer;
-    flex-direction: column;
-    justify-content: space-around;
-    width: 30px;
-    height: 25px;
-}
 
-.hamburger span {
-    background-color: white;
-    height: 3px;
-    width: 100%;
-    border-radius: 2px;
-    transition: all 0.3s ease;
-}
 
 .cta-button {
     background-color: #007bff;
-    padding: 10px 20px;
-    text-decoration: none;
+    padding: 10px 20px;  
+  text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s ease;
 }
@@ -50,43 +49,6 @@ a {
 .cta-button:hover {
     background: linear-gradient(to right,#EECD0C, #0094FF);
 }
-
-.mobile-menu {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #111;
-    overflow-x: hidden;
-    transition: width 0.5s ease;
-    padding-top: 60px;
-}
-
-.mobile-menu a {
-    padding: 15px 25px;
-    text-decoration: none;
-    font-size: 22px;
-    color: white;
-    display: block;
-    transition: color 0.3s ease;
-}
-
-.mobile-menu a:hover {
-    color: #ddd;
-}
-
-.mobile-menu .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    cursor: pointer;
-}
-
-
-
 
 
 a:hover {
@@ -212,7 +174,7 @@ a:hover {
 	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
-	background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.7)),url("/images/icon/etudiants-angle-eleve-apprenant-bibliotheque.jpg");
+	background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.7)),url("../images/icon/etudiants-angle-eleve-apprenant-bibliotheque.jpg");
 	background-size: cover;
 	background-attachment: fixed;
 }
@@ -226,7 +188,7 @@ a:hover {
 .service-swipe .s-card {
 	display: flex;
 	justify-content: space-around;
-	padding: 10px;
+	padding: 0%;
 	align-items: center;
 	text-align: center;
 	width: 350px;
@@ -256,7 +218,6 @@ footer {
 footer .footer-container {
 	max-width: 1300px;
 	margin: auto;
-	padding: 0 20px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -348,7 +309,7 @@ img {
     font-weight: bold;
     border: none;
     color: white;
-    background-color: black;
+    background-color: #0094FF;
     cursor: pointer;
 }
 
@@ -359,7 +320,6 @@ img {
 .next {
     right: 10px;
 }
-
 #s1and2{
     
         display: flex;
@@ -374,10 +334,10 @@ img {
     width: 30%;
     float: left;
     background-color: #8FB5E5;
-    color: #000000;
+    color: white;
     padding: 20px;
     box-sizing: border-box;
-    border-right: 1px solid #34495e;
+    border-right: 3px solid #0778e9;
 }
 
 #announcement-list {
@@ -388,15 +348,16 @@ img {
 
 #announcement-list li {
     margin-bottom: 15px;
-    border: 1px solid #000000;
+    border: 1px solid #0094FF;
     padding: 15px;
-    background-color: #aff5e8;
+    background-color: #1ed9e0d4;
     transition: background-color 0.3s;
     border-radius: 5px;
 }
 
 #announcement-list li:hover {
-    background-color: #EECD0C;
+    background: linear-gradient(to right,#EECD0C, #0094FF);
+    box-shadow: 0 0 30px #0094FF ;
 }
 
 #details-section {
@@ -414,10 +375,12 @@ img {
 }
 
 h2 {
-    color: #333;
-    border-bottom: 2px solid #2c3e50;
+    color:#faffffea ;
+    border-bottom: 2px solid #0094FF;
     padding-bottom: 10px;
     margin-bottom: 20px;
     display: inline-block;
+    font-style :oblique;
+    font-weight: bolder;
 }
 

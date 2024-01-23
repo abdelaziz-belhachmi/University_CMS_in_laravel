@@ -1,77 +1,108 @@
-.ctrlogin{
-	width: 100vw;
-	justify-content: center;
-	display: flex;
-	min-height:80vh ;
+main {
+    background-image: url('/images/337344484_241759151573271_6868499689807891355_n-1024x683-modified (1).jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    /* margin-top: 10%; */
 }
 
-
-#scrollbar1{
-	display: flex;
-	justify-content: center;
-	/* background-color: aqua; */
-width: 50%;
-height: 50%;
-align-self: center;
+.ctrlogin {
+    width: 100vw;
+    justify-content: center;
+    display: flex;
+    min-height: 80vh;
 }
 
-.iinput-group{
-	width: 80%;
-	border-color: #9fc3ff !important;
-	/* border-color: linear-gradient(to right,#EECD0C, #0094FF) !important; */
-
-	border: solid;
-	border-radius: 35px;
-	padding: 35px;
-	border-width: 5px;
-	
-}
-.inp{
-width: 100%;
-display: flex;
-margin-top: 20px;
-/* background-color: bisque; */
-	/* margin: 40px; */
+#scrollbar1 {
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    height: 50%;
+    align-self: center;
 }
 
-.inp input{
-	/* margin-left: 15px; */
-	/* background-color: #ffffff; */
-	/* color: rgb(0, 0, 0); */
-	font-size: 15px;
-	border: solid !important;
-	border-width: 0px !important;
-	border-radius: 5px;
-
-
+.iinput-group {
+    width: 80%;
+    border-color: #8FB5E5 !important;
+    border: solid;
+    border-radius: 35px;
+    padding: 35px;
+    border-width: 5px;
 }
-.inp img{
-padding: 10px;
 
+.inp {
+    width: 100%;
+    display: flex;
+    margin-top: 20px;
 }
-.cn{
-	text-decoration: none;
-	font-family: Arial, Helvetica, sans-serif;
+
+.inp input {
+    font-size: 15px;
+    border: solid !important;
+    border-width: 0px !important;
+    border-radius: 5px;
 }
-.submit-btn{
-	float: left;height:40px;margin-top: 30px ;padding-inline:100px;
-	background-color: #8fb5e5;border-radius: 10px;
+
+.input-field::placeholder {
+    color: #8FB5E5; 
+}
+
+.input-field:focus {
+    outline: none;
+}
+
+.inp img {
+    padding: 10px;
+}
+
+.cn {
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #0094FF;
+    font-weight: 600;
+    position: relative;
+}
+
+/* Style pour la ligne sous le texte " Connecter" avec animation */
+.cn::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, #EECD0C, #0094FF);
+    bottom: 0;
+    left: 0;
+    transform: scaleX(0); /* Ligne initialement invisible */
+    transform-origin: bottom right;
+    animation: borderAnimation 2.5s infinite; /* Duree infinie pour l'animation de la ligne */
 }
 
 .btn {
-	margin-top: 20px;
-	padding: 10px 40px;
-	font-size: 16px;
-	color: #f1f1f1;
-	background: linear-gradient(to right,#EECD0C, #0094FF);
-	border: none;
-	font-weight: 700;
-	outline: none;
-	border-radius: 5px;
-	margin-left: 20px;
-	cursor: pointer;
-	transition: opacity .3s linear;	
+    margin-top: 20px;
+    padding: 10px 40px;
+    font-size: 16px;
+    color: #f1f1f1;
+    background: linear-gradient(to right, #EECD0C, #0094FF);
+    border: none;
+    font-weight: 700;
+    outline: none;
+    border-radius: 5px;
+    margin-left: 20px;
+    cursor: pointer;
+    transition: opacity 0.3s linear;
 }
- .btn:hover {
-	opacity: .7;
+
+.btn:hover {
+    opacity: 0.7;
+}
+
+/* Animation pour la ligne */
+@keyframes borderAnimation {
+    0% {
+        transform: scaleX(0);
+    }
+    100% {
+        transform: scaleX(1);
+    }
 }
