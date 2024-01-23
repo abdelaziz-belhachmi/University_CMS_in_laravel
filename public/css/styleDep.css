@@ -1,7 +1,7 @@
 
 
 body {
-    background-color: #8FB5E5;
+    background-color: white ;
     color: white;
     font-family: "Noto Kufi Arabic", sans-serif;
     font-size: 1.13rem;
@@ -93,8 +93,9 @@ h3 {
 
 
 .departements {
-    background-color: #8FB5E5;
-    color: white;
+    background-color: white;
+    color: #8FB5E5;
+    padding:50px;
 }
 
 .departement-card {

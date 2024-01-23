@@ -2,7 +2,7 @@
 @section('frameContent')
 
 <link rel="stylesheet" href="../../../../css/auth_home.css">
-<link rel =" stylesheet" href ="../../../../css/styledep.css">
+<link rel =" stylesheet" href ="../../../../css/styleDep.css">
 
 
  <div style="display: flex;justify-content:end;">
@@ -11,22 +11,144 @@
  </div>
 <div style="justify-content:center;">
 
-    @foreach ( $dep as $d)
+
+        <main>
     
-
-    <div style="display: flex;justify-content:center">
-
-        <div style="display: flex; width:50%;">
-            <h2 style="margin:20px">{{$d->Nom_departement}}</h2>
-            <div style="display:flex;align-items:stretch">
-                <button style="padding:18px;margin: 10px" onclick="e({{$d->id}})">modifier</button>
-                <button  onclick="s({{$d->id}})"  style="padding:18px;margin: 10px;background-color:#d70000;color:aliceblue;"  >supprimer </button>
-            </div>
-        </div>
-    </div>
-
-    @endforeach
+        <section class="section departements" 
+        
+        id="departements">
     
+            <div class="wrapper">
+    
+                <h1 class="section__title"></h1>
+    
+                <p class="section__solg" >
+              
+                  DÉPARTEMENTS
+                </p>
+                <div
+                    class="three-columns section-content departements-wrapper"
+                >
+                    <div class="departement-card">
+                       
+                            <img src="/images/imagesdep/genieinfo.jpg"
+                            class="departement__img">
+                            <div class="departement-infos">
+                                <h3>GÉNIE INFORMATIQUE
+                                </h3>
+                                <p>
+                                    
+                                    Chef : Pr.EL BRAK Mohamed<p></p>
+                                    Email : melbrak@uae.ac.ma
+    
+    
+                                </p>
+                            </div>
+                      
+                    </div>
+        
+                    <div class="departement-card">
+                     
+                            <img src="/images/imagesdep/scienceterre.jpg" 
+                            class="departement__img">
+    
+                            <div class="departement-infos">
+    
+                                <h3> SCIENCES DE LA TERRE</h3>
+                                <p>
+                                    
+                                   Chef : Pr.BOULAASSAL Hakim<p></p>
+                                   Email : h.boulaassal@uae.ac.ma
+    
+    
+                                </p>
+                            </div>
+                    
+                    </div>
+                    <div class="departement-card">
+    
+                  
+                        <img src="/images/imagesdep/geniechimique.jpg" 
+                        
+                        class="departement__img">
+                            
+                        <div class="departement-infos">
+                            <h3>GÉNIE CHIMIQUE
+                            </h3>
+                            <p>
+                                Chef : Pr.CHABBI Mohamed</p><p>
+                                Email : mchabbi@uae.ac.ma
+                            </p>
+                        </div>
+              
+                    </div>
+                    <div class="departement-card">
+    
+                      
+                            <img src="/images/imagesdep/geniemecanique.jpg" 
+                            
+                            class="departement__img">
+                                
+                            <div class="departement-infos">
+                                <h3>GÉNIE MÉCANIQUE
+                                </h3>
+                                <p>
+    
+    
+                                    Chef : Pr.ELAYACHI Ilham</p><p>
+                                        Email : i.elayachi@uae.ac.ma
+    
+                                </p>
+                            </div>
+                
+                        </div>
+                        <div class="departement-card">
+    
+                  
+                                <img src="/images/imagesdep/math.jpg" 
+                                
+                                class="departement__img">
+                                    
+                                <div class="departement-infos">
+                                    <h3>MATHÉMATIQUES
+    
+                                    </h3>
+                                    <p>
+    
+                                        Chef : Pr.EL HALIMI RACHID<p></p>
+                                        Email : r.elhalimi@uae.ac.ma</p><p>
+    
+                                            
+                                    </p>
+                                </div>
+                    
+                            </div>
+                            <div class="departement-card">
+    
+                       
+                                    <img src="/images/imagesdep/sciencevie.jpg" 
+                                    
+                                    class="departement__img">
+                                        
+                                    <div class="departement-infos">
+    
+                                        <h3>SCIENCES DE LA VIE
+    
+        
+                                        </h3>
+                                        <p>
+                                            Chef : Pr.HASSANI ZERROUK Mounir<p></p>
+                                            Email : mhassani@uae.ac.ma</p><p>
+        
+                                                
+                                        </p>
+                                    </div>
+                         
+                                </div>
+                </div>
+                </div>
+        </section>
+        
     </div>
     
     
