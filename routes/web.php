@@ -46,7 +46,6 @@ Route::post('/login', [LoginController::class, 'login']);
 Route::get('/Auth/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
 Route::post('/Auth/register', [RegisterController::class, 'register']);
 
-
 // admin home
 Route::get('/Auth/home/accueil',[AnnonceController::class,'index'] )->name('Auth.accueil');
 
