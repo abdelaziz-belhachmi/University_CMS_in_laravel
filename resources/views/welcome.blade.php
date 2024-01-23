@@ -116,8 +116,7 @@
     <div class="service-swipe" id="formations">
       <div class="diffSection" id="services_section">
         <center>
-          <p
-            style="
+          <p style="
               font-size: 50px;
               padding: 100px;
               padding-bottom: 40px;
@@ -156,8 +155,7 @@
             style="width: 60%"
           />
           <p>Ingénieur d'Etat</p>
-        </div></a
-      >
+        </div></a>
     </div>
 
     

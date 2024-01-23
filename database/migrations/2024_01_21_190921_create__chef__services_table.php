@@ -13,10 +13,9 @@ return new class extends Migration
     {
         Schema::create('_chef__services', function (Blueprint $table) {
             $table->id();
+            
             $table->foreignId('user_id')->constrained(); 
-
             $table->string('code_Chef')->unique();
-            $table->date('date_integration')->nullable(true);
 
             $table->timestamps();
         });

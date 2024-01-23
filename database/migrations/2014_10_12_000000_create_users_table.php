@@ -15,15 +15,14 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('prenom');
-            $table->date('date_naissance')->default(now());
             $table->enum('sexe', ['male', 'female']);
-            $table->string('ville')->nullable(true);
-            $table->string('adresse')->nullable(true);
-            $table->integer('code_postale')->nullable(true);
-            $table->string('pays')->nullable(true);
+            $table->date('date_naissance')->default(now());
             $table->string('cin');
             $table->tinyInteger('role')->default(0); // 0 student / 1 professor /2 chef filiere / 3 chef departement / 4 chef_service
             $table->string('numero_telephone');
+            $table->string('ville')->nullable();
+            $table->string('adresse')->nullable();
+            $table->integer('code_postale')->nullable();
 
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
