@@ -16,48 +16,27 @@
         <a href="#formations">Formations</a>
         <a href="LesDepartemennts/departements.html">Departements</a>
         <div class="dropdown">
-          <a href="#" >Espace Etudiant</a>
+          <a  >Espace Etudiant</a>
           <div class="dropdown-content">
             <a href="images/icon/Tronc Commun LST_S4.pdf" target="_blank">Deust</a>
             <a href="images/icon/Tronc Commun LST_S6.pdf" target="_blank">Licence</a>
             <a href="images/icon/Cycle Master S2.pdf" target="_blank">Master</a>
-            <a href="images/icon/Cycle  Ingénieur _ S4.pdf" target="_blank">Cycle</a>
+            <a href="images/icon/Cycle  Ingénieur _ S4.pdf" target="_blank">Cycle d'ingenieur </a>
           </div>
       </div>
-        <a href="#">Services</a>
-        <a href="#">About</a>
+       
       </div>
 
       <div class="menu-right">
         <a href="{{route('login')}}" class="cta-button"> Se Connecter </a>
-        <div class="hamburger" onclick="toggleMobileMenu()">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
+         
       </div>
     </nav>
     
-    <div id="mobileMenu" class="mobile-menu">
-      <a href="#" class="closebtn" onclick="toggleMobileMenu()">&times;</a>
-      <a href="#bienvenue">Acceuil</a>
-      <a href="#formations">Formations</a>
-      <a href="LesDepartemennts/departements.html">Departements</a>
-      <div class="dropdown">
-        <a href="#" >Espace Etudiant</a>
-        <div class="dropdown-content">
-          <a href="images/icon/Tronc Commun LST_S4.pdf" target="_blank">Deust</a>
-          <a href="images/icon/Tronc Commun LST_S6.pdf" target="_blank">Licence</a>
-          <a href="images/icon/Cycle Master S2.pdf" target="_blank">Master</a>
-          <a href="images/icon/Cycle  Ingénieur _ S4.pdf" target="_blank">Cycle</a>
-        </div>
-    </div>
-      <a href="#">Services</a>
-      <a href="#">About</a>
+    
+   
 
-      <a href="{{route('login')}}" class="cta-button"> Se Connecter </a>
-    </div>
-
+    
     <div class="slideshow-container">
       <div class="slide fade">
           <img src="images/icon/securityconclave-2.png" alt="Announcement 1">
@@ -90,9 +69,9 @@
     </div>
 
     <div id="details-section">
-        <h2 id="details-heading">PRESENTATION DE LA FST DE TANGER & DIAGNOSIQUE</h2>
+
         <div id="details-content">
-        <p><img src="images/icon/fst.jpg" alt=""></p>
+        <p><img src="images/icon/fst.jpg" style="height:50%"></p>
         </div>
     </div>
     
@@ -180,41 +159,39 @@
       >
     </div>
 
-    <script src="../js/scriptIndex.js"></script>
-    <!-- FOOTER -->
     
    <!-- FOOTER -->
-<footer>
-  <div class="footer-container">
-      <div class="left-col">
-          <div style="display:flex; justify-content: stretch;">
-          <div>
-          <img src="images/icon/fst-1024x383.png" style="width:60px; margin-left: 30%; float:left">
-         </div><div style="margin-left:9%; float:right;color: #025b9b ; font-size: large;">
-          <p><span> Université Abdelmalek Essaâdi</span><br><span> Faculté des Sciences et Techniques de Tanger </span> </p>           
-          </div>
-      </div>
-          <p style="font-size:medium;"><img src="images/icon/location.png"> Ancienne Route de l'Aéroport, Km 10, Ziaten.  <br>  BP : 416. Tanger-Maroc·<br><img src="images/icon/phone.png"> 
-              + 212 (0) 5 39 39 39 54 / 55<br><img src="images/icon/mail.png"> administration.fstt@uae.ac.ma
-          </p>
-          
-      </div>
-      <div class="right-col">
-          <h1 style="color: #fff">Newsletter</h1>
-          <div class="border"></div><br>
-          <form class="newsletter-form">
-              <input class="txtb" type="email" placeholder="Entrez votre e-mail pour recevoir nos actualités">
-              <input class="btn" type="submit" value="S'abonner">
-          </form>
-          <div class="social-media">
-              <a href="https://web.facebook.com/fstt.ac.ma" target="_blank"><img src="images/icon/logofacebook.png" style="width :52px "></a>
-              <a href="https://www.linkedin.com/school/fsttanger/" target="_blank"><img src="images/icon/logolinkedinb.png" style="width :55px"></a>
-              <a href="https://www.instagram.com/fsttanger/" target="_blank"><img src="images/icon/logoinstab.png" style="width: 53px"></a>
-          </div>
-          
-      </div>
-  </div>
-</footer>
+   <footer>
+    <div class="footer-container">
+        <div class="left-col">
+            <div style="display:flex; justify-content: stretch;">
+            <div>
+            <img src="images/icon/fst-1024x383.png" style="width:60px; margin-left: 30%; float:left">
+           </div><div style="margin-left:9%; float:right;color: #025b9b ; font-size: large;">
+            <p><span> Université Abdelmalek Essaâdi</span><br><span> Faculté des Sciences et Techniques de Tanger </span> </p>           
+            </div>
+        </div>
+            <p style="font-size:medium;"><img src="images/icon/location.png"> Ancienne Route de l'Aéroport, Km 10, Ziaten.  <br>  BP : 416. Tanger-Maroc·<br><img src="images/icon/phone.png"> 
+                + 212 (0) 5 39 39 39 54 / 55<br><img src="images/icon/mail.png"> administration.fstt@uae.ac.ma
+            </p>
+            
+        </div>
+        <div class="right-col">
+            <h1 style="color: #fff">Newsletter</h1>
+            <div class="border"></div><br>
+            <form class="newsletter-form">
+                <input class="txtb" type="email" placeholder="Entrez votre e-mail pour recevoir nos actualités">
+                <input class="btn" type="submit" value="S'abonner">
+            </form>
+            <div class="social-media">
+                <a href="https://web.facebook.com/fstt.ac.ma" target="_blank"><img src="images/icon/logofacebook.png" style="width :52px "></a>
+                <a href="https://www.linkedin.com/school/fsttanger/" target="_blank"><img src="images/icon/logolinkedinb.png" style="width :55px"></a>
+                <a href="https://www.instagram.com/fsttanger/" target="_blank"><img src="images/icon/logoinstab.png" style="width: 53px"></a>
+            </div>
+            
+        </div>
+    </div>
+  </footer>
 
   </body>
 </html>

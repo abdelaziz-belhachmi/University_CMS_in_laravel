@@ -2,6 +2,7 @@
 @section('frameContent')
 
 <link rel="stylesheet" href="../../../../css/auth_home.css">
+<link rel =" stylesheet" href ="../../../../css/styledep.css">
 
 
  <div style="display: flex;justify-content:end;">
@@ -11,6 +12,8 @@
 <div style="justify-content:center;">
 
     @foreach ( $dep as $d)
+    
+
     <div style="display: flex;justify-content:center">
 
         <div style="display: flex; width:50%;">

@@ -5,21 +5,23 @@
 @section('content')
 
 <link rel="stylesheet" href="css/loginStyle.css">
-    <div class="ctrlogin" style="">
+
+    <div class="ctrlogin" >
            
     {{--  --}}
     <div class="form-box" id="scrollbar1">
+
         <form id="login" class="iinput-group" method="POST" action="{{route('login')}}">
             @csrf
 
-            <h1 class="cn">Connectez Vous</h1>
+            <center><h1 class="cn" >Connectez Vous</h1></center>
             <div class="inp">
                 <img src="/images/user.png">
                 <input type="text" id="email" name="email" class="input-field" placeholder="Adresse e-mail" style="height:40px;width: 88%;" required>
             </div>
 
             <div class="inp">
-                <img src="/images/password.png">
+                <img src="/images/password.png" >
                 <input type="password" id="password" name="password" class="input-field" placeholder="Mot de Passe" style="height:40px;width: 88%; " required>
             </div>
 
@@ -32,32 +34,8 @@
 
        
     </div>
-   <script>
-      // For LOGIN
-  var x = document.getElementById("login");
-  var y = document.getElementById("register");
-  var z = document.getElementById("btn");
-  var a = document.getElementById("log");
-  var b = document.getElementById("reg");
-  
-  function register() {
-    x.style.left = "-400px";
-    y.style.left = "50px";
-    z.style.left = "110px";
-    b.style.color = "#fff";
-    a.style.color = "#000";
-  }
-  
-  function login() {
-    x.style.left = "50px";
-    y.style.left = "450px";
-    z.style.left = "0px";
-    a.style.color = "#fff";
-    b.style.color = "#000";
-  }
 
- 
-   </script>
     {{--  --}}
     </div>
+
 @endsection
