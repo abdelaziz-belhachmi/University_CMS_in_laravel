@@ -4,6 +4,7 @@ use App\Http\Controllers\AnnonceController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\CalendrierController;
 use App\Http\Controllers\DepartementController;
 use App\Http\Controllers\FilieresController;
 use App\Http\Controllers\PersonnellesController;
@@ -117,6 +118,7 @@ Route::post('Auth/filiers/edit',[FilieresController::class,'edit']);
 Route::get('Auth/filiers/delete/{id}',[FilieresController::class,'delete']);
 
 // **  ** //
+Route::get('Auth/reservation/calendrier',[CalendrierController::class,'calendrier']);
 
 
 
