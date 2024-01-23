@@ -38,18 +38,18 @@
    
 
     
-    <div class="slideshow-container">
+    <div class="slideshow-container" style="margin-top: 100px">
       <div class="slide fade">
-          <img src="../imag" alt="Announcement 1">
+          <img src="../images/icon/securityconclave-2.png" alt="Announcement 1">
       </div>
       <div class="slide fade">
-          <img src="../../../public/images/icon/Planning-Rat-Automne.png" alt="Announcement 2">
+          <img src="../images/icon/Planning-Rat-Automne.png" alt="Announcement 2">
       </div>
       <div class="slide fade">
-          <img src="../../../public/images/icon/.png" alt="Announcement 3">
+          <img src="../images/icon/Planning-Rat-Automne.png" alt="Announcement 3">
       </div>
       <div class="slide fade">
-          <img src="../../../public/images/icon/Talib_inwi.png" alt="Announcement 4">
+          <img src="../images/icon/Talib_inwi.png" alt="Announcement 4">
       </div>
       <!-- Add more slides as needed -->
 
@@ -197,6 +197,8 @@
         </div>
     </div>
   </footer>
+
+  <script src="js/scriptIndex.js"></script>
 
   </body>
 </html>

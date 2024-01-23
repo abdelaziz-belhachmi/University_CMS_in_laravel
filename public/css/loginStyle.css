@@ -1,10 +1,10 @@
-body {
+main {
     background-image: url('/images/337344484_241759151573271_6868499689807891355_n-1024x683-modified (1).jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     height: 100vh;
-    margin-top: 8%;
+    /* margin-top: 10%; */
 }
 
 .ctrlogin {
