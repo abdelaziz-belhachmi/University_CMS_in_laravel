@@ -16,6 +16,7 @@
         <a href="#formations">Formations</a>
         <a href="LesDepartemennts/departements.html">Departements</a>
         <div class="dropdown">
+          
           <a  >Espace Etudiant</a>
           <div class="dropdown-content">
             <a href="images/icon/Tronc Commun LST_S4.pdf" target="_blank">Deust</a>
@@ -39,16 +40,16 @@
     
     <div class="slideshow-container">
       <div class="slide fade">
-          <img src="images/icon/securityconclave-2.png" alt="Announcement 1">
+          <img src="../imag" alt="Announcement 1">
       </div>
       <div class="slide fade">
-          <img src="images/icon/Planning-Rat-Automne.png" alt="Announcement 2">
+          <img src="../../../public/images/icon/Planning-Rat-Automne.png" alt="Announcement 2">
       </div>
       <div class="slide fade">
-          <img src="images/icon/HULT-PRIZE-POSTER.png" alt="Announcement 3">
+          <img src="../../../public/images/icon/.png" alt="Announcement 3">
       </div>
       <div class="slide fade">
-          <img src="images/icon/Talib_inwi.png" alt="Announcement 4">
+          <img src="../../../public/images/icon/Talib_inwi.png" alt="Announcement 4">
       </div>
       <!-- Add more slides as needed -->
 
@@ -128,7 +129,9 @@
         </center>
       </div>
       <a href="Filieres/mipc_mip.html" target="_blank"
-        ><div class="s-card">
+        >
+        <div style="padding-right: 10%">
+          <div class="s-card">
           <img
             src="images/icon/assortiment-jour-education-table-removebg-preview.png"
             style="width: 60%"
@@ -137,7 +140,9 @@
         </div></a
       >
       <a href="Filieres/lst_idai.html" target="_blank"
-        ><div class="s-card">
+        > 
+      </div>
+      <div class="s-card">
           <img src="images/icon/papers.jpg" style="width: 40%" />
           <p>Licence en Sciences et Techniques</p>
         </div></a
@@ -166,7 +171,7 @@
         <div class="left-col">
             <div style="display:flex; justify-content: stretch;">
             <div>
-            <img src="images/icon/fst-1024x383.png" style="width:60px; margin-left: 30%; float:left">
+            <img src="images/icon/fst-1024x383.png" style="width:60px; margin-left: 10%;margin-top:30%; float:left">
            </div><div style="margin-left:9%; float:right;color: #025b9b ; font-size: large;">
             <p><span> Université Abdelmalek Essaâdi</span><br><span> Faculté des Sciences et Techniques de Tanger </span> </p>           
             </div>
