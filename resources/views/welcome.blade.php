@@ -148,7 +148,7 @@
           </p>
         </center>
       </div>
-      <a href="Filieres/mipc_mip.html" target="_blank"
+      <a href="/FilieresFront/deust.html" target="_blank"
         ><div class="s-card">
           <img
             src="images/icon/assortiment-jour-education-table-removebg-preview.png"
@@ -157,19 +157,19 @@
           <p>Deust</p>
         </div></a
       >
-      <a href="Filieres/lst_idai.html" target="_blank"
+      <a href="/FilieresFront/index.html" target="_blank"
         ><div class="s-card">
           <img src="images/icon/papers.jpg" style="width: 40%" />
           <p>Licence en Sciences et Techniques</p>
         </div></a
       >
-      <a href="Filieres/master_AI.html" target="_blank"
+      <a href="/FilieresFront/master.html" target="_blank"
         ><div class="s-card">
           <img src="images/icon/p3.png" style="width: 40%" />
           <p>Master en Sciences et Techniques</p>
         </div></a
       >
-      <a href="Filieres/cycle_lsi.html" target="_blank"
+      <a href="/FilieresFront/cycle.html" target="_blank"
         ><div class="s-card">
           <img
             src="images/icon/2288773-removebg-preview.png"

@@ -11,13 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('creneaux', function (Blueprint $table) {
+        Schema::create('crenauxes', function (Blueprint $table) {
             $table->id();
-            
-            $table->enum('heure_depart', [9, 11, 13, 15, 17]);
             $table->timestamps();
-            $table->foreignId('agenda_id')->constrained('agenda');
-
         });
     }
 
@@ -26,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('creneaux');
+        Schema::dropIfExists('crenauxes');
     }
 };

@@ -212,7 +212,7 @@ a:hover {
 	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
-	background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.7)),url("images/icon/etudiants-angle-eleve-apprenant-bibliotheque.jpg");
+	background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.7)),url("/images/icon/etudiants-angle-eleve-apprenant-bibliotheque.jpg");
 	background-size: cover;
 	background-attachment: fixed;
 }

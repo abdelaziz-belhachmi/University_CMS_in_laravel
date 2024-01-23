@@ -13,9 +13,12 @@ return new class extends Migration
     {
         Schema::create('agenda', function (Blueprint $table) {
             $table->id();
-            $table->unsignedSmallInteger('Jour');
-            $table->unsignedSmallInteger('Mois');
-            $table->unsignedSmallInteger('Année');
+            $table->foreignId('crenau1')->constrained('crenaux')->nullable();
+            $table->foreignId('crenau2')->constrained('crenaux')->nullable();
+            $table->foreignId('crenau3')->constrained('crenaux')->nullable();
+            $table->foreignId('crenau4')->constrained('crenaux')->nullable();
+            $table->foreignId('crenau5')->constrained('crenaux')->nullable();
+           $table->date('date');            
             $table->timestamps();
         });
     }

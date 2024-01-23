@@ -1,0 +1,70 @@
+     body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            position: relative;
+        }
+
+
+        body::before {
+            content: "";
+            position: fixed; /* Fixed position to cover the entire viewport */
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-image: url('./room-interior-design.jpg');
+            background-size: cover;
+            background-position: center;
+            filter: blur(2px); /* Adjust the blur amount as needed */
+            z-index: -1; }
+
+        header {
+            
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+        }
+        span {
+            background-color: rgba(0, 0, 0, 0.555);
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        section {
+            border-radius: 20px;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 30px rgb(0, 0, 0);
+            transition: box-shadow 0.3s;
+        }
+        
+        section:hover {
+            box-shadow: 0 0 30px #3db9f3; /* Change the shadow color to red on hover */
+        }
+        
+        .license {
+            margin-bottom: 5px;
+            border-bottom: 1px solid #3db9f3;
+            padding: 10px;
+            cursor: pointer;
+            
+        }
+        
+        .license:hover {
+            background-color: #63c1ff; /* Change the background color on hover for the entire license block */
+        }
+        
+        .license > h2 {
+            text-align: center;
+        }
+        
+        .license p {
+            display: none;
+        }
+        strong {
+            background-color: rgb(255, 255, 0);
+        }

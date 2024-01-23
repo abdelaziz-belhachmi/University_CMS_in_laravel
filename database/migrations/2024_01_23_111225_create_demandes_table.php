@@ -11,13 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('creneaux', function (Blueprint $table) {
+        Schema::create('demandes', function (Blueprint $table) {
             $table->id();
-            
-            $table->enum('heure_depart', [9, 11, 13, 15, 17]);
+            $table->foreignId('user_id')->constrained(); 
+            $table->string('type'); // in this column we can store the type of demande (e.g., lettre, rendez-vous, stage, etc.)
+            $table->text('description')->nullable();
             $table->timestamps();
-            $table->foreignId('agenda_id')->constrained('agenda');
-
         });
     }
 
@@ -26,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('creneaux');
+        Schema::dropIfExists('demandes');
     }
 };
