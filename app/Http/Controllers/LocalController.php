@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Departement;
 use App\Models\local;
+use App\Models\materiaux;
 use App\Models\reservation;
 use Illuminate\Http\Request;
 use Locale;
@@ -46,6 +47,12 @@ class LocalController extends Controller
         foreach($r as $re){
             $re->delete();
         }
+
+        // check for matariaux in the local
+         $s = materiaux::where('local_id',$id)->get();
+         foreach($s as $se){
+             $se->delete();
+         }
 
         //delete
         $local->delete();
