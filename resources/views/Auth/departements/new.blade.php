@@ -21,8 +21,6 @@
               <textarea class="desc"  name="desc" style="color: black" placeholder="Entez description pour departement" ></textarea>
               
               
-      
-      
               <input type="submit" name="submit" value="submit" class="submit" >
       
             </form>
