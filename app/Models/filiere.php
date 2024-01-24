@@ -25,6 +25,14 @@ class filiere extends Model
         return $this->hasOne(Chef_filiere::class,'filieres_id', 'id');
     }
 
+    public function classes() {
+        return $this->hasMany(classe::class);
+    }
+    
+    public function users()
+    {
+        return $this->hasManyThrough(User::class, classe::class);
+    }
 
 
 }

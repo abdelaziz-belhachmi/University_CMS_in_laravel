@@ -19,5 +19,10 @@ class Professeur extends Model
     {
         return $this->belongsTo(User::class);
     }
+    
+    // public function module()
+    // {
+    //     return $this->hasOne(module::class);
+    // }
 
 }

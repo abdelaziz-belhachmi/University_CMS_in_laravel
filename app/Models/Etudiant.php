@@ -18,4 +18,11 @@ class Etudiant extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function classe() {
+        return $this->belongsTo(classe::class);
+    }
+    
+
+
 }

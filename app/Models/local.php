@@ -19,6 +19,10 @@ class local extends Model
     public function reservation() {
         return $this->hasMany(reservation::class);
     }
+    
+    public function materiaux() {
+        return $this->hasMany(materiaux::class);
+    }
 
     public function departement() {
         return $this->belongsTo(Departement::class);

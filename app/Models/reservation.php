@@ -21,6 +21,7 @@ class reservation extends Model
        'year',
        'local_id',
        'user_id',
+       'classes_id',
 
     ];
 
@@ -29,6 +30,13 @@ class reservation extends Model
         return $this->belongsTo(local::class);
     }
     
+    public function class() {
+        return $this->hasOne(classe::class);
+    }
+
+    public function user() {
+        return $this->hasOne(User::class);
+    }
   
 
 }
