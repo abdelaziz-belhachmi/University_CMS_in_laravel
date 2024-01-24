@@ -4,6 +4,7 @@ use App\Http\Controllers\AnnonceController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\demandesController;
 use App\Http\Controllers\DepartementController;
 use App\Http\Controllers\FilieresController;
 use App\Http\Controllers\PersonnellesController;
@@ -53,6 +54,14 @@ Route::get('/Auth/home/accueil',[AnnonceController::class,'index'] )->name('Auth
 Route::get('/user/home', function () {
     return view('user.home');
 })->name('user.home');
+
+
+Route::get('/user/demande', function () {
+    return view('user.demande');
+})->name('user.demande');
+
+Route::resource('/demandes',demandesController::class);
+
 
 //logout
 Route::get('/logout', [LoginController::class, 'logout'] )->name('Logout');
