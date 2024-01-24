@@ -1,0 +1,165 @@
+
+
+body {
+    background-color: white ;
+    color: white;
+    font-family: "Noto Kufi Arabic", sans-serif;
+    font-size: 1.13rem;
+    line-height: 1.8;
+    overflow-x: hidden;
+}
+
+
+
+
+h3 {
+    font-family: "Noto Kufi Arabic", sans-serif;
+    line-height: 1.4;
+    color: #0095ffa3;
+    font-size: 1.35rem;
+}
+
+/* Classes */
+.wrapper {
+    width: min(100% - 2rem, 1200px);
+    margin-inline: auto;
+   
+}
+
+
+
+.three-columns {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1rem;
+}
+
+
+
+@keyframes borderAnimation {
+    0% {
+      transform: scaleX(0);
+      background-position: 0% 0;
+    }
+    50% {
+      transform: scaleX(1);
+      background-position: 100% 0;
+    }
+    100% {
+      transform: scaleX(0);
+      background-position: 0% 0;
+    }
+}
+
+
+
+
+.section__solg {
+    text-align: center;
+    margin-top: 0.5rem;
+    font-size: 40px;
+    font-weight: bolder;
+    position: relative;
+    font-size: 1.62rem;
+   
+    font-family: Arial, sans-serif; /* Vous pouvez changer la police selon vos besoins */
+}
+
+
+
+.section__solg::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 6px; /* Épaisseur de la bordure */
+    background: linear-gradient(to right, #EECD0C, #0094FF); /* Couleur dégradée de la bordure */
+    background-size: 200% 100%;
+    transform-origin: bottom right;
+    
+    transform: scaleX(0); /* Bordure initialement invisible */
+    transition: transform 0.3s ease; /* Transition de l'échelle pour une animation en douceur */
+    animation: borderAnimation 2s infinite; /* Utilisation de l'animation définie ci-dessus */
+}
+
+
+
+/*section */
+
+.section-content {
+    margin-top: 3rem;
+}
+
+
+.Filieres {
+    background-color: white;
+    color: #8FB5E5;
+    padding:50px;
+}
+
+.Filiere-card {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: scale 300ms;
+}
+
+
+
+.Filiere-card img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    object-position: center;
+}
+
+
+
+.Filiere-infos {
+    padding: 1rem;
+    color: #033dc6a4;
+}
+
+
+
+.Filiere-infos h3 {
+    margin-bottom: 0.5rem;
+}
+
+.Filiere-card:hover {
+    scale: 1.04;
+    box-shadow: 0 0 30px #0094FF ;
+}
+
+.Filiere-card div#bouttons-crud {
+    display: none !important;
+
+}
+
+.Filiere__img{
+    height:200px;
+}
+
+.Filiere-card:hover div#bouttons-crud button{
+padding: 10px;
+margin: 10px;
+border: solid 1px!important;
+border-radius: 10px;
+color: white;
+font-size: 14px;
+}
+
+div#bouttons-crud button:hover{
+    opacity: 0.7;
+    cursor: pointer;
+
+}
+
+.Filiere-card:hover div#bouttons-crud {
+    display: flex !important;
+    justify-content: end;
+   
+
+}

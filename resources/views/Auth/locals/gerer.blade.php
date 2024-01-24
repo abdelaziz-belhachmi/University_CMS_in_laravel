@@ -12,7 +12,6 @@
 <div style="justify-content:center;">
 
 
-        <main>
     
         <section class="section locals" id="locals">
             <div class="wrapper">
