@@ -24,6 +24,7 @@ return new class extends Migration
 
             $table->foreignId('user_id')->constrained('users');
             $table->foreignId('local_id')->constrained('locals');
+            $table->foreignId('classes_id')->nullable()->constrained('classes');
     
             $table->timestamps();
         });
