@@ -97,16 +97,17 @@
 
     <body>
 
-        <form class="demandeForme"   method="post">
+        <form class="demandeForme"  action="{{route('submit.demande')}}" method="post">
             @csrf
             <span>Object</span>
             <legend>Demande de Document Administratif</legend>
             <br>
             <label for="documentType">Type de Document:</label>
-            <select id="documentType" name="documentType" onchange="showAdditionalFields()" required>
+            <select id="documentType" name="type" onchange="showAdditionalFields()" required>
                 <option value="attestation">Attestation de réussite</option>
                 <option value="releve">Relevé de Notes</option>
                 <option value="stage">Convention de Stage</option>
+                
 
 
             </select>
@@ -158,7 +159,7 @@
                 <label for="moiProfesseur">Professeur</label>
                 <input type="checkbox" id="moiProfesseur" name="recipient" value="moiProfesseur">
             </div>
-            <button type="button" onclick="submitForm()">Soumettre</button>
+            <button type="submit" >Soumettre</button>
         </form>
 
         <script>

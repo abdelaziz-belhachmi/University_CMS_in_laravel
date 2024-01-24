@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\demandes;
+use Illuminate\Support\Facades\Auth;
 
 class demandesController extends Controller
 {
@@ -27,7 +29,19 @@ class demandesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       // dd(Auth::user()->id);
+        $data = $request->validate([
+            'type' => 'required',
+            'description' => 'required',
+            
+        ]);
+        $data['user_id'] =Auth::user()->id;
+        demandes::create($data);
+        return redirect()->back()->with('success', 'Demande saved successfully.');
+        // if checked chef filiere demande htsard end user li endo f role dek 0 aw 1..
+        //b switch
+
+
     }
 
     /**
