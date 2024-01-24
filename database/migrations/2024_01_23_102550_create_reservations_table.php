@@ -13,10 +13,14 @@ return new class extends Migration
     {
         Schema::create('reservations', function (Blueprint $table) {
             $table->id();
-
+            
+            $table->enum('start_time', ["9","11","13","15","17"]);
+            $table->integer('day');
+            $table->integer('month');
+            $table->integer('year');
+            
             $table->string('Titre_reservation');
             $table->string('sujet_reservation');
-            $table->string('start_time');
 
             $table->foreignId('user_id')->constrained('users');
             $table->foreignId('local_id')->constrained('locals');

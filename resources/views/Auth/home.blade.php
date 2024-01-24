@@ -6,11 +6,15 @@
    {{-- <span class="bckg"></span> --}}
    <div style="display: flex">
 
-<header style="height:auto;min-height:80vh;">
-  <h1 id="acc" style="justify-content: center;align-content:center;display:flex"><a  href="{{route('Auth.accueil')}}">Accueil</a></h1>
+<header style="background-color:white;height:auto;min-height:80vh;">
+  {{-- <h1 id="acc" style="justify-content: center;align-content:center;display:flex;background-color:white"></h1> --}}
   <nav style="">
     <ul>
     
+      <li>
+        <a  href="{{route('Auth.accueil')}}">Accueil</a>
+      </li>
+
       <li>
         <a href="{{route('Auth.annonce.gerer_annonces')}}" data-title="Annonces">Gere Mes Annonces</a>
       </li>
@@ -30,6 +34,10 @@
       <li>
         <a href="javascript:void(0);" data-title="Diary">Gèrer salles</a>
       </li>
+
+      <li>
+        <a href="{{route('afficherCalendrier')}}" data-title="Timeline">Reserver salles</a>
+      </li>
     
       <li>
         <a href="javascript:void(0);" data-title="Settings">Inscrire class</a>
@@ -46,7 +54,7 @@
   </nav>
 </header>
 
-<main style="float: right;">
+<main style="float: right;background-color:white">
 
  
 

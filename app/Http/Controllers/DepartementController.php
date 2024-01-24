@@ -21,6 +21,7 @@ class DepartementController extends Controller
     function getAll(){
         $dep = [];
         $dep = Departement::all();
+        
         return view('Auth/departements/gerer',compact('dep'));
     }
 

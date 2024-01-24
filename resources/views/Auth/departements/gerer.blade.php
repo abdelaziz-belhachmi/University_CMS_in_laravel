@@ -14,137 +14,37 @@
 
         <main>
     
-        <section class="section departements" 
-        
-        id="departements">
-    
+        <section class="section departements" id="departements">
             <div class="wrapper">
-    
                 <h1 class="section__title"></h1>
-    
-                <p class="section__solg" >
-              
-                  DÉPARTEMENTS
-                </p>
-                <div
-                    class="three-columns section-content departements-wrapper"
-                >
-                    <div class="departement-card">
-                       
-                            <img src="/images/imagesdep/genieinfo.jpg"
-                            class="departement__img">
-                            <div class="departement-infos">
-                                <h3>GÉNIE INFORMATIQUE
-                                </h3>
-                                <p>
-                                    
-                                    Chef : Pr.EL BRAK Mohamed<p></p>
-                                    Email : melbrak@uae.ac.ma
-    
-    
-                                </p>
-                            </div>
-                      
-                    </div>
-        
-                    <div class="departement-card">
-                     
-                            <img src="/images/imagesdep/scienceterre.jpg" 
-                            class="departement__img">
-    
-                            <div class="departement-infos">
-    
-                                <h3> SCIENCES DE LA TERRE</h3>
-                                <p>
-                                    
-                                   Chef : Pr.BOULAASSAL Hakim<p></p>
-                                   Email : h.boulaassal@uae.ac.ma
-    
-    
-                                </p>
-                            </div>
-                    
-                    </div>
-                    <div class="departement-card">
-    
+                <p class="section__solg" >DÉPARTEMENTS</p>
+                <div class="three-columns section-content departements-wrapper" >
                   
-                        <img src="/images/imagesdep/geniechimique.jpg" 
+                    @foreach ($dep as $d)
                         
-                        class="departement__img">
-                            
-                        <div class="departement-infos">
-                            <h3>GÉNIE CHIMIQUE
-                            </h3>
-                            <p>
-                                Chef : Pr.CHABBI Mohamed</p><p>
-                                Email : mchabbi@uae.ac.ma
-                            </p>
-                        </div>
-              
-                    </div>
                     <div class="departement-card">
-    
-                      
-                            <img src="/images/imagesdep/geniemecanique.jpg" 
-                            
-                            class="departement__img">
-                                
+                            <img src="/images/imagesdep/dep_img.png" class="departement__img">
                             <div class="departement-infos">
-                                <h3>GÉNIE MÉCANIQUE
-                                </h3>
-                                <p>
-    
-    
-                                    Chef : Pr.ELAYACHI Ilham</p><p>
-                                        Email : i.elayachi@uae.ac.ma
-    
-                                </p>
-                            </div>
-                
-                        </div>
-                        <div class="departement-card">
-    
-                  
-                                <img src="/images/imagesdep/math.jpg" 
                                 
-                                class="departement__img">
-                                    
-                                <div class="departement-infos">
-                                    <h3>MATHÉMATIQUES
-    
-                                    </h3>
-                                    <p>
-    
-                                        Chef : Pr.EL HALIMI RACHID<p></p>
-                                        Email : r.elhalimi@uae.ac.ma</p><p>
-    
-                                            
-                                    </p>
+                                <h3>{{$d->Nom_departement}}</h3>
+
+                                <p>{{$d->Code_departement}}</p>
+                                
+                                @if ($d->chefDepartement)
+                                <p>Chef : {{$d->chefDepartement->user->name}} {{$d->chefDepartement->user->prenom}}</p>
+                                <p>Email : {{$d->chefDepartement->user->email}}</p>
+                                @endif
+                                
+                                <div id="bouttons-crud" >
+                                    <button onclick="e('{{$d->id}}')" style="background-color: #70a3e0">Modifier</button>
+                                    <button onclick="s('{{$d->id}}')" style="background-color:rgb(201, 39, 72)">Supprimer</button>
                                 </div>
-                    
+
                             </div>
-                            <div class="departement-card">
-    
-                       
-                                    <img src="/images/imagesdep/sciencevie.jpg" 
-                                    
-                                    class="departement__img">
-                                        
-                                    <div class="departement-infos">
-    
-                                        <h3>SCIENCES DE LA VIE
-    
-        
-                                        </h3>
-                                        <p>
-                                            Chef : Pr.HASSANI ZERROUK Mounir<p></p>
-                                            Email : mhassani@uae.ac.ma</p><p>
-        
-                                                
-                                        </p>
-                                    </div>
-                         
-                                </div>
+                    </div>
+                    @endforeach
+
+
                 </div>
                 </div>
         </section>

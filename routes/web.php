@@ -118,9 +118,9 @@ Route::post('Auth/filiers/edit',[FilieresController::class,'edit']);
 Route::get('Auth/filiers/delete/{id}',[FilieresController::class,'delete']);
 
 // **  ** //
-Route::get('Auth/reservation/calendrier',[CalendrierController::class,'calendrier']);
-
-
+Route::get('Auth/reservation/calendrier',[CalendrierController::class,'calendrier'])->name('afficherCalendrier');
+Route::get('creneau/{year}/{month}/{day}',[CalendrierController::class,'creneau'])->name('afficherCreneau');
+Route::get('creneau/{year}/{month}/{day}/{hour}',[CalendrierController::class,'locaux'])->name('afficherlocauxLibres');
 
 
 // POST "/reserver/${anne}/${mois}/${jours}/${creneau}/${local}" 

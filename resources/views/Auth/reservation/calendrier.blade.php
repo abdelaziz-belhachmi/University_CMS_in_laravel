@@ -3,13 +3,11 @@
 
 <link rel="stylesheet" href="../../../../css/auth_home.css">
 <link rel="stylesheet" href ="../../../../css/calendrier.css">
-<script src="../../../../js/calendrier.js">
 
 
- <div style="display: flex;justify-content:end;">
 
-     <button  style="height:50px;padding-inline:25px;color:rgb(0, 0, 0);align-self:center; background:#70a3e0;border:none" onclick="make();" class="dropbtn" >Nouvel Filiere</button>
- </div>
+
+
 <div  id="_calend" style="justify-content:center;">
     <div class="contianer">
         <div class="calendar">
@@ -17,11 +15,14 @@
             <span class="month-picker" id="month-picker"> May </span>
             <div class="year-picker" id="year-picker">
               <span class="year-change" id="pre-year">
-                <pre><</pre>
+                {{-- <p><</p> --}}
+                <img src="../../../images/calendrier/flesh1.png" style="height: 18px" alt="" srcset="">
               </span>
               <span id="year">2020 </span>
               <span class="year-change" id="next-year">
-                <pre>></pre>
+                {{-- <p>></p> --}}
+                <img src="../../../images/calendrier/flesh2.png" style="height: 18px" alt="" srcset="">
+
               </span>
             </div>
           </div>
@@ -57,6 +58,7 @@
     
     
 
+<script src="../../../../js/calendrier.js"></script>
        
     
   

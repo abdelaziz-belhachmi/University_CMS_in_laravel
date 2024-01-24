@@ -18,7 +18,7 @@
               
               
               <span>description</span>
-              <textarea class="desc"  name="desc" style="color: black" placeholder="Entez description pour departement"  >{{ $de->description }} </textarea>
+              <textarea class="desc"  name="desc" style="color: black" placeholder="Entez description pour departement"  >{{ $de->Description }} </textarea>
               
               
                 <input type="text" style="display: none" name="id" value="{{$de->id}}">
