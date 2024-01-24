@@ -56,6 +56,14 @@ Route::get('/user/home', function () {
     return view('user.home');
 })->name('user.home');
 
+
+Route::get('/user/demande', function () {
+    return view('user.demande');
+})->name('user.demande');
+
+//Route::resource('/demandes',demandesController::class);
+
+
 //logout
 Route::get('/logout', [LoginController::class, 'logout'] )->name('Logout');
 
