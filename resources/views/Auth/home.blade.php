@@ -16,19 +16,23 @@
       </li>
 
       <li>
-        <a href="{{route('Auth.annonce.gerer_annonces')}}" data-title="Annonces">Gere Mes Annonces</a>
+        <a href="{{route('Auth.annonce.gerer_annonces')}}" data-title="Annonces">Gérer Mes Annonces</a>
       </li>
     
+      <li>
+        <a href="{{route('demandes')}}" data-title="Annonces">Gérer Les Demandes</a>
+      </li>
+
       <li>
         <a href="{{route('gerer_perso')}}" data-title="Timeline">Personnelles</a>
       </li>
 
       <li>
-        <a href="{{route('gere_filieres')}}" data-title="Search">Gèrer filière </a>
+        <a href="{{route('gere_filieres')}}" data-title="Search">Gérer  les filières </a>
       </li>
     
       <li>
-        <a href="{{route('gere_departements')}}" data-title="Team">Gèrer Departements</a>
+        <a href="{{route('gere_departements')}}" data-title="Team">Gérer Départements</a>
       </li>
     
       <li>
@@ -36,11 +40,11 @@
       </li>
 
       <li>
-        <a href="{{route('afficherCalendrier')}}" data-title="Timeline">Reserver salles</a>
+        <a href="{{route('afficherCalendrier')}}" data-title="Timeline">Réserver salles</a>
       </li>
     
       <li>
-        <a href="javascript:void(0);" data-title="Settings">Inscrire class</a>
+        <a href="javascript:void(0);" data-title="Settings">Inscrire classe</a>
       </li>
     
         

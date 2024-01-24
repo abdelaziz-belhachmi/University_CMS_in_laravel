@@ -65,6 +65,8 @@ Route::get('/user/demande', function () {
 
 Route::post('/user/demande',[demandesController::class,'store'])->name('submit.demande');
 
+Route::get('/demandes',[demandesController::class,'index'])->name('demandes');
+
 //Route::resource('/demandes',demandesController::class);
 
 
