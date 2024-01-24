@@ -33,13 +33,14 @@ class demandesController extends Controller
         $data = $request->validate([
             'type' => 'required',
             'description' => 'required',
-            
+            'destinataire' =>'required|in:1,2,4',
         ]);
         $data['user_id'] =Auth::user()->id;
         demandes::create($data);
         return redirect()->back()->with('message', 'Demande saved successfully.');
         // if checked chef filiere demande htsard end user li endo f role dek 0 aw 1..
         //b switch
+
 
 
     }

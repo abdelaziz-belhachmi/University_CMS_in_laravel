@@ -20,7 +20,8 @@ return new class extends Migration
             //foreignId d prof w d chef service w chef filiere
             //foreign id avec table
 
-            $table->foreignId('audience_id')->constrained('audiences')->onDelete('cascade');
+            $table->tinyInteger('destinataire');
+
 
 
         });

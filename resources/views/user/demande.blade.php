@@ -158,17 +158,17 @@
 
             <div class="form-group">
                 <label for="chefService">Chef de Service</label>
-                <input type="checkbox" id="chefService" name="recipient" value="chefService">
+                <input type="radio" id="chefService" name="destinataire" value="4">
             </div>
 
             <div class="form-group">
                 <label for="chefFiliere">Chef de Filière</label>
-                <input type="checkbox" id="chefFiliere" name="recipient" value="chefFiliere">
+                <input type="radio" id="chefFiliere" name="destinataire" value="2">
             </div>
 
             <div class="form-group">
                 <label for="moiProfesseur">Professeur</label>
-                <input type="checkbox" id="moiProfesseur" name="recipient" value="moiProfesseur">
+                <input type="radio" id="moiProfesseur" name="destinataire" value="1">
             </div>
             <button type="submit" >Soumettre</button>
         </form>

@@ -9,6 +9,6 @@ class demandes extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id', 'type', 'description'];
+    protected $fillable = ['user_id', 'type', 'description','destinataire'];
 
 }
