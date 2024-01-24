@@ -37,7 +37,7 @@ class demandesController extends Controller
         ]);
         $data['user_id'] =Auth::user()->id;
         demandes::create($data);
-        return redirect()->back()->with('success', 'Demande saved successfully.');
+        return redirect()->back()->with('message', 'Demande saved successfully.');
         // if checked chef filiere demande htsard end user li endo f role dek 0 aw 1..
         //b switch
 
@@ -47,8 +47,12 @@ class demandesController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function showAll(string $id)
     {
+        $allDemandes = demandes::all();
+        return view('user.demande', compact('allDemandes'));
+
+
         //
     }
 

@@ -17,8 +17,12 @@ return new class extends Migration
             $table->string('type'); // in this column we can store the type of demande (e.g., lettre, rendez-vous, stage, etc.)
             $table->text('description')->nullable();
             $table->timestamps();
-            //foreignId d prof w d chef service w d chef filiere
+            //foreignId d prof w d chef service w chef filiere
             //foreign id avec table
+
+            $table->foreignId('audience_id')->constrained('audiences')->onDelete('cascade');
+
+
         });
     }
 

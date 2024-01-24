@@ -96,6 +96,14 @@
     </head>
 
     <body>
+       
+        @if(session('message'))
+        <div style="background-color: green; color: white; padding: 10px; text-align: center; border-radius: 5px;">
+            {{ session('message') }}
+        </div>
+    @endif
+    
+       
 
         <form class="demandeForme"  action="{{route('submit.demande')}}" method="post">
             @csrf
@@ -107,6 +115,9 @@
                 <option value="attestation">Attestation de réussite</option>
                 <option value="releve">Relevé de Notes</option>
                 <option value="stage">Convention de Stage</option>
+                <option value="recom">lettre de recommondation</option>
+                <option value="filiere">Demande de changement de Filiere</option>
+
                 
 
 
@@ -175,9 +186,10 @@
                     // Afficher le champ pour l'année universitaire
                     document.getElementById('anneeUniversitaire').parentNode.style.display = 'block';
                 } else if (documentType === 'stage') {
-                    attestationFields.style.display = 'none';
                     stageFields.style.display = 'block';
                     releveFields.style.display = 'none';
+                    attestationFields.style.display = 'block';
+
 
 
                     // Masquer le champ pour l'année universitaire
