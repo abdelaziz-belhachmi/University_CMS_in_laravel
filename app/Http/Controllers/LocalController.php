@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Departement;
 use App\Models\local;
+use App\Models\reservation;
 use Illuminate\Http\Request;
+use Locale;
 
 class LocalController extends Controller
 {
@@ -33,6 +35,23 @@ class LocalController extends Controller
 
         local::create($data);
         return $this->getAll();
+    }
+
+    function delete($id){
+
+        $local = local::where('id',$id)->first();
+
+        //check first if has a reservation 
+        $r = reservation::where('local_id',$id)->get();
+        foreach($r as $re){
+            $re->delete();
+        }
+
+        //delete
+        $local->delete();
+
+        return $this->getAll();
+
     }
     
 }

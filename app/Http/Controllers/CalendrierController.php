@@ -33,8 +33,7 @@ class CalendrierController extends Controller
         // Get all locals that are not reserved for the specified date and time
         $locauxLibres = Local::whereNotIn('id', $reservedLocalIds)->get();
 
-        // all locals reserved in that specific time and date
-        $locauxreserve = Local::where('id', $reservedLocalIds)->get();
+        $locauxreserve = Local::whereIn('id', $reservedLocalIds)->get();
 
         // !!! nsit ma3andich crud dial les sales , blaty ncree sales !!!
 
@@ -67,6 +66,7 @@ function reserver(Request $r){
     ];
 
     reservation::create($data);
+    
 return redirect(route('Auth.accueil'));
 }
 

@@ -132,9 +132,14 @@ Route::get('Auth/reservation/calendrier',[CalendrierController::class,'calendrie
 Route::get('creneau/{year}/{month}/{day}',[CalendrierController::class,'creneau'])->name('afficherCreneau');
 Route::get('creneau/{year}/{month}/{day}/{hour}',[CalendrierController::class,'locaux'])->name('afficherlocauxLibres');
 Route::post('Auth/reserver',[CalendrierController::class,'reserver']);
+
 // POST "/reserver/${anne}/${mois}/${jours}/${creneau}/${local}" 
 
 // ** locaux ** //
 Route::get('Auth/locals/gerer',[LocalController::class , 'getAll'])->name('gere_locals');
 Route::get('/Auth/local/new',[LocalController::class , 'newForm'])->name('cree_local');
 Route::post('/Auth/local/new',[LocalController::class , 'new']);
+Route::get('/Auth/local/delete/{id}', [LocalController::class,'delete']);
+
+//** materiel **//
+Route::get('/local/gerer/materiaux',[])->name('gere_materiaux');

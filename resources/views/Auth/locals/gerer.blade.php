@@ -32,7 +32,7 @@
                                 <p>Departement :{{$local->departement->Nom_departement}}</p>
                                 
                                 <div id="bouttons-crud" >
-                                    <button onclick="e('{{$local->id}}')" style="background-color: #70a3e0">Modifier</button>
+                                    <button onclick="e('{{$local->id}}')" style="background-color: #70a3e0">Gerer materiaux</button>
                                     <button onclick="s('{{$local->id}}')" style="background-color:rgb(201, 39, 72)">Supprimer</button>
                                 </div>
 
@@ -50,11 +50,12 @@
     
     <script>
         function s(id) {
+            alert('are you sure');
             window.location.href='/Auth/local/delete/'+id;
 
         }
         function e(id){
-            window.location.href='/Auth/local/edit/'+id;
+            window.location.href='/local/gerer/materiaux/'+id;
 
         }
         function make(){
