@@ -32,7 +32,7 @@
       </li>
     
       <li>
-        <a href="javascript:void(0);" data-title="Diary">Gèrer salles</a>
+        <a href="{{route('gere_locals')}}" data-title="Diary">Gèrer salles</a>
       </li>
 
       <li>

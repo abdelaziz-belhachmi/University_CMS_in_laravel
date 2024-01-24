@@ -8,6 +8,7 @@ use App\Http\Controllers\CalendrierController;
 use App\Http\Controllers\demandesController;
 use App\Http\Controllers\DepartementController;
 use App\Http\Controllers\FilieresController;
+use App\Http\Controllers\LocalController;
 use App\Http\Controllers\PersonnellesController;
 use App\Models\Departement;
 use GuzzleHttp\Promise\Create;
@@ -126,10 +127,14 @@ Route::post('Auth/filiers/edit',[FilieresController::class,'edit']);
 
 Route::get('Auth/filiers/delete/{id}',[FilieresController::class,'delete']);
 
-// **  ** //
+// ** Reservation ** //
 Route::get('Auth/reservation/calendrier',[CalendrierController::class,'calendrier'])->name('afficherCalendrier');
 Route::get('creneau/{year}/{month}/{day}',[CalendrierController::class,'creneau'])->name('afficherCreneau');
 Route::get('creneau/{year}/{month}/{day}/{hour}',[CalendrierController::class,'locaux'])->name('afficherlocauxLibres');
-
-
+Route::post('Auth/reserver',[CalendrierController::class,'reserver']);
 // POST "/reserver/${anne}/${mois}/${jours}/${creneau}/${local}" 
+
+// ** locaux ** //
+Route::get('Auth/locals/gerer',[LocalController::class , 'getAll'])->name('gere_locals');
+Route::get('/Auth/local/new',[LocalController::class , 'newForm'])->name('cree_local');
+Route::post('/Auth/local/new',[LocalController::class , 'new']);

@@ -9,7 +9,12 @@ class local extends Model
 {
     use HasFactory;
 
-
+    protected $fillable = [
+        'Code_local',
+        'Nom_local',
+        'Type_local',
+        'departement_id'
+    ];
 
     public function reservation() {
         return $this->hasMany(reservation::class);

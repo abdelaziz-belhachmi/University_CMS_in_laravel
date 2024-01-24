@@ -13,7 +13,15 @@ class reservation extends Model
     // models relationships
 
     protected $fillable = [
-       
+       'Titre_reservation',
+       'sujet_reservation',
+       'start_time',
+       'day',
+       'month',
+       'year',
+       'local_id',
+       'user_id',
+
     ];
 
 
@@ -21,9 +29,6 @@ class reservation extends Model
         return $this->belongsTo(local::class);
     }
     
-    // public function creneau() {
-    //     return $this->belongsTo(creneau::class);
-    // }
-
+  
 
 }

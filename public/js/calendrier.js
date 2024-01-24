@@ -86,15 +86,28 @@ function clickerpourReserver(dayinmonth,month,year) {
       if (i >= first_day.getDay()) {
         dayinmonth = i - first_day.getDay() + 1;
         day.innerHTML = dayinmonth;
-        day.setAttribute('name',dayinmonth);
-        day.setAttribute('onclick',`clickerpourReserver(${dayinmonth},${month+1},${year})`);
-  
+       
         if (i - first_day.getDay() + 1 === currentDate.getDate() &&
           year === currentDate.getFullYear() &&
           month === currentDate.getMonth()
         ) {
           day.classList.add('current-date');
+          day.setAttribute('name',dayinmonth);
+          day.setAttribute('onclick',`clickerpourReserver(${dayinmonth},${month+1},${year})`);
+    
         }
+        else if(i - first_day.getDay() + 1 < currentDate.getDate() &&
+        year === currentDate.getFullYear() &&
+        month === currentDate.getMonth()
+      ){
+        day.setAttribute('onclick','alert(" impossible de faire une resevation dans un jour deja passe ")');
+        day.setAttribute('style','color:silver;border-radius:10px')
+      }else {
+        day.setAttribute('name',dayinmonth);
+        day.setAttribute('onclick',`clickerpourReserver(${dayinmonth},${month+1},${year})`);
+  
+      }
+
       }
   
       calendar_days.appendChild(day);
