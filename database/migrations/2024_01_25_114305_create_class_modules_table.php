@@ -11,11 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('etudiants', function (Blueprint $table) {
+        Schema::create('class_modules', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained(); // Foreign key to link to the users table
-            $table->foreignId('classes_id')->nullable()->constrained('classes');
-            $table->string('code_apogee');
+            $table->foreignId('classes_id')->constrained('classes');
+            $table->foreignId('modules_id')->constrained('modules');
             $table->timestamps();
         });
     }
@@ -25,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('etudiants');
+        Schema::dropIfExists('class_modules');
     }
 };

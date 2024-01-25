@@ -18,5 +18,14 @@ class classe extends Model
     {
         return $this->hasMany(User::class);
     }
-    
+
+    public function etudiants()
+    {
+        return $this->hasMany(Etudiant::class);
+    }
+
+    public function modules()
+    {
+        return $this->belongsToMany(module::class, 'class_modules');
+    }
 }

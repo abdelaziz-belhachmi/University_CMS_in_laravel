@@ -23,7 +23,7 @@
                 @foreach ($modules as $md)
                     
                 <div class="Module-card">
-                        <img src="/images/imagesdep/dep_img.png" class="Module__img">
+                        <img src="/images/imagesdep/book.png" class="Module__img">
                         <div class="Module-infos">
                             
                             <h3>Nom Module :{{$md->nom_module}}</h3>

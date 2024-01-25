@@ -21,4 +21,14 @@ class module extends Model
         return $this->belongsTo(filiere::class);
     }
 
+    public function classes()
+    {
+        return $this->belongsToMany(classe::class, 'class_modules');
+    }
+
+    public function professeur()
+    {
+        return $this->belongsTo(Professeur::class);
+    }
+
 }

@@ -18,7 +18,8 @@ return new class extends Migration
             $table->string('description_module');
             $table->integer('semestre');
             $table->foreignId('filiere_id')->constrained('filieres');
-           
+            $table->foreignId('professeurs_id')->nullable()->constrained('professeurs');
+
             $table->timestamps();
         });
     }
