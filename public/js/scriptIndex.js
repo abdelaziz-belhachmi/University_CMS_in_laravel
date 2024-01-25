@@ -27,3 +27,12 @@ setInterval(showSlides, 5000);
 
 // Run the slideshow when the page loads
 showSlides();
+
+function show(element){
+    var headingElement = element.children[0];
+    var contentElement = element.children[2];
+
+    document.getElementById('details-heading').innerText = headingElement.innerText;
+    document.getElementById('details-content').innerText = contentElement.innerText;
+    
+}

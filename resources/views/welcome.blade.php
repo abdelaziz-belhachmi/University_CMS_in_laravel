@@ -65,7 +65,9 @@
             <h2 align="center">ACTUALITÉS</h2>
             <ul id="announcement-list">
                @foreach($annonces as $annoce)
-               <li data-id="3">
+               
+               <li onclick="show(this)">
+
                        <h3> {{ $annoce->titre }}</h3>
                        <h6> {{ $annoce->user->prenom  }} {{$annoce->user->name}}   <br>   {{ $annoce->date_creation  }}   </h6>
                         <p style="display: none">{{ $annoce->description }}</p>     
