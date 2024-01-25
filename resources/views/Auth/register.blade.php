@@ -25,8 +25,26 @@
             <option value="4">Chef service</option>
             </select>
 
+            <div id="modulesDIV" style="display: none">
+              <label for="mod">Associer avec Filiere :</label>
+              <select style="height: 45px;margin:15px" id="mod" name="mod" onclick="" > 
+                <option disabled selected value> -- select a module -- </option>
+
+              @foreach ($filieresLibres as $filieresLibre)
+              <option value="{{$filieresLibre->id}}">{{$filieresLibre->Nom_filliere}}</option>
+              @endforeach  
+              
+            
+              
+            </select>
+            @if(sizeof($filieresLibres) == 0 )
+            <p style="color: red">aucune filiere libre <br> il faut cree une filiere avant associer Chef au filiere </p>
+            @endif
+            </div>
+
+
             <div id="filiereDIV" style="display: none">
-              <label for="dep">Associer avec Filiere :</label>
+              <label for="filiere">Associer avec Filiere :</label>
               <select style="height: 45px;margin:15px" id="filiere" name="filiere" onclick="" > 
                 <option disabled selected value> -- select a filiere -- </option>
 

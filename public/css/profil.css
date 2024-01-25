@@ -1,9 +1,18 @@
 /* Conteneur profil */
+#sectionProfile{
+    /* margin-top: 15vh; */
+    font-size: 21px !important;
+    font-weight: 600 !important;
+    display: grid;
+    justify-content: space-around;
+    /* background-color:red; */
+}
+
 #profil {
     text-align: center;
     margin-top: 50px;
 }
-
+ 
 #profil img {
     width: 100px;
     height: 100px;

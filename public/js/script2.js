@@ -32,6 +32,7 @@
        document.getElementById('code_Chef').setAttribute("style","display:none");
        document.getElementById('departementDIV').setAttribute("style","display:none");
        document.getElementById('filiereDIV').setAttribute("style","display:none");
+       document.getElementById('modulesDIV').setAttribute("style","display:none");
 
 
    }else if( selectedRole == 1) {//prof
@@ -41,6 +42,7 @@
        document.getElementById('code_Chef').setAttribute("style","display:none");
        document.getElementById('departementDIV').setAttribute("style","display:none");
        document.getElementById('filiereDIV').setAttribute("style","display:none");
+       document.getElementById('modulesDIV').setAttribute("style","");
 
 
       }else if( selectedRole == 2) {//chef filiere
@@ -49,6 +51,7 @@
         document.getElementById('code_Chef').setAttribute("style","");
         document.getElementById('departementDIV').setAttribute("style","display:none");
         document.getElementById('filiereDIV').setAttribute("style","");
+        document.getElementById('modulesDIV').setAttribute("style","display:none");
 
 
       }else if( selectedRole == 3) {//chef departement
@@ -57,6 +60,7 @@
         document.getElementById('code_Chef').setAttribute("style","");
         document.getElementById('departementDIV').setAttribute("style","");
         document.getElementById('filiereDIV').setAttribute("style","display:none");
+        document.getElementById('modulesDIV').setAttribute("style","display:none");
 
 
    } else {// chef service
@@ -65,6 +69,7 @@
      document.getElementById('code_Chef').setAttribute("style","");
      document.getElementById('departementDIV').setAttribute("style","display:none");
      document.getElementById('filiereDIV').setAttribute("style","display:none");
+     document.getElementById('modulesDIV').setAttribute("style","display:none");
 
 
    }

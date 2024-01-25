@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Chef_filiere;
+use App\Models\demandes;
 use App\Models\Departement;
 use App\Models\filiere;
 use App\Models\module;
+use App\Models\reservation;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Symfony\Component\Console\Input\Input;
@@ -71,7 +73,18 @@ class FilieresController extends Controller
         $ChefID = Chef_filiere::where('filieres_id',$id)->first();
         
         if ($ChefID) {
-            $u  = User::where('id',$ChefID->user_id)->first();      
+            $u  = User::where('id',$ChefID->user_id)->first();  
+            
+            $dem = demandes::where('user_id',$u->id)->first();
+            foreach ($dem as $de){
+                $de->delete();
+            }
+
+            $reser = reservation::where('user_id',$u->id)->first();
+            foreach ($reser as $res){
+                $res->delete();
+            }
+
             $ChefID->delete();
             $u->delete();
     }

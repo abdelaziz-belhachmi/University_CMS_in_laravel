@@ -14,6 +14,7 @@ use App\Http\Controllers\LocalController;
 use App\Http\Controllers\materiauxController;
 use App\Http\Controllers\ModuleController;
 use App\Http\Controllers\PersonnellesController;
+use App\Http\Controllers\userController;
 use App\Models\classe;
 use App\Models\Departement;
 use GuzzleHttp\Promise\Create;
@@ -46,6 +47,13 @@ Route::get('/Auth/home',function () {
     return view('Auth.home');
 })->name('Auth.home');
 
+
+Route::get('departements',function () {
+    return view('departements');
+})->name('departements');
+
+
+
 // login
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
@@ -59,10 +67,16 @@ Route::get('/Auth/home/accueil',[AnnonceController::class,'index'] )->name('Auth
 
 // student home
 Route::get('/user/home', function () {
-    return view('user.home');
+    return redirect(route('user.accueil'));
 })->name('user.home');
 
+/* profil route*/
+Route::get('/user/profil', [userController::class,'profil'] )->name('user.profil');
 
+/* accueil route*/
+Route::get('/user/accueil', [userController::class,'accueil'] )->name('user.accueil');
+
+/* user faire demandes */
 Route::get('/user/demande', function () {
     return view('user.demande');
 })->name('user.demande');
@@ -80,10 +94,6 @@ Route::delete('/demandes/{id}',[ demandesController::class,'destroy'])->name('de
 //logout
 Route::get('/logout', [LoginController::class, 'logout'] )->name('Logout');
 
-
-// Route::get('/Auth/home/annonce/gerer_annonces',function () {
-//     return view('Auth.annonce.gerer_annonces');
-// })->name('Auth.annonce.gerer_annonces');
 
 
 //*crud annonce*//

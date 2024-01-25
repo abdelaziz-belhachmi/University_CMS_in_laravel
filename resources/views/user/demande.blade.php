@@ -1,6 +1,6 @@
-@extends('layout.layout') <!-- Assuming you have a master layout, modify this as needed -->
+@extends('user.home') <!-- Assuming you have a master layout, modify this as needed -->
 @section('title', ' Demande')
-@section('content')
+@section('contents')
 
     <!DOCTYPE html>
     <html lang="en">
