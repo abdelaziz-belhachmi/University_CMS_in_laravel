@@ -67,6 +67,12 @@
         function ajouter(id){
             window.location.href='/Auth/filieres/modules/nouveau/'+id;
         }
+
+        function gerer(id){
+            window.location.href='/associer/classe/module/'+id;
+
+        }
+
     </script>
     
   

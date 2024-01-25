@@ -35,7 +35,9 @@ class ModuleController extends Controller
 
     function supprimer($id){
         $mdl = module::where('id',$id)->first();
+        $mdl->classes()->detach();
         $mdl->delete();
+        
         return redirect(route('gere_filieres'));
     }
 

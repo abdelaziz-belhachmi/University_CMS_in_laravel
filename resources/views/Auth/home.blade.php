@@ -44,7 +44,7 @@
       </li>
     
       <li>
-        <a href="javascript:void(0);" data-title="Settings">Inscrire classe</a>
+        <a href="{{route('gerer_classes')}}" data-title="Settings">Gerer Les classes</a>
       </li>
     
         

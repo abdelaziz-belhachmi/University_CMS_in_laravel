@@ -23,7 +23,7 @@ class module extends Model
 
     public function classes()
     {
-        return $this->belongsToMany(classe::class, 'class_modules');
+        return $this->belongsToMany(classe::class,  'class_modules', 'modules_id','classes_id');
     }
 
     public function professeur()

@@ -4,8 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\Chef_Departement;
 use App\Models\Chef_filiere;
+use App\Models\demandes;
 use App\Models\Departement;
 use App\Models\filiere;
+use App\Models\local;
+use App\Models\materiaux;
+use App\Models\module;
+use App\Models\reservation;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -74,7 +79,24 @@ class DepartementController extends Controller
     function delete($id){
         $de = Departement::where('id',$id)->first();
         $allfilieres = filiere::where('departement_id',$id)->get();
+
+        $locals = local::where('departement_id',$id)->get();
         
+        foreach ( $locals as $local) {
+        
+            $lid = $local->id;
+            $reser = reservation::where('local_id',$lid)->get();
+            foreach ($reser as $res){
+                $res->delete();
+            }
+
+             $mts= materiaux::where('local_id',$lid)->get();
+             foreach ($mts as $mt){
+                $mt->delete();
+             }
+             $local->delete();
+        }
+
         foreach ( $allfilieres as $filiere) {
             $this->deleteFiliere($filiere->id);
             // $filiere->delete();
@@ -84,6 +106,23 @@ class DepartementController extends Controller
 
         if($ChefID){
             $ChefID->delete();
+            
+            $uid = $ChefID->user_id;
+
+            $reser = reservation::where('user_id',$uid)->get();
+            foreach ($reser as $res){
+                $res->delete();
+            }
+
+            $dem = demandes::where('user_id',$uid)->first();
+            foreach ($dem as $de){
+                $de->delete();
+            }
+
+        
+
+            $u = User::where('id',$uid)->first();
+            $u->delete();
         }
 
         $de->delete();
@@ -100,13 +139,29 @@ class DepartementController extends Controller
         
         if ($ChefID) {
             $u  = User::where('id',$ChefID->user_id)->first();      
+            
+            $dem = demandes::where('user_id',$u->id)->first();
+            foreach ($dem as $de){
+                $de->delete();
+            }
+
+            $reser = reservation::where('user_id',$u->id)->first();
+            foreach ($reser as $res){
+                $res->delete();
+            }
+
             $ChefID->delete();
             $u->delete();
     }
-    
-        $f->delete();
 
-        // return $this->getAll();
+    $modules = module::where('filiere_id',$id)->get();
+    foreach ($modules as $module) {
+        
+        $module->classes()->detach();
+        
+        $module->delete();
+    }
+        $f->delete();
     }
 
 
