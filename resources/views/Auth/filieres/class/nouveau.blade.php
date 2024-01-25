@@ -158,7 +158,7 @@ body {
       {{--  --}}
       <hr>
       {{--  --}}
-      <div id="srchbardiv" style="width: 100%">
+      <div id="srchbardiv" style="width: 80% ; justify-content:center;display:flex">
 
       <div class="container">
         <div class="header">

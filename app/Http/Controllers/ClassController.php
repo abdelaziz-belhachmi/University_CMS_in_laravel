@@ -53,11 +53,13 @@ class ClassController extends Controller
             $student->classes_id = null;
             $student->save();
         }
+        
     
         // dd($students);
 
         // Find and delete the class
-        $class = Classe::find($id);
+        $class = classe::find($id);
+        $class->modules()->detach();
     
         if ($class) {
             $class->delete();
