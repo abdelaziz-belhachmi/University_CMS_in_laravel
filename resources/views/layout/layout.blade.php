@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title', 'Your App')</title>
-    <!-- Include your CSS stylesheets, scripts, or any other head elements here -->
+    <title>@yield('title', 'FStt CMS Laravel')</title>
 
 <style>
   
@@ -186,11 +185,6 @@ footer .btn:hover {
               <img src="/images/logoFstt.png" alt="Logo" />
             </div>
            
-{{--        
-            <div class="menu-right">
-              <a href="{{route('login')}}" class="cta-button"> Se Connecter </a>
-            </div> --}}
-
             @if (Route::has('login') && !request()->is('login'))
             <div style="align-items:center;display:flex">
             @auth
@@ -214,12 +208,7 @@ footer .btn:hover {
         <main class="" style="width: 99vw;justify-content:center;">
             @yield('content')
 
-            {{-- <footer style="height: 100px ; background-color:#000;color:#fff;display: flex;justify-content:center">
-                <div style="display: flex;justify-content:center">
-                 <p> @c copyright fst</p>
-                 </div>
-               </footer> --}}
-
+          
 
    <!-- FOOTER -->
    <footer>

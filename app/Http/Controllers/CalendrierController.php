@@ -24,6 +24,7 @@ class CalendrierController extends Controller
     function locaux($year,$month,$day,$hour){
 
              if(Auth::user()->role == 3){
+
             $depID = Auth::user()->Chef_Departement->departement_id ;
 
             $mylocals = Local::where('departement_id',$depID)->get();

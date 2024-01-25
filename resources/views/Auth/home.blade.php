@@ -18,11 +18,12 @@
       <li>
         <a href="{{route('Auth.annonce.gerer_annonces')}}" data-title="Annonces">Gérer Mes Annonces</a>
       </li>
-    
-      <li>
-        <a href="{{route('demandes')}}" data-title="Annonces">Gérer Les Demandes</a>
-      </li>
 
+    <li>
+      <a href="{{route('demandes')}}" data-title="Annonces">Gérer Les Demandes</a>
+    </li>
+
+      @if(Auth::user()->role == 4)
       <li>
         <a href="{{route('gerer_perso')}}" data-title="Timeline">Personnelles</a>
       </li>
@@ -34,18 +35,24 @@
       <li>
         <a href="{{route('gere_departements')}}" data-title="Team">Gérer Départements</a>
       </li>
-    
+      @endif
+      
+      @if(Auth::user()->role != 1)
       <li>
         <a href="{{route('gere_locals')}}" data-title="Diary">Gèrer salles</a>
       </li>
+      @endif
 
       <li>
         <a href="{{route('afficherCalendrier')}}" data-title="Timeline">Réserver salles</a>
       </li>
-    
+      
+      @if(Auth::user()->role == 3 && Auth::user()->role == 4)
+
       <li>
         <a href="{{route('gerer_classes')}}" data-title="Settings">Gerer Les classes</a>
       </li>
+      @endif
     
         
       <li>
