@@ -38,7 +38,6 @@ use Illuminate\Support\Facades\Request as FacadesRequest;
 
 /*HOME*/ 
 Route::get('/' ,  function () { 
-    // $annonces = Annonce::all();
     $userRole = "visiteur";
     $annonces = Annonce::whereHas('audience', function ($query) use ($userRole) {
             
@@ -49,22 +48,18 @@ Route::get('/' ,  function () {
     return view('welcome',compact('annonces'));
 })->name('welcome');
 
-Route::get('/home', function () {
-    if(Auth::user()->role == 0 ){ return redirect('user/home');}
-    else{  return redirect('Auth/home/accueil');}
-})->name('home');
-
-Route::get('/Auth/home',function () {
-    return view('Auth.home');
-})->name('Auth.home');
-
-
+// departements
 Route::get('departements',function () {
     $dep = Departement::all();
     return view('departements',compact('dep'));
 })->name('departements');
 
-
+// home
+Route::get('/home', function () {
+    if( Auth::check() && Auth::user()->role == 0 ){ return redirect('user/home');}
+    else if (Auth::check() && Auth::user()->role != 0 ){  return redirect('Auth/home/accueil');}
+    else { return redirect(route('welcome')); }
+})->name('home');
 
 // login
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
@@ -74,8 +69,14 @@ Route::post('/login', [LoginController::class, 'login']);
 Route::get('/Auth/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
 Route::post('/Auth/register', [RegisterController::class, 'register']);
 
-// admin home
-Route::get('/Auth/home/accueil',[AnnonceController::class,'index'] )->name('Auth.accueil');
+//logout
+Route::get('/logout', [LoginController::class, 'logout'] )->name('Logout');
+
+
+
+
+/****  middleware student ****/
+Route::middleware(['studentMiddleware'])->group(function () {
 
 // student home
 Route::get('/user/home', function () {
@@ -99,14 +100,16 @@ Route::get('/demandes',[demandesController::class,'index'])->name('demandes');
 
 Route::delete('/demandes/{id}',[ demandesController::class,'destroy'])->name('demandes.destroy');
 
-
-//Route::resource('/demandes',demandesController::class);
-
-
-//logout
-Route::get('/logout', [LoginController::class, 'logout'] )->name('Logout');
+});
+/**** end middleware student ****/
 
 
+// admin home
+Route::get('/Auth/home/accueil',[AnnonceController::class,'index'] )->name('Auth.accueil');
+
+Route::get('/Auth/home',function () {
+    return view('Auth.home');
+})->name('Auth.home');
 
 //*crud annonce*//
 // cree une nouvell annonce
