@@ -15,7 +15,8 @@ class LocalController extends Controller
 
     function getAll(){
         $locaux = local::all();
-       return view('Auth/locals/gerer',compact('locaux'));
+        $departements = Departement::all();
+       return view('Auth/locals/gerer',compact('locaux','departements'));
     }
 
     function newForm(){
@@ -31,7 +32,7 @@ class LocalController extends Controller
             'Code_local'=>$r->input('code_local'),
             'Nom_local' => $r->input('nom_local'),
             'Type_local' => $r->input('loc_type'),
-            'departement_id' => $r->input('dep')
+            'departement_id' => $r->has('dep') ? $r->input('dep') : null,
         ];
 
         local::create($data);
@@ -59,6 +60,14 @@ class LocalController extends Controller
 
         return $this->getAll();
 
+    }
+
+    function associer($idLocal,$idDep){
+
+       $l = local::where('id',$idLocal)->first();
+       $l->departement_id = $idDep;
+       $l->save();
+       return redirect(route('gere_locals'));
     }
     
 }

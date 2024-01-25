@@ -19,14 +19,16 @@ return new class extends Migration
 
                 $table->enum('Type_local', ['amphi', 'salle', 'salle conference']);
 
+<<<<<<< HEAD
                
                 $table->foreignId('departement_id')->constrained('departements');
 
+=======
+                $table->foreignId('departement_id')->nullable()->constrained('departements');
+>>>>>>> 32e315ba557d6a3271b38ad287e270a9952389d6
 
                 $table->timestamps();
             });
-
-
 
         }
     

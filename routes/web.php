@@ -68,6 +68,9 @@ Route::post('/user/demande',[demandesController::class,'store'])->name('submit.d
 
 Route::get('/demandes',[demandesController::class,'index'])->name('demandes');
 
+Route::delete('/demandes/{id}',[ demandesController::class,'destroy'])->name('demandes.destroy');
+
+
 //Route::resource('/demandes',demandesController::class);
 
 
@@ -139,13 +142,12 @@ Route::get('creneau/{year}/{month}/{day}',[CalendrierController::class,'creneau'
 Route::get('creneau/{year}/{month}/{day}/{hour}',[CalendrierController::class,'locaux'])->name('afficherlocauxLibres');
 Route::post('Auth/reserver',[CalendrierController::class,'reserver']);
 
-// POST "/reserver/${anne}/${mois}/${jours}/${creneau}/${local}" 
-
 // ** locaux ** //
 Route::get('Auth/locals/gerer',[LocalController::class , 'getAll'])->name('gere_locals');
 Route::get('/Auth/local/new',[LocalController::class , 'newForm'])->name('cree_local');
 Route::post('/Auth/local/new',[LocalController::class , 'new']);
 Route::get('/Auth/local/delete/{id}', [LocalController::class,'delete']);
+Route::get('/Auth/local/associer/{idLocal}/{idDep}',[LocalController::class,'associer']);
 
 //** materiel **//
 Route::get('/local/gerer/materiaux/{id}',[materiauxController::class,'getAll']);

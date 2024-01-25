@@ -6,6 +6,7 @@ use App\Models\local;
 use App\Models\reservation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Locale;
 
 class CalendrierController extends Controller
 {
@@ -22,22 +23,54 @@ class CalendrierController extends Controller
 
     function locaux($year,$month,$day,$hour){
 
-        $reservationDuJour = reservation::where('year', $year)
-        ->where('month', $month)
-        ->where('day', $day)
-        ->where('start_time',$hour)
-        ->get();
+             if(Auth::user()->role == 3){
+            $depID = Auth::user()->Chef_Departement->departement_id ;
 
-        $reservedLocalIds = $reservationDuJour->pluck('local_id')->toArray();
+            $mylocals = Local::where('departement_id',$depID)->get();
 
-        // Get all locals that are not reserved for the specified date and time
-        $locauxLibres = Local::whereNotIn('id', $reservedLocalIds)->get();
+            $reservationDuJour = reservation::where('year', $year)
+            ->where('month', $month)
+            ->where('day', $day)
+            ->where('start_time',$hour)
+            ->get();
+    
+            $reservedLocalIds = $reservationDuJour->pluck('local_id')->toArray();
+    
+                // Get reserved locals from myLocals
+                $locauxreserve = $mylocals->whereIn('id', $reservedLocalIds);
 
-        $locauxreserve = Local::whereIn('id', $reservedLocalIds)->get();
+                // Get free locals from myLocals
+                $locauxLibres = $mylocals->whereNotIn('id', $reservedLocalIds);
+             
+            // hna tle3 ga3 les sales li 3andom dep id 3la departement diali , 7it ana hua chef d dep
+            
+            return view('Auth/reservation/locauxLibres',compact('year','month','day','hour','locauxLibres','locauxreserve'));
+        }
+        else if(Auth::user()->role == 4){
+            // hna tle3 ga3 les sales li ma3andomch dep
+            $mylocals = Local::whereNull('departement_id')->get();
+            
+            $reservationDuJour = reservation::where('year', $year)
+            ->where('month', $month)
+            ->where('day', $day)
+            ->where('start_time',$hour)
+            ->get();
+    
+            $reservedLocalIds = $reservationDuJour->pluck('local_id')->toArray();
+    
 
-        // !!! nsit ma3andich crud dial les sales , blaty ncree sales !!!
+              // Get reserved locals from myLocals
+              $locauxreserve = $mylocals->whereIn('id', $reservedLocalIds);
 
-        return view('Auth/reservation/locauxLibres',compact('year','month','day','hour','locauxLibres','locauxreserve'));
+              // Get free locals from myLocals
+              $locauxLibres = $mylocals->whereNotIn('id', $reservedLocalIds);
+           
+
+            return view('Auth/reservation/locauxLibres',compact('year','month','day','hour','locauxLibres','locauxreserve'));
+        }
+        else{
+            return redirect(route('home'));
+        }
     } 
 
 function toutesLesSalesReserveDansJour($year,$month,$day){

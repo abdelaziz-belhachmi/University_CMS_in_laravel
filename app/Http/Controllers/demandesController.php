@@ -36,6 +36,7 @@ class demandesController extends Controller
      */
     public function store(Request $request)
     {
+        // 0 Etudiant / 1 professor /2 chef filiere / 4 chef_service
        // dd(Auth::user()->id);
         $data = $request->validate([
             'type' => 'required',
@@ -45,8 +46,7 @@ class demandesController extends Controller
         $data['user_id'] =Auth::user()->id;
         demandes::create($data);
         return redirect()->back()->with('message', 'Demande saved successfully.');
-        // if checked chef filiere demande htsard end user li endo f role dek 0 aw 1..
-        //b switch
+      
 
 
 
@@ -83,8 +83,11 @@ class demandesController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
         //
+        $demande = demandes::findOrFail($id);
+        $demande->delete();
+        return redirect()->back()->with('message', 'Demande deleted successfully.');
     }
 }
