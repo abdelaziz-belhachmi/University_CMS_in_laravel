@@ -62,6 +62,9 @@
         function make(){
             window.location.href='/Auth/filiers/new';
         }
+        function g(id){
+            window.location.href='/Auth/filieres/modules/afficher/'+id;
+        }
     </script>
     
   

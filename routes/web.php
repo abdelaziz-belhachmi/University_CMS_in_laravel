@@ -10,6 +10,7 @@ use App\Http\Controllers\DepartementController;
 use App\Http\Controllers\FilieresController;
 use App\Http\Controllers\LocalController;
 use App\Http\Controllers\materiauxController;
+use App\Http\Controllers\ModuleController;
 use App\Http\Controllers\PersonnellesController;
 use App\Models\Departement;
 use GuzzleHttp\Promise\Create;
@@ -152,3 +153,12 @@ Route::get('/materiel/new/{id}',[materiauxController::class,'showFormulaire']);
 Route::post('/materiel/new',[materiauxController::class,'newMateriel']);
 Route::get('/materiel/delete/{id}',[materiauxController::class , 'supprimer']);
 Route::get('/materiel/fixer/{id}',[materiauxController::class , 'fixerEtat']);
+// module//
+Route::get('Auth/filieres/modules/afficher/{id}',[ModuleController::class,'afficherTous']);
+Route::get('Auth/filieres/modules/nouveau/{id}',[ModuleController::class, 'formulaireDajout']);
+Route::post('/modules/nouveau',[ModuleController::class,'nouveauModule']);
+Route::get('/module/supprimer/{id}',[ModuleController::class , 'supprimer']);
+Route::get('/module/modifier/{id}',[ModuleController::class , 'modifier']);
+
+
+
