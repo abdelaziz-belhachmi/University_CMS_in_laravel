@@ -28,6 +28,15 @@ class LocalController extends Controller
  
     function new(Request $r){
         
+        $rules = [
+            'code_local' => 'required|unique:locals,Code_local',
+            'nom_local' => 'required',
+            'loc_type' => 'required',
+        ];
+    
+        // Validate the input data
+        $r->validate($rules);
+
         $data = [
             'Code_local'=>$r->input('code_local'),
             'Nom_local' => $r->input('nom_local'),
