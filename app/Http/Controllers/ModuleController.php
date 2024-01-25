@@ -19,9 +19,11 @@ class ModuleController extends Controller
 
     function nouveauModule(Request $req){
         $nv = [
+
             'code_module'=>$req->input('code'),
             'nom_module'=>$req->input('nom'),
             'description_module'=>$req->input('desc'),
+            'semestre'=>(int)$req->input('semestre'),
             'filiere_id'=>$req->input('filiere_id'),
     
         ];
@@ -30,6 +32,7 @@ class ModuleController extends Controller
         return redirect(route('gere_filieres'));
        
     }
+
     function supprimer($id){
         $mdl = module::where('id',$id)->first();
         $mdl->delete();

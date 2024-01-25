@@ -6,9 +6,11 @@
 
 
  <div style="display: flex;justify-content:end;">
+    @if(Auth::user()->role == 4)
 
      <button  style="height:50px;padding-inline:25px;color:rgb(0, 0, 0);align-self:center; background:#70a3e0;border:none" onclick="make();" class="dropbtn" >Nouvel Filiere</button>
- </div>
+ @endif
+    </div>
 <div style="justify-content:center;">
 
     {{-- @foreach ( $fil as $f) --}}
@@ -31,9 +33,21 @@
                             <p>Departement :{{$f->departement->Nom_departement}}</p>
                             
                             <div id="bouttons-crud" >
+
+                                @if(Auth::user()->role == 4)
+
                                 <button onclick="e('{{$f->id}}')" style="background-color: #70a3e0">Modifier filiere</button>
                                 <button onclick="g('{{$f->id}}')" style="background-color: #9cc8ff">gerer filiere</button>
                                 <button onclick="s('{{$f->id}}')" style="background-color:rgb(201, 39, 72)">Supprimer</button>
+                                    
+                                @endif
+
+                                @if(Auth::user()->role == 3)
+                                <button onclick="g('{{$f->id}}')" style="background-color: #9cc8ff">Les Modules du filiere</button>
+
+                                @endif
+
+                              
                             </div>
 
                         </div>

@@ -6,9 +6,11 @@
 
 
  <div style="display: flex;justify-content:end;">
+    @if(Auth::user()->role == 4)
 
      <button  style="height:50px;padding-inline:25px;color:rgb(0, 0, 0);align-self:center; background:#70a3e0;border:none" onclick="make();" class="dropbtn" >Nouvel Departemet</button>
- </div>
+ @endif
+    </div>
 <div style="justify-content:center;">
 
 

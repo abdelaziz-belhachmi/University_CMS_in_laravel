@@ -8,6 +8,7 @@ use App\Models\Departement;
 use App\Models\filiere;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DepartementController extends Controller
 {
@@ -19,8 +20,14 @@ class DepartementController extends Controller
     }
 
     function getAll(){
-        $dep = [];
-        $dep = Departement::all();
+        if(Auth::user()->role == 4){
+            $dep = Departement::all();
+        }
+        else if(Auth::user()->role == 3) {
+            $mondep = Auth::user()->Chef_Departement->departement_id;
+            $dep = Departement::where('id',$mondep)->get();
+              }
+       
         
         return view('Auth/departements/gerer',compact('dep'));
     }

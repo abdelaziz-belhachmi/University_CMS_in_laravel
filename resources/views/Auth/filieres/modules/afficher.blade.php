@@ -6,9 +6,11 @@
 
 
  <div style="display: flex;justify-content:end;">
+    @if(Auth::user()->role == 4)
 
-     <button  style="height:50px;padding-inline:25px;color:rgb(0, 0, 0);align-self:center; background:#70a3e0;border:none" onclick="ajouter();" class="dropbtn" >Nouveau module</button>
- </div>
+     <button  style="height:50px;padding-inline:25px;color:rgb(0, 0, 0);align-self:center; background:#70a3e0;border:none" onclick="ajouter('{{$id}}');" class="dropbtn" >Nouveau module</button>
+@endif
+    </div>
 <div style="justify-content:center;">
 
     
@@ -24,16 +26,20 @@
                         <img src="/images/imagesdep/dep_img.png" class="Module__img">
                         <div class="Module-infos">
                             
-                            <h3>Nom Module :{{$md->Nom_filliere}}</h3>
+                            <h3>Nom Module :{{$md->nom_module}}</h3>
 
-                            <p>Code Module :{{$md->Code_Module}}</p>
-                            <p>Departement :{{$md->departement->Nom_departement}}</p>
+                            <p>Code Module :{{$md->code_module}}</p>
+                            <p>Semestre :{{$md->semestre}}</p>
+
+                            <p>Filiere :{{$md->filiere->Nom_filliere}}</p>
                             
+                            @if(Auth::user()->role == 4)
                             <div id="bouttons-crud" >
                                 <button onclick="modifier('{{$md->id}}')" style="background-color: #70a3e0">Modifier Module</button>
-                                <button onclick="gerer('{{$md->id}}')" style="background-color: #9cc8ff">gerer Module</button>
+                                <button onclick="gerer('{{$md->id}}')" style="background-color: #9cc8ff">Inscrire une class</button>
                                 <button onclick="supprimer('{{$md->id}}')" style="background-color:rgb(201, 39, 72)">Supprimer</button>
                             </div>
+                            @endif
 
                         </div>
                 </div>
