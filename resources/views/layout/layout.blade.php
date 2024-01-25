@@ -196,7 +196,7 @@ footer .btn:hover {
             @auth
             <div class="" style="color: #001959">
 
-               <a style="color: #001351;font-weight:700" href="{{route('Auth.accueil')}}">{{ Auth::user()->name}}</a>
+               <a style="color: #001351;font-weight:700" href="{{route('home')}}">{{ Auth::user()->name}}</a>
             
               </div>
             @else

@@ -59,15 +59,11 @@ Route::get('/home', function () {
     if( Auth::check() && Auth::user()->role == 0 ){ return redirect('user/home');}
     else if (Auth::check() && Auth::user()->role != 0 ){  return redirect('Auth/home/accueil');}
     else { return redirect(route('welcome')); }
-})->name('home');
+})->name('home'); 
 
 // login
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
-
-// register
-Route::get('/Auth/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
-Route::post('/Auth/register', [RegisterController::class, 'register']);
 
 //logout
 Route::get('/logout', [LoginController::class, 'logout'] )->name('Logout');
@@ -75,7 +71,7 @@ Route::get('/logout', [LoginController::class, 'logout'] )->name('Logout');
 
 
 
-/****  middleware student ****/
+/****  middleware studentMiddleware ****/
 Route::middleware(['studentMiddleware'])->group(function () {
 
 // student home
@@ -101,7 +97,14 @@ Route::get('/demandes',[demandesController::class,'index'])->name('demandes');
 Route::delete('/demandes/{id}',[ demandesController::class,'destroy'])->name('demandes.destroy');
 
 });
-/**** end middleware student ****/
+/**** end middleware studentMiddleware ****/
+
+/***** middlware adminMiddleware ******/
+Route::middleware(['adminsMiddleware'])->group(function () {
+
+// register
+Route::get('/Auth/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
+Route::post('/Auth/register', [RegisterController::class, 'register']);
 
 
 // admin home
@@ -201,3 +204,7 @@ Route::get('/class/delete/{id}',[ClassController::class, 'delete']);
 
 Route::get('/associer/classe/module/{id}',[ClassModuleController::class, 'afficherform']);
 Route::get('/associer/classe/module/{idModule}/{idClass}',[ClassModuleController::class, 'associer']);
+
+
+});
+/**** end middleware adminMiddleware ****/

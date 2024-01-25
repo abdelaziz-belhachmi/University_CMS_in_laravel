@@ -14,15 +14,24 @@ use Illuminate\Support\Facades\Auth;
 class userController extends Controller
 {
     function profil(){
-
         $user = Auth::user();
-        $etudiant = Etudiant::where('user_id',$user->id)->first();
-        $class = classe::where('id',$etudiant->classes_id)->first(); 
-        $modules = $class->modules;
-        $filiereIds = $modules->pluck('filiere_id')->unique();
-        $filires = filiere::whereIn('id',$filiereIds)->get();               
-        return view('user.profil',compact('user','etudiant','modules','class','filires'));
-    } 
+        $etudiant = Etudiant::where('user_id', $user->id)->first();
+    
+        if ($etudiant) {
+            $class = classe::where('id', $etudiant->classes_id)->first();
+    
+            if ($class) {
+                $modules = $class->modules;
+                $filiereIds = $modules->pluck('filiere_id')->unique();
+                $filires = filiere::whereIn('id', $filiereIds)->get();
+    
+                return view('user.profil', compact('user', 'etudiant', 'modules', 'class', 'filires'));
+            }
+        }
+    
+        return view('user.profil', compact('user', 'etudiant'));
+    }
+    
 
     function accueil(){
         $myRole = Auth::user()->role;
