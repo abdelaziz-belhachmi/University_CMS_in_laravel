@@ -18,16 +18,19 @@ return new class extends Migration
             $table->enum('sexe', ['male', 'female']);
             $table->date('date_naissance')->default(now());
             $table->string('cin');
+            
             $table->tinyInteger('role')->default(0); // 0 student / 1 professor /2 chef filiere / 3 chef departement / 4 chef_service
+            
             $table->string('numero_telephone');
             $table->string('ville')->nullable();
             $table->string('adresse')->nullable();
-            $table->integer('code_postale')->nullable();
+            $table->string('code_postale')->nullable();
 
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
+
             $table->timestamps();
         });
     }

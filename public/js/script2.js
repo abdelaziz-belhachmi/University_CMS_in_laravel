@@ -30,6 +30,7 @@
        document.getElementById('apogee').setAttribute("style","");
        document.getElementById('code_doti').setAttribute("style","display:none");
        document.getElementById('code_Chef').setAttribute("style","display:none");
+      
        document.getElementById('departementDIV').setAttribute("style","display:none");
        document.getElementById('filiereDIV').setAttribute("style","display:none");
        document.getElementById('modulesDIV').setAttribute("style","display:none");
@@ -40,6 +41,7 @@
        document.getElementById('apogee').setAttribute("style","display:none");
        document.getElementById('code_doti').setAttribute("style","");
        document.getElementById('code_Chef').setAttribute("style","display:none");
+      
        document.getElementById('departementDIV').setAttribute("style","display:none");
        document.getElementById('filiereDIV').setAttribute("style","display:none");
        document.getElementById('modulesDIV').setAttribute("style","");
@@ -49,6 +51,7 @@
         document.getElementById('apogee').setAttribute("style","display:none");
         document.getElementById('code_doti').setAttribute("style","display:none");
         document.getElementById('code_Chef').setAttribute("style","");
+       
         document.getElementById('departementDIV').setAttribute("style","display:none");
         document.getElementById('filiereDIV').setAttribute("style","");
         document.getElementById('modulesDIV').setAttribute("style","display:none");
@@ -58,6 +61,7 @@
         document.getElementById('apogee').setAttribute("style","display:none");
         document.getElementById('code_doti').setAttribute("style","display:none");
         document.getElementById('code_Chef').setAttribute("style","");
+       
         document.getElementById('departementDIV').setAttribute("style","");
         document.getElementById('filiereDIV').setAttribute("style","display:none");
         document.getElementById('modulesDIV').setAttribute("style","display:none");
@@ -67,6 +71,7 @@
     document.getElementById('apogee').setAttribute("style","display:none");
      document.getElementById('code_doti').setAttribute("style","display:none");
      document.getElementById('code_Chef').setAttribute("style","");
+    
      document.getElementById('departementDIV').setAttribute("style","display:none");
      document.getElementById('filiereDIV').setAttribute("style","display:none");
      document.getElementById('modulesDIV').setAttribute("style","display:none");

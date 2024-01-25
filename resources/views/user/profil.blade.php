@@ -35,23 +35,31 @@
 
             <li id="codapogee">Code d'apogee: {{$etudiant->code_apogee}}</li>
 
-            @if($class)
-            <li id="annee currente">Class Inscris: {{$class->class_name}} </li>
+            @if(isset($class))
+            <li id="annee currente">Class Inscris: {{$class->nom_classe}} </li>
             @endif
 
-            @if($modules)
-                @foreach($modules as $module)
-                    <li id="modules">{{$module->nom_module}}  '{{filiere::where('id',$module->filiere_id)->first()->nom_filiere}} '</li>
-                @endforeach
-            @endif
+        @if(isset($filires))
+<ol>
+            @foreach ($filires as $filiere)
+                <h1 style="color:#555">{{$filiere->Nom_filliere}}</h1>
+
+                @if(isset($modules))
+                    @foreach($modules as $module)
+                        <li id="modules"> Module :{{$module->nom_module}} </li>
+                    @endforeach
+                @endif
+
+            @endforeach
+</ol>
+
+        @endif
 
         </ul>
 </div>
 
 
 </div>
-
-
 
 </div>
 

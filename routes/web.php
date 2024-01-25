@@ -46,8 +46,7 @@ Route::get('/' ,  function () {
 
     })->with(['audience'])->get();
 
-$x = 0;
-    return view('welcome',compact('annonces','x'));
+    return view('welcome',compact('annonces'));
 })->name('welcome');
 
 Route::get('/home', function () {

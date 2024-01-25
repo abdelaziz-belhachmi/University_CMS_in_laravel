@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Chef_filiere;
 use App\Models\Departement;
 use App\Models\filiere;
+use App\Models\module;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
@@ -33,12 +34,14 @@ class RegisterController extends Controller
 
         $filieresLibres =  filiere::whereDoesntHave('chefFiliere')->get();
 
-        return view('auth.register',compact('departementsLibres','filieresLibres'));
+        $modules = module::whereDoesntHave('professeurs')->get();
+
+        return view('auth.register',compact('departementsLibres','filieresLibres','modules'));
     }
 
     public function register(Request $r){
      
-    //   $this->validator($r->all())->validate();
+      $this->validator($r->all())->validate();
 
       $user = $this->create($r->all());
         $name = "".$user->name;
@@ -51,8 +54,9 @@ class RegisterController extends Controller
             'first_name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password' => ['required', 'string'],
             'role' => ['required', 'string', 'between:0,4'],
+            // 'cin' => ['required', 'string', 'unique:users'],
         ]);
     }
 
@@ -78,12 +82,17 @@ class RegisterController extends Controller
                 break;
 
             case 1: // professeur
-                $user->professeur()->create(['code_doti' => $data['code_doti']]);
+                $professeur = $user->professeur()->create(['code_doti' => $data['code_doti'] ]);
+                $m = module::where('id',$data['mod'])->first();
+                $m->professeurs_id =  $professeur->id;
+                $m->save();
+
                 break;
 
             case 2: // Chef filliere
 
                 $user->Chef_filiere()->create([ 'code_Chef' => $data['code_Chef'] ,'filieres_id' => $data['filiere'] ]);
+
                 break;
             case 3: // Chef departement
 

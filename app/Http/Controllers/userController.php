@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Annonce;
+use App\Models\classe;
+use App\Models\ClassModule;
 use App\Models\Etudiant;
+use App\Models\filiere;
+use App\Models\module;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -13,8 +17,12 @@ class userController extends Controller
 
         $user = Auth::user();
         $etudiant = Etudiant::where('user_id',$user->id)->first();
-        return view('user.profil',compact('user','etudiant'));
-    }
+        $class = classe::where('id',$etudiant->classes_id)->first(); 
+        $modules = $class->modules;
+        $filiereIds = $modules->pluck('filiere_id')->unique();
+        $filires = filiere::whereIn('id',$filiereIds)->get();               
+        return view('user.profil',compact('user','etudiant','modules','class','filires'));
+    } 
 
     function accueil(){
         $myRole = Auth::user()->role;

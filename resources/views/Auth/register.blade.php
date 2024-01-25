@@ -15,7 +15,7 @@
         <div  class="crrr" >
             @csrf
          
-            <label for="role">Role:</label>
+            <label for="role"><b>Role :</b></label>
             
             <select style="height: 45px;margin:10px" id="role" name="role" onclick="checkrole()"> 
             <option value="0">Étudiant</option>
@@ -26,26 +26,24 @@
             </select>
 
             <div id="modulesDIV" style="display: none">
-              <label for="mod">Associer avec Filiere :</label>
-              <select style="height: 45px;margin:15px" id="mod" name="mod" onclick="" > 
-                <option disabled selected value> -- select a module -- </option>
+              <label for="mod"><b>Associer avec Module :</b></label>
+              <select style="height: 45px;margin:15px;font-size:15px" id="mod" name="mod" onclick="" > 
+                <option disabled selected value> --  module (Code Module) -- </option>
 
-              @foreach ($filieresLibres as $filieresLibre)
-              <option value="{{$filieresLibre->id}}">{{$filieresLibre->Nom_filliere}}</option>
+              @foreach ($modules as $module)
+              <option value="{{$module->id}}"> {{$module->nom_module}} <small>({{$module->code_module}})</small></option>
               @endforeach  
-              
-            
               
             </select>
             @if(sizeof($filieresLibres) == 0 )
-            <p style="color: red">aucune filiere libre <br> il faut cree une filiere avant associer Chef au filiere </p>
+            <p style="color: red">aucune modules libre <br> il faut cree un module avant associer au proffesseur </p>
             @endif
             </div>
 
 
             <div id="filiereDIV" style="display: none">
-              <label for="filiere">Associer avec Filiere :</label>
-              <select style="height: 45px;margin:15px" id="filiere" name="filiere" onclick="" > 
+              <label for="filiere"><b>Associer avec Filiere :</b></label>
+              <select style="height: 45px;margin:15px;font-size:15px" id="filiere" name="filiere" onclick="" > 
                 <option disabled selected value> -- select a filiere -- </option>
 
               @foreach ($filieresLibres as $filieresLibre)
@@ -61,8 +59,8 @@
             </div>
 
           <div id="departementDIV" style="display: none">
-            <label for="dep">Assosiver avec Depratement :</label>
-            <select style="height: 45px;margin:15px" id="dep" name="dep" onclick="" > 
+            <label for="dep"><b>Assosiver avec Depratement :</b></label>
+            <select style="height: 45px;margin:15px;font-size:15px" id="dep" name="dep" onclick="" > 
               <option disabled selected value> -- select a Depratement -- </option>
 
             @foreach ($departementsLibres as $departementsLibre)
@@ -74,9 +72,12 @@
             <p style="color: red">aucune Depratement libre <br> il faut avoir au mois un departement libre avant lui associer un Chef  </p>
             @endif
           </div>
-    
-            <div>
+    <br><br>
+            <div><label for="first_name"><b>Nom</b></label>
                 <input type="text" class="input-field" name="first_name" required="required" placeholder="Nom" value="" >
+              </div>
+              
+              <div><label for="last_name"><b>Prenom</b></label>
                 <input type="text" class="input-field" name="last_name" required="required"  placeholder="Prenom" value="">
             </div>
     
@@ -92,22 +93,62 @@
         </div>
     
         <div>
-            <label for="dob">Date de naissance:</label>
+            <label for="dob"><b>Date de naissance :</b></label>
             <input type="date" id="dob" name="birthdate" value="" required>
         </div>
+
+{{-- 
     <input type="text" class="input-field" id="apogee" name="apogee"  placeholder="Code apogée"  >
-    
     <input type="text" class="input-field" id="code_doti" name="code_doti" placeholder="Code Doti" style="display: none" >
-  
     <input type="text" class="input-field" id="code_Chef" name="code_Chef" placeholder="Code Chef" style="display: none" >
-
-
     <input type="text" class="input-field" name="cin" placeholder="CIN" required="required" value="">
     <input type="text" class="input-field" name="phone" placeholder="Telephone" required="required" value="">
     <input type="text" class="input-field" name="address" placeholder="Adresse" required="required" value="">
     <input type="text" class="input-field" name="city" placeholder="Ville" required="required" value="">
     <input type="text" class="input-field" name="zip" placeholder="code zip" required="required" value="">
-             
+              --}}
+
+              <div id="apogee" >
+                <label for="apogee"><b>Code apogée :</b></label>
+                <input type="text" class="input-field"  name="apogee" placeholder="Code apogée">
+            </div>
+            
+            <div id="code_doti" style="display: none">
+                <label for="code_doti"><b>Code Doti :</b></label>
+                <input type="text" class="input-field"name="code_doti" placeholder="Code Doti" >
+            </div>
+            
+            <div id="code_Chef" style="display: none">
+                <label for="code_Chef"><b>Code Chef :</b></label>
+                <input type="text" class="input-field"  name="code_Chef" placeholder="Code Chef" >
+            </div>
+            
+            <div>
+                <label for="cin"><b>CIN :</b></label>
+                <input type="text" class="input-field" name="cin" placeholder="CIN" required="required" value="">
+            </div>
+            
+            <div>
+                <label for="phone"><b>Telephone :</b></label>
+                <input type="text" class="input-field" name="phone" placeholder="Telephone" required="required" value="">
+            </div>
+            
+            <div>
+                <label for="address"><b>Adresse :</b></label>
+                <input type="text" class="input-field" name="address" placeholder="Adresse" required="required" value="">
+            </div>
+            
+            <div>
+                <label for="city"><b>Ville :</b></label>
+                <input type="text" class="input-field" name="city" placeholder="Ville" required="required" value="">
+            </div>
+            
+            <div>
+                <label for="zip"><b>Code zip :</b></label>
+                <input type="text" class="input-field" name="zip" placeholder="Code zip" required="required" value="">
+            </div>
+            
+
       
           <button type="submit" class="registerbtn">Register</button>
         </div>

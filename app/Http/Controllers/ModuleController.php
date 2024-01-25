@@ -18,18 +18,21 @@ class ModuleController extends Controller
     }
 
     function nouveauModule(Request $req){
+       $fid = $req->input('filiere_id');
         $nv = [
 
             'code_module'=>$req->input('code'),
             'nom_module'=>$req->input('nom'),
             'description_module'=>$req->input('desc'),
             'semestre'=>(int)$req->input('semestre'),
-            'filiere_id'=>$req->input('filiere_id'),
-    
+            'filiere_id'=>$fid,
         ];
      
-        $modl = module::create($nv);
-        return redirect(route('gere_filieres'));
+        module::create($nv);
+
+        $rout = 'Auth/filieres/modules/afficher/'.$fid;
+
+        return redirect($rout);
        
     }
 

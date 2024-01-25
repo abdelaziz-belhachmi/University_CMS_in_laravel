@@ -26,6 +26,9 @@ class User extends Authenticatable
         'cin',
         'email',
         'password',
+        'adresse',
+        'ville',
+        'code_postale',
     ];
 
     /**

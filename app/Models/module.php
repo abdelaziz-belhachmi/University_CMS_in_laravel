@@ -26,7 +26,7 @@ class module extends Model
         return $this->belongsToMany(classe::class,  'class_modules', 'modules_id','classes_id');
     }
 
-    public function professeur()
+    public function professeurs()
     {
         return $this->belongsTo(Professeur::class);
     }
