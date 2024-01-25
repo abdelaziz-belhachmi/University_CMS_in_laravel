@@ -107,16 +107,15 @@
 
         <form class="demandeForme"  action="{{route('submit.demande')}}" method="post">
             @csrf
-            <span>Object</span>
             <legend>Demande de Document Administratif</legend>
             <br>
             <label for="documentType">Type de Document:</label>
-            <select id="documentType" name="type" onchange="showAdditionalFields()" required>
-                <option value="attestation">Attestation de réussite</option>
-                <option value="releve">Relevé de Notes</option>
-                <option value="stage">Convention de Stage</option>
-                <option value="recom">lettre de recommondation</option>
-                <option value="filiere">Demande de changement de Filiere</option>
+            <select id="documentType" name="type"  required>
+                <option value="Attestation de réussite">Attestation de réussite</option>
+                <option value="Relevé de Notes">Relevé de Notes</option>
+                <option value="Convention de Stage">Convention de Stage</option>
+                <option value="lettre de recommondation">lettre de recommondation</option>
+                <option value="Demande de changement de Filière">Demande de changement de Filière</option>
 
                 
 
@@ -129,29 +128,12 @@
                 <label for="description">Description:</label>
                 <textarea id="description" name="description" rows="4"></textarea>
 
-                <label for="semestre">Semestre:</label>
-                <input type="text" id="semestre" name="semestre">
-            </div>
-
-
-            <!-- Champs supplémentaires pour Attestation -->
-            <div id="attestationFields" style="display: block">
                 <label for="filiere">Filière:</label>
                 <input type="text" id="filiere" name="filiere">
 
-                <label for="anneeUniversitaire">Année Universitaire:</label>
-                <input type="text" id="anneeUniversitaire" name="anneeUniversitaire">
             </div>
 
-            <!-- Champs supplémentaires pour Convention de Stage -->
-            <div id="stageFields" style="display: none">
-                <label for="dureeStage">Durée de Stage (en mois):</label>
-                <input type="number" id="dureeStage" name="dureeStage">
-
-                <label for="nomEntreprise">Nom de l'Entreprise:</label>
-                <input type="text" id="nomEntreprise" name="nomEntreprise">
-            </div>
-
+    
             <div>
                 <label for="professeur">Destinataire de la demande :</label>
             </div>
@@ -173,38 +155,6 @@
             <button type="submit" >Soumettre</button>
         </form>
 
-        <script>
-            function showAdditionalFields() {
-                var documentType = document.getElementById('documentType').value;
-                var attestationFields = document.getElementById('attestationFields');
-                var stageFields = document.getElementById('stageFields');
-
-                if (documentType === 'attestation') {
-                    attestationFields.style.display = 'block';
-                    stageFields.style.display = 'none';
-
-                    // Afficher le champ pour l'année universitaire
-                    document.getElementById('anneeUniversitaire').parentNode.style.display = 'block';
-                } else if (documentType === 'stage') {
-                    stageFields.style.display = 'block';
-                    releveFields.style.display = 'none';
-                    attestationFields.style.display = 'block';
-
-
-
-                    // Masquer le champ pour l'année universitaire
-                    document.getElementById('anneeUniversitaire').parentNode.style.display = 'none';
-                } else {
-                    attestationFields.style.display = 'none';
-                    stageFields.style.display = 'none';
-                    releveFields.style.display = 'block';
-
-
-                    // Masquer le champ pour l'année universitaire
-                    document.getElementById('anneeUniversitaire').parentNode.style.display = 'none';
-                }
-            }
-        </script>
     </body>
 
     </html>

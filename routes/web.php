@@ -67,6 +67,9 @@ Route::post('/user/demande',[demandesController::class,'store'])->name('submit.d
 
 Route::get('/demandes',[demandesController::class,'index'])->name('demandes');
 
+Route::delete('/demandes/{id}',[ demandesController::class,'destroy'])->name('demandes.destroy');
+
+
 //Route::resource('/demandes',demandesController::class);
 
 

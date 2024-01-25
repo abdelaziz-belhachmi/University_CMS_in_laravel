@@ -328,3 +328,37 @@ text:center;
 
 
 }
+
+
+/* partie de demande */
+    /* Style de base pour le lien */
+    .button-blacke {
+        display: inline-block;
+        padding: 10px 40px;
+        text-decoration: none;
+        color: #fff; /* Couleur du texte */
+        background-color: #7fabcb ; /* Couleur de fond */
+        transition: background-color 0.3s ease; /* Transition d'animation */
+        margin-inline: auto ;
+        
+    }
+    /* Style lors du survol */
+    .button-blacke:hover {
+        background-color:#EECD0C; /* Nouvelle couleur de fond lors du survol */
+    }
+
+
+    .button-blackes {
+      display: inline-block;
+      padding: 10px 40px;
+      text-decoration: none;
+      color: #fff; /* Couleur du texte */
+      background-color: #7fabcb ; /* Couleur de fond */
+      transition: background-color 0.3s ease; /* Transition d'animation */
+      margin-right: 10px;
+      
+  }
+  /* Style lors du survol */
+  .button-blackes:hover {
+      background-color:#EECD0C; /* Nouvelle couleur de fond lors du survol */
+  }
