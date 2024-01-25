@@ -160,7 +160,9 @@ Route::get('Auth/filieres/modules/afficher/{id}',[ModuleController::class,'affic
 Route::get('Auth/filieres/modules/nouveau/{id}',[ModuleController::class, 'formulaireDajout']);
 Route::post('/modules/nouveau',[ModuleController::class,'nouveauModule']);
 Route::get('/module/supprimer/{id}',[ModuleController::class , 'supprimer']);
-Route::get('/module/modifier/{id}',[ModuleController::class , 'modifier']);
+
+Route::get('/module/modifier/{id}',[ModuleController::class , 'modifierFormulaire']);
+Route::post('/module/modifier',[ModuleController::class , 'modifier']);
 
 
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Chef_filiere;
 use App\Models\Departement;
 use App\Models\filiere;
+use App\Models\module;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Symfony\Component\Console\Input\Input;
@@ -75,6 +76,14 @@ class FilieresController extends Controller
             $u->delete();
     }
     
+    // mse7 les modules d filiere 9bel matmse7 filiere
+
+    $modules = module::where('filiere_id',$id)->get();
+
+    foreach($modules as $module){
+        $module->delete();
+    }
+
         $f->delete();
 
         return $this->getAll();

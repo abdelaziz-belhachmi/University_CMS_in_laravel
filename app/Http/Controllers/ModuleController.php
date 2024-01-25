@@ -43,6 +43,22 @@ class ModuleController extends Controller
         return view('Auth\filieres\modules\nouveau',compact('id'));
     }
     
+    function modifierFormulaire($id){
+        $mod = module::where('id',$id)->first();
+        return view('Auth/filieres/modules/modifier',compact('id','mod'));
+    }
 
+    function modifier(Request $r){
+       $modid = $r->input('id');
+       $mod = module::where('id',$modid)->first();
+      
+       $mod->code_module = $r->input('code');
+       $mod->nom_module=$r->input('nom');
+       $mod->description_module=$r->input('desc');
+       $mod->semestre =$r->input('semestre');
+
+       $mod->save();
+       return redirect(route('gere_filieres'));
+    }
 
 }
