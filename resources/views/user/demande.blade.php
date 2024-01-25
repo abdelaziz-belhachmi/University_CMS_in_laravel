@@ -73,6 +73,9 @@
                 border-radius: 4px;
                 cursor: pointer;
                 font-size: 16px;
+                position: abs;
+                right: 0;
+
             }
 
             button:hover {
@@ -82,7 +85,7 @@
 
             .form-group {
                 display: grid;
-                grid-template-columns: max-content auto;
+                grid-template-columns: 1fr 1fr;
                 align-items: center;
                 gap: 10px;
             }
@@ -127,9 +130,6 @@
             <div id="releveFields" style="display: block">
                 <label for="description">Description:</label>
                 <textarea id="description" name="description" rows="4"></textarea>
-
-                <label for="filiere">Filière:</label>
-                <input type="text" id="filiere" name="filiere">
 
             </div>
 
