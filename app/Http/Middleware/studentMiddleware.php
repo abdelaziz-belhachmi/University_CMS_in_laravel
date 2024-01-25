@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
 class studentMiddleware
@@ -15,6 +16,17 @@ class studentMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        return $next($request);
+
+        if ( Auth::check()){
+            if (Auth::user()->role == 0) {
+             return $next($request);
+            } else {
+             return redirect(route('home'));
+         }
+     }
+     else {
+         return redirect(route('welcome'));
+     }
+
     }
 }
