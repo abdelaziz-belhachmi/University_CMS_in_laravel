@@ -16,7 +16,7 @@
         <div class="menu-left">
             <a href="#bienvenue">Acceuil</a>
             <a href="#formations">Formations</a>
-            <a href="LesDepartemennts/departements.html">Departements</a>
+            <a href="/departements/dep.html">Departements</a>
             <div class="dropdown">
 
                 <a>Espace Etudiant</a>

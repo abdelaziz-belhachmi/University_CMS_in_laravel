@@ -7,24 +7,24 @@
 
 <div id="profil">
     <img src ="/images/userpic.jpg">
-    <h3> Nom et prenom</h3>
+    <h3> {{ $user->name}} {{ $user->prenom }}</h3>
     <p>CNE:</p>
-    <p>CNI:</p>
+    <p>CNI:{{ $user->cin}}</p>
 
 </div>
 <div id ="infos_etudes">
 <ul>
     <li id="annee currente">Annee currente:</li>
     <li id="filiere">La filiere: </li>
-    <li id="codapogee">Code d'apogee:</li>
+    <li id="codapogee">Code d'apogee:{{ $etudiant->code_apogee}}</li>
 </ul>
 
 </div>
 <div id ="infos_pers">
     <ul>
         <li id="adresse">Adresse: </li>
-        <li id="bdd">Date de naissance: </li>
-        <li id="email"> Email:</li>
+        <li id="bdd">Date de naissance:{{ $user->date_naissance}} </li>
+        <li id="email"> Email:{{ $user->email}} </li>
     </ul>
  
 </div>
