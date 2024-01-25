@@ -19,16 +19,10 @@ return new class extends Migration
 
                 $table->enum('Type_local', ['amphi', 'salle', 'salle conference']);
 
-                // $table->unsignedSmallInteger('departement_id');    
-                // $table->foreign('departement_id')->references('departements_id')->on('departements');
-
-                $table->foreignId('departement_id')->constrained('departements');
-
+                $table->foreignId('departement_id')->nullable()->constrained('departements');
 
                 $table->timestamps();
             });
-
-
 
         }
     
