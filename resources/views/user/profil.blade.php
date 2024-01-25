@@ -6,7 +6,7 @@
 
 
 <div id="profil">
-    <img src ="/images/icon/userpic.jpg">
+    <img src ="/images/userpic.jpg">
     <h3> Nom et prenom</h3>
     <p>CNE:</p>
     <p>CNI:</p>
