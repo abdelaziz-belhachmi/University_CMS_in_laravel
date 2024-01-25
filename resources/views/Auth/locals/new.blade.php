@@ -25,17 +25,21 @@
              
               <div id="departementDIV" style="">
                 <label for="dep">Assosiver avec Depratement :</label>
-                <select style="height: 45px;margin:15px" id="dep" name="dep" onclick="" required> 
+                <select style="height: 45px;margin:15px" id="dep" name="dep" onclick="" > 
                 <option disabled selected value> -- select une Depratement -- </option>
+                
                 @foreach ($All_departements as $a_departement)
+@if(Auth::user()->Chef_Departement && Auth::user()->Chef_Departement->departement_id == $a_departement->id)
                   <option value="{{$a_departement->id}}">{{$a_departement->Nom_departement}}</option>
-                @endforeach  
+                @endif
+                  @endforeach  
                   
                 </select>
-
+{{-- 
                 @if(sizeof($All_departements) == 0 )
                 <p style="color: red">il y a aucun departement <br> il faut avoir un departement avant associer un local </p>
                 @endif
+                 --}}
               </div> 
       
               <input type="submit" name="submit" value="submit" class="submit" >
