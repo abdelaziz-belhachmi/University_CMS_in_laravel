@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="css/dep.css">
 
 
-<section class="section departements" id="departements">
+<section class="section departements" id="departements" style="min-height: 50vh">
 
     <div class="wrapper">
 
@@ -14,15 +14,26 @@
             <p class="section__solg" > DÉPARTEMENTS </p>
 
             <div class="three-columns section-content departements-wrapper">
-             
-                <div class="departement-card">                  
-                        <img src="/images/imagesdep/geniemecanique.jpg" class="departement__img">
+                
+                @foreach ($dep as $d)
+                        
+                <div class="departement-card">
+                        <img src="/images/imagesdep/dep_img.png" class="departement__img">
                         <div class="departement-infos">
-                            <h3>GÉNIE MÉCANIQUE</h3>
-                            <p>Chef : Pr.ELAYACHI Ilham</p>
-                            <p>Email : i.elayachi@uae.ac.ma</p>
+                            
+                            <h3>{{$d->Nom_departement}}</h3>
+
+                            <p>{{$d->Code_departement}}</p>
+                            
+                            @if ($d->chefDepartement)
+                            <p>Chef : {{$d->chefDepartement->user->name}} {{$d->chefDepartement->user->prenom}}</p>
+                            <p>Email : {{$d->chefDepartement->user->email}}</p>
+                            @endif
+                            
                         </div>
-                </div>    
+                </div>
+                @endforeach
+
         </div>
     </div>
 </section>

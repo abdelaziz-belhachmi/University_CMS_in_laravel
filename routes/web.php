@@ -15,6 +15,7 @@ use App\Http\Controllers\materiauxController;
 use App\Http\Controllers\ModuleController;
 use App\Http\Controllers\PersonnellesController;
 use App\Http\Controllers\userController;
+use App\Models\Annonce;
 use App\Models\classe;
 use App\Models\Departement;
 use GuzzleHttp\Promise\Create;
@@ -36,7 +37,18 @@ use Illuminate\Support\Facades\Request as FacadesRequest;
 
 
 /*HOME*/ 
-Route::get('/' ,  function () { return view('welcome');}   )->name('welcome');
+Route::get('/' ,  function () { 
+    // $annonces = Annonce::all();
+    $userRole = "visiteur";
+    $annonces = Annonce::whereHas('audience', function ($query) use ($userRole) {
+            
+    $query->where($userRole, true);
+
+    })->with(['audience'])->get();
+
+
+    return view('welcome',compact('annonces'));
+})->name('welcome');
 
 Route::get('/home', function () {
     if(Auth::user()->role == 0 ){ return redirect('user/home');}
@@ -49,7 +61,8 @@ Route::get('/Auth/home',function () {
 
 
 Route::get('departements',function () {
-    return view('departements');
+    $dep = Departement::all();
+    return view('departements',compact('dep'));
 })->name('departements');
 
 

@@ -64,20 +64,24 @@
         <div id="announcement-section">
             <h2 align="center">ACTUALITÉS</h2>
             <ul id="announcement-list">
-                <li data-id="1">CALENDRIER ET LISTES DES EXAMENS DE LA SESSION DE RATTRAPAGE – SEMESTRE D’AUTOMNE
-                    2023-2024<br>janvier 13, 2024</li>
-                <li data-id="2">10ÈME ÉDITION DU CONCOURS FRANCOPHONE INTERNATIONAL « MA THÈSE EN 180 SECONDES
-                    »<br>janvier 10, 2024</li>
-                <li data-id="3">COMPÉTITION « HULT PRIZE »<br>janvier 8, 2024</li>
-                <li data-id="4">5 ÈME CONCLAVE DE SÉCURITÉ AU MAROC</li>
+               @foreach($annonces as $annoce)
+               <li data-id="3">
+                       <h3> {{ $annoce->titre }}</h3>
+                       <h6> {{ $annoce->user->prenom  }} {{$annoce->user->name}}   <br>   {{ $annoce->date_creation  }}   </h6>
+                        <p style="display: none">{{ $annoce->description }}</p>     
+                </li>
+               @endforeach
             </ul>
         </div>
 
         <div id="details-section">
+            
             <h2 id="details-heading">PRESENTATION DE LA FST DE TANGER & DIAGNOSIQUE</h2>
+
             <div id="details-content">
                 <p><img src="/images/icon/fst.jpg" alt=""></p>
             </div>
+        
         </div>
 
     </div>
@@ -197,6 +201,10 @@
     </footer>
 
     <script src="js/scriptIndex.js"></script>
+
+    <script>
+
+    </script>
 
 </body>
 
