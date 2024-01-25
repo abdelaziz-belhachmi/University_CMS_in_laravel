@@ -14,13 +14,11 @@ class demandesController extends Controller
     public function index()
     {
         //
-        if(Auth::user()->role == 0)
-        $demandes = demandes::where('user_id',Auth::user()->id)->get(); 
-    else
-    $demandes = demandes::where('destinataire',Auth::user()->role)->get(); 
-    return view('Auth/demande/gerer_demande', compact('demandes'));
-
-
+        if (Auth::user()->role == 0)
+            $demandes = demandes::where('user_id', Auth::user()->id)->get();
+        else
+            $demandes = demandes::where('destinataire', Auth::user()->role)->get();
+        return view('Auth/demande/gerer_demande', compact('demandes'));
     }
 
     /**
@@ -36,20 +34,16 @@ class demandesController extends Controller
      */
     public function store(Request $request)
     {
-        // 0 Etudiant / 1 professor /2 chef filiere / 4 chef_service
-       // dd(Auth::user()->id);
         $data = $request->validate([
             'type' => 'required',
             'description' => 'required',
-            'destinataire' =>'required|in:1,2,4',
+            'destinataire' => 'required|in:1,2,4',
         ]);
-        $data['user_id'] =Auth::user()->id;
+
+        $data['user_id'] = Auth::user()->id;
         demandes::create($data);
-        return redirect()->back()->with('message', 'Demande saved successfully.');
-      
-
-
-
+        
+        return redirect()->route("demandes")->with('message', 'Demande saved successfully.');
     }
 
     /**
