@@ -71,36 +71,21 @@ function get($id){
 
  
         case 2:
-/*
-
-a revoir
-
-*/           
+            $details = Chef_filiere::where('user_id',$id)->first();
+            return view('Auth.personnelles.modifier',compact('details','prole'));
         break;
 
         case 3:
-        /*
-
-a revoir
-
-*/      
+            $details = Chef_Departement::where('user_id',$id)->first();
+            return view('Auth.personnelles.modifier',compact('details','prole'));
         break;
     
         case 4:
-          /*
-
-a revoir
-
-*/      
+            $details = Chef_Service::where('user_id',$id)->first();
+            return view('Auth.personnelles.modifier',compact('details','prole'));
         break;
                 
-        default:
-           /*
-
-a revoir
-
-*/      
-            break;
+        
     }
 
 }
