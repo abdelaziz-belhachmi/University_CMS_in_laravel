@@ -69,6 +69,9 @@ Route::post('/login', [LoginController::class, 'login']);
 Route::get('/logout', [LoginController::class, 'logout'] )->name('Logout');
 
 
+Route::get('/demandes',[demandesController::class,'index'])->name('demandes');
+
+Route::delete('/demandes/{id}',[ demandesController::class,'destroy'])->name('demandes.destroy');
 
 
 /****  middleware studentMiddleware ****/
@@ -92,9 +95,6 @@ Route::get('/user/demande', function () {
 
 Route::post('/user/demande',[demandesController::class,'store'])->name('submit.demande');
 
-Route::get('/demandes',[demandesController::class,'index'])->name('demandes');
-
-Route::delete('/demandes/{id}',[ demandesController::class,'destroy'])->name('demandes.destroy');
 
 });
 /**** end middleware studentMiddleware ****/

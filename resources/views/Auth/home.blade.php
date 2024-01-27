@@ -1,5 +1,5 @@
 @extends('layout.layout') <!-- Assuming you have a master layout, modify this as needed -->
-@section('title',' dashboard')
+@section('title',' Dashboard')
 @section('content')
 
 <link rel="stylesheet" href="../css/auth_home.css">
@@ -38,6 +38,7 @@
       @endif
       
       @if(Auth::user()->role != 1)
+      @if(Auth::user()->role != 2)
       <li>
         <a href="{{route('gere_locals')}}" data-title="Diary">Gèrer salles</a>
       </li>
@@ -46,6 +47,7 @@
       <li>
         <a href="{{route('afficherCalendrier')}}" data-title="Timeline">Réserver salles</a>
       </li>
+      @endif
       
       @if(Auth::user()->role == 3 && Auth::user()->role == 4)
 

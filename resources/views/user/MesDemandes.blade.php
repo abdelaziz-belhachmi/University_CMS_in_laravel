@@ -1,9 +1,18 @@
-@extends('auth.home') 
-@section('title', 'Demandes Reçues')
+@extends('user.home') <!-- Assuming you have a master layout, modify this as needed -->
+@section('title', 'Mes demandes')
+@section('contents')
 
-@section('frameContent')
 
-    <link rel="stylesheet" href="../../../css/auth_home.css">
+<link rel="stylesheet" href="../../../css/auth_home.css">
+
+    {{-- <h1>afficher ici dashboard de crud demandes</h1> --}}
+    @if (Auth::user()->role === 0)
+        <div style="background-color:#d8d8d8;height:80px ; display:flex;justify-content:end">
+
+            <a class="button-blacke" href="{{ route('user.demande') }}"> 👨🏻‍💻Faire une Demande 👩‍💻</a>
+
+        </div>
+    @endif
 
     <section class="larg">
 
@@ -11,12 +20,6 @@
             <div style="background-color: green; color: white; padding: 10px; text-align: center; border-radius: 5px;">
                 {{ session('message') }}
             </div>
-        @endif
-
-        @if(count($demandes) == 0) 
-        <div style="width:100%;display:flex;justify-content:center;">
-            <h3>Aucune Demande dans votre Boite pour le Moment</h3>
-        </div>
         @endif
 
         @foreach ($demandes as $demande)

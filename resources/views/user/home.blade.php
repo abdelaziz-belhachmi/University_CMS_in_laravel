@@ -19,6 +19,10 @@
       </li>
     
       <li>
+        <a  href="{{route('demandes')}}">Mes demandes</a>
+      </li>
+
+      <li>
         <a href="{{route('user.demande')}}" data-title="Annonces">Faire une demande</a>
       </li>
 

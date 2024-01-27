@@ -14,11 +14,14 @@ class demandesController extends Controller
     public function index()
     {
         //
-        if (Auth::user()->role == 0)
+        if (Auth::user()->role == 0){
             $demandes = demandes::where('user_id', Auth::user()->id)->get();
-        else
+            return view('user/MesDemandes', compact('demandes'));
+        }
+        else{
             $demandes = demandes::where('destinataire', Auth::user()->role)->get();
         return view('Auth/demande/gerer_demande', compact('demandes'));
+    }
     }
 
     /**
