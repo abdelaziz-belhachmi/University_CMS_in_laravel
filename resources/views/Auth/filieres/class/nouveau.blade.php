@@ -158,12 +158,14 @@ body {
       {{--  --}}
       <hr>
       {{--  --}}
+      <div style="width: 100%;display:flex;justify-content:center">
+
       <div id="srchbardiv" style="width: 80% ; justify-content:center;display:flex">
 
       <div class="container">
         <div class="header">
-          <h4 class="title">Live User Filter</h4>
-          <small class="subtitle">Search by name and/or code etudiant</small>
+          <h4 class="title">Etudiants Filter</h4>
+          <small class="subtitle">Recherche par nom/prenom Etudiant</small>
           <input type="text" id="filter" placeholder="Search"/>
         </div>
         <ul id="result" class="users-list">
@@ -180,6 +182,7 @@ body {
       </div>
     </div>
       
+  </div>
       
 
       <script>

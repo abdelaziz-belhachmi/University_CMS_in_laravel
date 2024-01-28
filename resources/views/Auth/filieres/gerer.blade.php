@@ -24,7 +24,7 @@
                 @foreach ($fil as $f)
                     
                 <div class="Filiere-card">
-                        <img src="/images/imagesdep/dep_img.png" class="Filiere__img">
+                        <img src="/images/imagesdep/filiere.png"  class="Filiere__img">
                         <div class="Filiere-infos">
                             
                             <h3>Nom Filiere :{{$f->Nom_filliere}}</h3>
