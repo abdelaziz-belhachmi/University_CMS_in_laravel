@@ -72,9 +72,6 @@ Route::get('/logout', [LoginController::class, 'logout'] )->name('Logout');
 Route::get('/demandes',[demandesController::class,'index'])->name('demandes');
 Route::delete('/demandes/{id}',[ demandesController::class,'destroy'])->name('demandes.destroy');
 
-// emploi
-Route::get('/emploi',[CalendrierController::class,'emploiDutemps'])->name('emploi');
-
 
 /****  middleware studentMiddleware ****/
 Route::middleware(['studentMiddleware'])->group(function () {

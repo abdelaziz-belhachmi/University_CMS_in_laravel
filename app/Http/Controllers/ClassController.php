@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\classe;
 use App\Models\Etudiant;
 use App\Models\module;
+use App\Models\reservation;
 use Illuminate\Http\Request;
 
 class ClassController extends Controller
@@ -62,6 +63,11 @@ class ClassController extends Controller
         $class->modules()->detach();
     
         if ($class) {
+            $reser = reservation::where('classes_id',$id)->get();
+            foreach ($reser as $res){
+                $res->delete();
+            }
+
             $class->delete();
         }
     

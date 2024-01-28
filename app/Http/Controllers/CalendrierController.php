@@ -9,6 +9,7 @@ use App\Models\module;
 use App\Models\reservation;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 use Locale;
 
@@ -26,25 +27,83 @@ class CalendrierController extends Controller {
 
     function emploiDutemps(){
 
-        if(Auth::user()->role == 4){// chef service
-
-            return view('/Auth/emploi');
-
-        }
+// fetching reservation for that perticular week
         
-        else if(Auth::user()->role == 3 || Auth::user()->role == 2  || Auth::user()->role == 1 ){// chef dep ou chef filiere ou prof , il vont voire le calendrier des salles du departement et ses reservations 
-
-            
-            return view('/Auth/emploi');
+        // $today = now();
+        // $nextWeek = $today->copy()->addWeek();
+        
+        // $structuredReservations = [];
+        
+        // foreach (["9", "11", "13", "15", "17"] as $startTime) {
+        //     $reservationsForStartTime = [];
+        
+        //     for ($day = $today->copy(); $day->lte($nextWeek); $day->addDay()) {
+        //         $reservationsForDay = Reservation::where('day', $day->day)
+        //             ->where('month', $day->month)
+        //             ->where('year', $day->year)
+        //             ->where('start_time', $startTime)
+        //             ->get();
+        
+        //         $reservationsForStartTime[$day->format('d/m/Y')] = $reservationsForDay;
+        //     }
+        
+        //     $structuredReservations[$startTime] = $reservationsForStartTime;
+        // }
+        
+        $today = now();
+        $nextWeek = $today->copy()->addWeek();
+        $structuredReservations = [];
+    
+        foreach (["9", "11", "13", "15", "17"] as $startTime) {
+            $reservationsForStartTime = [];
+    
+            for ($day = $today->copy(); $day->lte($nextWeek); $day->addDay()) {
+                $reservationsForDay = Reservation::where('day', $day->day)
+                    ->where('month', $day->month)
+                    ->where('year', $day->year)
+                    ->where('start_time', $startTime)
+                    ->get();
+    
+                // Check user's role and filter reservations accordingly
+                $userRole = Auth::user()->role;
+    
+                if ($userRole == 0) {
+                    $userClassId = Auth::user()->etudiant->classes_id;            
+                    // Filter reservations based on class ID
+                    $reservationsForDay = $reservationsForDay->where('classes_id', $userClassId);
+                } elseif ($userRole == 1 || $userRole == 2) {
+                    // Filter reservations by user_id
+                    $reservationsForDay = $reservationsForDay->where('user_id', Auth::user()->id);
+                } elseif ($userRole == 3) {
+                    // Assuming you have the user's departement ID in $userDepartementId
+                    $userDepartementId = Auth::user()->Chef_Departement->departement_id;
+    
+                    // Filter reservations based on departement ID
+                    $reservationsForDay = $reservationsForDay->filter(function ($reservation) use ($userDepartementId) {
+                        return $reservation->local->departement_id == $userDepartementId;
+                    });
+                } elseif ($userRole == 4) {
+                    // Filter reservations by locals that belong to null departement ID
+                    $reservationsForDay = $reservationsForDay->filter(function ($reservation) {
+                        return $reservation->local->departement_id == null;
+                    });
+                }
+    
+                $reservationsForStartTime[$day->format('d/m/Y')] = $reservationsForDay;
+            }
+    
+            $structuredReservations[$startTime] = $reservationsForStartTime;
+        }
+    
+        if (Auth::user()->role == 0) {
+            // etudiant , il va voir que les réservations concernent ses modules 
+            return view('/user/emploi', compact('structuredReservations'));
+        } else {
+            // chef dep ou chef filiere ou prof , ils vont voir le calendrier des salles du département et ses réservations 
+            return view('/Auth/emploi', compact('structuredReservations'));
         } 
-        
-        else if(Auth::user()->role == 0){// etudiant , il va voire que les reservation concernent ces modules 
-
-        return view('/user/emploi');
-        }
-
     }
-
+        
 
 
     function locaux($year,$month,$day,$hour){
@@ -171,22 +230,7 @@ function toutesLesSalesReserveDansJour($year,$month,$day){
 
 function reserver(Request $r){
 
-    if($r->input('recurr') == 'non'){
-
-        $data = [
-            'Titre_reservation'=> $r->input('Titre_reservation'),
-            'sujet_reservation'=> $r->input('sujet_reservation'),
-            'start_time'=> $r->input('hour'),
-            'day'=> (int)$r->input('day'),
-            'month'=> (int)$r->input('month'),
-            'year'=> (int)$r->input('year'),
-            'local_id'=> $r->input('local_id'),
-            'classes_id' => $r->input('classe') ?? null,
-            'user_id' => Auth::user()->id
-        ];
-
-    reservation::create($data);
-} else if($r->input('recurr') == 'oui'){
+  if($r->input('recurr') == 'oui'){
 
     $desiredDate = Carbon::create($r->input('year'), $r->input('month'), $r->input('day'));
 
@@ -211,6 +255,25 @@ function reserver(Request $r){
     }
     
 }
+else
+{
+    $data = [
+        'Titre_reservation'=> $r->input('Titre_reservation'),
+        'sujet_reservation'=> $r->input('sujet_reservation'),
+        'start_time'=> $r->input('hour'),
+        'day'=> (int)$r->input('day'),
+        'month'=> (int)$r->input('month'),
+        'year'=> (int)$r->input('year'),
+        'local_id'=> $r->input('local_id'),
+        'classes_id' => $r->input('classe') ?? null,
+        'user_id' => Auth::user()->id
+    ];
+
+reservation::create($data);
+} 
+
+
+
 return redirect(route('Auth.accueil'));
 }
 

@@ -16,11 +16,15 @@
       </li>
 
       <li>
-        <a href="{{route('Auth.annonce.gerer_annonces')}}" data-title="Annonces">Gérer Mes Annonces</a>
+        <a href="{{route('Auth.annonce.gerer_annonces')}}">Gérer Mes Annonces</a>
+      </li>
+
+      <li>
+        <a href="{{route('gerer.emploi')}}">Emploi de Temps</a>
       </li>
 
     <li>
-      <a href="{{route('demandes')}}" data-title="Annonces">Gérer Les Demandes</a>
+      <a href="{{route('demandes')}}">Gérer Les Demandes</a>
     </li>
 
     @if(Auth::user()->role == 1)
