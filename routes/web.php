@@ -99,13 +99,13 @@ Route::get('/emploi',[CalendrierController::class,'emploiDutemps'])->name('user.
 });
 /**** end middleware studentMiddleware ****/
 
-/***** middlware adminMiddleware ******/
-Route::middleware(['adminsMiddleware'])->group(function () {
 
 // register
 Route::get('/Auth/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
 Route::post('/Auth/register', [RegisterController::class, 'register']);
 
+/***** middlware adminMiddleware ******/
+Route::middleware(['adminsMiddleware'])->group(function () {
 
 // admin home
 Route::get('/Auth/home/accueil',[AnnonceController::class,'index'] )->name('Auth.accueil');
