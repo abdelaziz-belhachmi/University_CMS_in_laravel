@@ -7,6 +7,7 @@ use App\Models\Chef_filiere;
 use App\Models\Departement;
 use App\Models\filiere;
 use App\Models\module;
+use App\Models\Professeur;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
@@ -83,14 +84,15 @@ class RegisterController extends Controller
 
             case 1: // professeur
                 $professeur = $user->professeur()->create(['code_doti' => $data['code_doti'] ]);
-                $m = module::where('id',$data['mod'])->first();
-                $m->professeurs_id =  $professeur->id;
-                $m->save();
-
+                if(isset( $data['mod'] )){
+                    $m = module::where('id',$data['mod'])->first();
+                    $m->professeurs_id =  $professeur->id;
+                    $m->save();
+                }
                 break;
 
             case 2: // Chef filliere
-
+                
                 $user->Chef_filiere()->create([ 'code_Chef' => $data['code_Chef'] ,'filieres_id' => $data['filiere'] ]);
 
                 break;
@@ -109,4 +111,22 @@ class RegisterController extends Controller
 
         return $user;
     }
+
+function associer_prof_module($id){
+    $modules = module::whereNull('professeurs_id')->get();
+    return view('Auth/personnelles/module',compact('modules','id'));
+}
+
+function associer($idprof,$idmodule){
+    $m = module::where('id',$idmodule)->first();
+    $m->professeurs_id = $idprof;
+    $m->save();
+
+    $p = Professeur::where('id',$idprof)->first();
+    $uid = $p->user->id;
+
+    return redirect(url('/personnelles/modifier/'.$uid));
+}
+
+
 }

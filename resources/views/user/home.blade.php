@@ -23,7 +23,7 @@
       </li>
 
       <li>
-        <a href="{{route('user.demande')}}" data-title="Annonces">Faire une demande</a>
+        <a href="{{route('user.emploi')}}">Emploi de temps</a>
       </li>
 
       <li>

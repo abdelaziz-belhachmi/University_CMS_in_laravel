@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Annonce;
 use App\Models\Chef_Departement;
 use App\Models\Chef_filiere;
 use App\Models\Chef_Service;
+use App\Models\demandes;
 use App\Models\Etudiant;
+use App\Models\module;
 use App\Models\Professeur;
+use App\Models\reservation;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -66,7 +70,8 @@ function get($id){
         
         case 1:
             $details = Professeur::where('user_id', $id)->first();
-            return view('Auth.personnelles.modifier',compact('details','prole'));
+            $module = module::where('professeurs_id',$details->id)->first();
+            return view('Auth.personnelles.modifier',compact('details','prole','module'));
            break;
 
  
@@ -95,14 +100,36 @@ function delete($id){
 
     $user = User::where('id',$id)->first();
 
+    $dem = demandes::where('user_id',$id)->get();
+    foreach ($dem as $de){
+        $de->delete();
+    }
+
+    $reser = reservation::where('user_id',$id)->get();
+    foreach ($reser as $res){
+        $res->delete();
+    }
+
+    $annonces = Annonce::where('user_id',$id)->get();
+    foreach($annonces as $ann){
+        $ann->delete();
+    }
+
+
+
     switch ($user->role) {
         case 0:
             $e = Etudiant::where('user_id',$id)->first();
+            
             $e->delete();
         break;
         
         case 1:
             $p = Professeur::where('user_id',$id)->first();
+
+            $module = module::where('professeurs_id',$p->id)->first();
+            $module->classes()->detach();
+            $module->delete();
             $p->delete();
             break;   
 

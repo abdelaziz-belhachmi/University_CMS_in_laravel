@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Annonce;
 use App\Models\Chef_Departement;
 use App\Models\Chef_filiere;
 use App\Models\demandes;
@@ -114,12 +115,16 @@ class DepartementController extends Controller
                 $res->delete();
             }
 
-            $dem = demandes::where('user_id',$uid)->first();
+            $dem = demandes::where('user_id',$uid)->get();
             foreach ($dem as $de){
                 $de->delete();
             }
 
         
+            $annonces = Annonce::where('user_id',$uid)->get();
+            foreach($annonces as $ann){
+                $ann->delete();
+            }
 
             $u = User::where('id',$uid)->first();
             $u->delete();
@@ -149,6 +154,12 @@ class DepartementController extends Controller
             foreach ($reser as $res){
                 $res->delete();
             }
+
+            $annonces = Annonce::where('user_id',$u->id)->get();
+            foreach($annonces as $ann){
+                $ann->delete();
+            }
+
 
             $ChefID->delete();
             $u->delete();

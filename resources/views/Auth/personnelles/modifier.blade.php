@@ -20,6 +20,22 @@
         </select> --}}
 
 
+        @if($details->user->role == 1)
+          @if(isset($module))
+          <div>
+            <label for="module">Professeur Responsable de Module : </label>
+            <input type="text" name="module" class="input-field" disabled value="{{$module->nom_module}}" >
+          </div>
+          @else
+          <div style="color: red">
+            <label for="module">Ce Professeur n'est Responsable a aucun Module!</label>
+           <a style="padding: 15px;margin-bottom:10px;margin-right:35px;background-color:aquamarine" href="{{url('associer_prof_module/'.$details->id)}}">Associer avec un module</a>
+          </div>
+          <br>
+          @endif
+        
+        @endif
+
         <div>
             <input type="text" class="input-field" name="first_name" required="required" value="{{$details->user->name}}" >
             <input type="text" class="input-field" name="last_name" required="required"  value="{{$details->user->prenom}}">
@@ -33,7 +49,7 @@
   <div>
 
       <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="password" id="psw"  value="" required>
+      <input type="password" placeholder="Enter Password" name="password" id="psw"  value="*************" required>
     </div>
 
     <div>

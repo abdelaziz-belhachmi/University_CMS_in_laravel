@@ -23,6 +23,12 @@
       <a href="{{route('demandes')}}" data-title="Annonces">Gérer Les Demandes</a>
     </li>
 
+    @if(Auth::user()->role == 1)
+    <li>
+      <a href="{{route('MesClasses')}}">Mes Classes</a>
+    </li>
+    @endif
+
       @if(Auth::user()->role == 4)
       <li>
         <a href="{{route('gerer_perso')}}" data-title="Timeline">Personnelles</a>
@@ -49,7 +55,7 @@
       </li>
       @endif
       
-      @if(Auth::user()->role == 3 && Auth::user()->role == 4)
+      @if(Auth::user()->role == 4)
 
       <li>
         <a href="{{route('gerer_classes')}}" data-title="Settings">Gerer Les classes</a>

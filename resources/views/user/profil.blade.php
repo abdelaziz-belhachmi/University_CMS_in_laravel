@@ -9,8 +9,7 @@
 
 <div id="profil">
     <img src ="/images/userpic.jpg">
-    <h3> {{ $user->name}} {{ $user->prenom }}</h3>
-    <p>CNE: {{ $etudiant->cne }}</p>
+    <h1 style="color: #555"> {{ $user->name}} {{ $user->prenom }}</h1>
     <p>CNI: {{ $user->cin }}</p>
 
 </div>

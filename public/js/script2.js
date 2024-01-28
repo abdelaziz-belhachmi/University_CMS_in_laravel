@@ -27,54 +27,114 @@
 
    if( selectedRole == 0 ){
 
-       document.getElementById('apogee').setAttribute("style","");
-       document.getElementById('code_doti').setAttribute("style","display:none");
-       document.getElementById('code_Chef').setAttribute("style","display:none");
-      
-       document.getElementById('departementDIV').setAttribute("style","display:none");
-       document.getElementById('filiereDIV').setAttribute("style","display:none");
-       document.getElementById('modulesDIV').setAttribute("style","display:none");
+    
+document.getElementById('apogee').setAttribute("style", "");
+document.getElementById('apogee').querySelector('input').setAttribute("required", "true");
+
+document.getElementById('code_doti').setAttribute("style", "display:none");
+document.getElementById('code_doti').querySelector('input').removeAttribute("required");
+
+document.getElementById('code_Chef').setAttribute("style", "display:none");
+document.getElementById('code_Chef').querySelector('input').removeAttribute("required");
+
+document.getElementById('departementDIV').setAttribute("style", "display:none");
+document.getElementById('departementDIV').querySelector('select').removeAttribute("required");
+
+
+document.getElementById('filiereDIV').setAttribute("style", "display:none");
+document.getElementById('filiereDIV').querySelector('select').removeAttribute("required");
+
+document.getElementById('modulesDIV').setAttribute("style", "display:none");
+document.getElementById('modulesDIV').querySelector('select').removeAttribute("required");
 
 
    }else if( selectedRole == 1) {//prof
 
-       document.getElementById('apogee').setAttribute("style","display:none");
-       document.getElementById('code_doti').setAttribute("style","");
-       document.getElementById('code_Chef').setAttribute("style","display:none");
-      
-       document.getElementById('departementDIV').setAttribute("style","display:none");
-       document.getElementById('filiereDIV').setAttribute("style","display:none");
-       document.getElementById('modulesDIV').setAttribute("style","");
+document.getElementById('apogee').setAttribute("style", "display:none");
+document.getElementById('apogee').querySelector('input').removeAttribute("required");
+
+document.getElementById('code_doti').setAttribute("style", "");
+document.getElementById('code_doti').querySelector('input').setAttribute("required", "true");
+
+document.getElementById('code_Chef').setAttribute("style", "display:none");
+document.getElementById('code_Chef').querySelector('input').removeAttribute("required");
+
+document.getElementById('departementDIV').setAttribute("style", "display:none");
+document.getElementById('departementDIV').querySelector('select').removeAttribute("required");
+
+
+document.getElementById('filiereDIV').setAttribute("style", "display:none");
+document.getElementById('filiereDIV').querySelector('select').removeAttribute("required");
+
+
+document.getElementById('modulesDIV').setAttribute("style", "");
+document.getElementById('modulesDIV').querySelector('select').removeAttribute("required");
 
 
       }else if( selectedRole == 2) {//chef filiere
-        document.getElementById('apogee').setAttribute("style","display:none");
-        document.getElementById('code_doti').setAttribute("style","display:none");
-        document.getElementById('code_Chef').setAttribute("style","");
-       
-        document.getElementById('departementDIV').setAttribute("style","display:none");
-        document.getElementById('filiereDIV').setAttribute("style","");
-        document.getElementById('modulesDIV').setAttribute("style","display:none");
+
+document.getElementById('apogee').setAttribute("style", "display:none");
+document.getElementById('apogee').querySelector('input').removeAttribute("required");
+
+document.getElementById('code_doti').setAttribute("style", "display:none");
+document.getElementById('code_doti').querySelector('input').removeAttribute("required");
+
+document.getElementById('code_Chef').setAttribute("style", "");
+document.getElementById('code_Chef').querySelector('input').setAttribute("required", "true");
+
+document.getElementById('departementDIV').setAttribute("style", "display:none");
+document.getElementById('departementDIV').querySelector('select').removeAttribute("required");
+
+document.getElementById('filiereDIV').setAttribute("style", "");
+document.getElementById('filiereDIV').querySelector('select').setAttribute("required", "true");
+
+document.getElementById('modulesDIV').setAttribute("style", "display:none");
+document.getElementById('modulesDIV').querySelector('select').removeAttribute("required");
 
 
       }else if( selectedRole == 3) {//chef departement
-        document.getElementById('apogee').setAttribute("style","display:none");
-        document.getElementById('code_doti').setAttribute("style","display:none");
-        document.getElementById('code_Chef').setAttribute("style","");
-       
-        document.getElementById('departementDIV').setAttribute("style","");
-        document.getElementById('filiereDIV').setAttribute("style","display:none");
-        document.getElementById('modulesDIV').setAttribute("style","display:none");
+
+document.getElementById('apogee').setAttribute("style", "display:none");
+document.getElementById('apogee').querySelector('input').removeAttribute("required");
+
+document.getElementById('code_doti').setAttribute("style", "display:none");
+document.getElementById('code_doti').querySelector('input').removeAttribute("required");
+
+document.getElementById('code_Chef').setAttribute("style", "");
+document.getElementById('code_Chef').querySelector('input').setAttribute("required", "true");
+
+document.getElementById('departementDIV').setAttribute("style", "");
+document.getElementById('departementDIV').querySelector('select').setAttribute("required", "true");
+
+
+document.getElementById('filiereDIV').setAttribute("style", "display:none");
+document.getElementById('filiereDIV').querySelector('select').removeAttribute("required");
+
+document.getElementById('modulesDIV').setAttribute("style", "display:none");
+document.getElementById('modulesDIV').querySelector('select').removeAttribute("required");
+
 
 
    } else {// chef service
-    document.getElementById('apogee').setAttribute("style","display:none");
-     document.getElementById('code_doti').setAttribute("style","display:none");
-     document.getElementById('code_Chef').setAttribute("style","");
-    
-     document.getElementById('departementDIV').setAttribute("style","display:none");
-     document.getElementById('filiereDIV').setAttribute("style","display:none");
-     document.getElementById('modulesDIV').setAttribute("style","display:none");
+
+document.getElementById('apogee').setAttribute("style", "display:none");
+document.getElementById('apogee').querySelector('input').removeAttribute("required");
+
+document.getElementById('code_doti').setAttribute("style", "display:none");
+document.getElementById('code_doti').querySelector('input').removeAttribute("required");
+
+document.getElementById('code_Chef').setAttribute("style", "");
+document.getElementById('code_Chef').querySelector('input').setAttribute("required", "true");
+
+document.getElementById('departementDIV').setAttribute("style", "display:none");
+document.getElementById('departementDIV').querySelector('select').removeAttribute("required");
+
+
+document.getElementById('filiereDIV').setAttribute("style", "display:none");
+document.getElementById('filiereDIV').querySelector('select').removeAttribute("required");
+
+document.getElementById('modulesDIV').setAttribute("style", "display:none");
+document.getElementById('modulesDIV').querySelector('select').removeAttribute("required");
 
 
    }

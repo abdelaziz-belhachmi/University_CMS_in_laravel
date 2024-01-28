@@ -29,7 +29,11 @@ class classe extends Model
 
     public function modules()
     {
-        return $this->belongsToMany(Module::class, 'class_modules', 'classes_id', 'modules_id');
+        return $this->belongsToMany(module::class, 'class_modules', 'classes_id', 'modules_id');
     }
 
+    public function reservations()
+    {
+        return $this->hasMany(reservation::class,'classes_id');
+    }
 }

@@ -68,10 +68,12 @@ Route::post('/login', [LoginController::class, 'login']);
 //logout
 Route::get('/logout', [LoginController::class, 'logout'] )->name('Logout');
 
-
+// demandes 
 Route::get('/demandes',[demandesController::class,'index'])->name('demandes');
-
 Route::delete('/demandes/{id}',[ demandesController::class,'destroy'])->name('demandes.destroy');
+
+// emploi
+Route::get('/emploi',[CalendrierController::class,'emploiDutemps'])->name('emploi');
 
 
 /****  middleware studentMiddleware ****/
@@ -95,6 +97,7 @@ Route::get('/user/demande', function () {
 
 Route::post('/user/demande',[demandesController::class,'store'])->name('submit.demande');
 
+Route::get('/emploi',[CalendrierController::class,'emploiDutemps'])->name('user.emploi');
 
 });
 /**** end middleware studentMiddleware ****/
@@ -205,6 +208,12 @@ Route::get('/class/delete/{id}',[ClassController::class, 'delete']);
 Route::get('/associer/classe/module/{id}',[ClassModuleController::class, 'afficherform']);
 Route::get('/associer/classe/module/{idModule}/{idClass}',[ClassModuleController::class, 'associer']);
 
+Route::get('/MesClasses',[ClassModuleController::class,'MesClasses'])->name('MesClasses');
+
+Route::get('/associer_prof_module/{id}',[RegisterController::class,'associer_prof_module']);
+Route::get('/module/associer/{idprof}/{idmodule}',[RegisterController::class,'associer']);
+
+Route::get('/gerer/emploi',[CalendrierController::class,'emploiDutemps'])->name('gerer.emploi');
 
 });
 /**** end middleware adminMiddleware ****/

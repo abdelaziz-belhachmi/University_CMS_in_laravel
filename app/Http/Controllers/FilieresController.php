@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Annonce;
 use App\Models\Chef_filiere;
 use App\Models\demandes;
 use App\Models\Departement;
@@ -75,14 +76,19 @@ class FilieresController extends Controller
         if ($ChefID) {
             $u  = User::where('id',$ChefID->user_id)->first();  
             
-            $dem = demandes::where('user_id',$u->id)->first();
+            $dem = demandes::where('user_id',$u->id)->get();
             foreach ($dem as $de){
                 $de->delete();
             }
 
-            $reser = reservation::where('user_id',$u->id)->first();
+            $reser = reservation::where('user_id',$u->id)->get();
             foreach ($reser as $res){
                 $res->delete();
+            }
+
+            $annonces = Annonce::where('user_id',$u->id)->get();
+            foreach($annonces as $ann){
+                $ann->delete();
             }
 
             $ChefID->delete();
@@ -94,6 +100,7 @@ class FilieresController extends Controller
     $modules = module::where('filiere_id',$id)->get();
 
     foreach($modules as $module){
+        $module->classes()->detach();
         $module->delete();
     }
 
