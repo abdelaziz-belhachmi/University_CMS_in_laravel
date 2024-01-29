@@ -90,7 +90,7 @@ table tbody tr td.hour span {
           <td>
             @foreach ($reservationsForDay as $reservation)
               <!-- Display reservation details as needed -->
-              {{ $reservation->Titre_reservation }}
+              {{ $reservation->Titre_reservation }}<br>
             @endforeach
           </td>
         @endforeach

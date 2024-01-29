@@ -68,7 +68,7 @@ class CalendrierController extends Controller {
                 $userRole = Auth::user()->role;
     
                 if ($userRole == 0) {
-                    $userClassId = Auth::user()->etudiant->classes_id;            
+                    $userClassId = Auth::user()->etudiant->classes_id;    
                     // Filter reservations based on class ID
                     $reservationsForDay = $reservationsForDay->where('classes_id', $userClassId);
                 } elseif ($userRole == 1 || $userRole == 2) {
@@ -235,7 +235,6 @@ function reserver(Request $r){
     $desiredDate = Carbon::create($r->input('year'), $r->input('month'), $r->input('day'));
 
     for ($x = 0; $x < 23; $x++) {
-        $desiredDate->addDays(7);
         $newYear = $desiredDate->year;
         $newMonth = $desiredDate->month;
         $newDay = $desiredDate->day;
@@ -252,6 +251,8 @@ function reserver(Request $r){
             'user_id' => Auth::user()->id
         ];
         reservation::create($data);
+        $desiredDate->addDays(7);
+
     }
     
 }
