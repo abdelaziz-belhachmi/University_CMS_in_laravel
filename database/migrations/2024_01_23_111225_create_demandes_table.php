@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('demandes', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained(); 
+            $table->foreignId('user_id')->constrained();
             $table->string('type'); // in this column we can store the type of demande (e.g., lettre, rendez-vous, stage, etc.)
             $table->text('description')->nullable();
             $table->timestamps();
@@ -21,9 +21,7 @@ return new class extends Migration
             //foreign id avec table
 
             $table->tinyInteger('destinataire');
-
-
-
+            $table->enum('etat_demande', ['enCoursDeTraitement', 'prete', 'refusee'])->nullable();
         });
     }
 

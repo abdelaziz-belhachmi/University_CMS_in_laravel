@@ -10,7 +10,7 @@ class demandes extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id', 'type', 'description', 'destinataire'];
+    protected $fillable = ['user_id', 'type', 'description', 'destinataire','etat_demande'];
 
     public function etudiant(): BelongsTo
     {

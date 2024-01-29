@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
+
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -84,6 +85,12 @@ public function etudiant()
 public function annonces()
 {
     return $this->hasMany(Annonce::class);
+}
+
+
+public function notifications()
+{
+    return $this->morphMany(Notification::class, 'notifiable')->orderBy('created_at', 'desc');
 }
 
 
