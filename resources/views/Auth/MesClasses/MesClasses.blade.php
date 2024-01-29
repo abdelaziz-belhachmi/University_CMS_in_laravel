@@ -32,6 +32,8 @@
                             <div id="bouttons-crud" >
                                 {{-- <button onclick="associer('{{$Cl->id}}')" style="background-color: #70a3e0">modifier atudiant de classe</button> --}}
                                 <button onclick="etu('{{$Cl->id}}')" style="background-color:rgb(201, 39, 72)">Les Etudiants</button>
+                                <button onclick="notes('{{$Cl->id}}')" style="background-color:rgb(61, 120, 196)">Les Notes</button>
+
                             </div>
                            
 
@@ -56,6 +58,9 @@
        
         function dessocier(id){
             window.location.href='/class/dessocier/'+id;
+        }
+        function notes(id){
+            window.location.href='/LesNotes/'+id;
         }
        
     </script>
