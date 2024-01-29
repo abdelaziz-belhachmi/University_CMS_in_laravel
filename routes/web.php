@@ -219,5 +219,6 @@ Route::middleware(['adminsMiddleware'])->group(function () {
     Route::get('/gerer/emploi', [CalendrierController::class, 'emploiDutemps'])->name('gerer.emploi');
 
     Route::get('update/{id}/{nouveau_etat_demande}', [DemandesController::class, 'update']);
+    Route::get('/MesEtudiants/{id}',[ClassController::class,'AfficherEtudiants']);
 });
 /**** end middleware adminMiddleware ****/

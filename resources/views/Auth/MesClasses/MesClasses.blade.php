@@ -51,7 +51,7 @@
     
     <script>
         function etu(id){
-            window.location.href='/MesClasses/etudiants/'+id;
+            window.location.href='/MesEtudiants/'+id;
         }
        
         function dessocier(id){

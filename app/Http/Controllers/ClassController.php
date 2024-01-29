@@ -73,4 +73,8 @@ class ClassController extends Controller
     
         return redirect(route('gerer_classes'));
     }
+    function AfficherEtudiants($id){
+        $etudiants=Etudiant::where('classes_id',$id)->get();
+        return view('/Auth/MesClasses/AfficherMesetudiants',compact('etudiants'));
+    }
 }
