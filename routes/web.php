@@ -102,7 +102,8 @@ Route::middleware(['studentMiddleware'])->group(function () {
     Route::get('/emploi', [CalendrierController::class, 'emploiDutemps'])->name('user.emploi');
 
     // Route::post('/user/demande',[demandesController::class,'update'])->name('submit.demande');
-
+    
+    Route::get('/MesNotes',[NotesController::class,'mesNotes'])->name('MesNotes');
 });
 /**** end middleware studentMiddleware ****/
 

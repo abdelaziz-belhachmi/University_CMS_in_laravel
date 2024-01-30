@@ -19,6 +19,10 @@
       </li>
     
       <li>
+        <a  href="{{route('MesNotes')}}">Mes Notes</a>
+      </li>
+
+      <li>
         <a  href="{{route('demandes')}}">Mes demandes</a>
       </li>
 

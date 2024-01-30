@@ -29,9 +29,7 @@
  <table>
 
  <thead>
- <td>Code d'apogee</td>
- <td>NOM</td>
- <td>PRENOM</td>
+  <td>Nom module</td>
  <td>Note du CC 1</td>
  <td>Note du CC 2</td>
  <td>Note du Rattrapage</td>
@@ -40,13 +38,13 @@
  
  <tbody>
  
-  @foreach ($etudiants as $e)
-  <tr>
+  @foreach ($modules as $module)
    
    @php
 
-      $module = $e->modules->where('id', $idmodule)->first();
-      $note = $module ? $module->notes->where('etudiants_id', $e->id)->first() : null;
+      // $module = $e->modules->where('id', $idmodule)->first();
+      $nomModule = $module->nom_module;
+      $note = $module ? $module->notes->where('etudiants_id', $eid)->first() : null;
       $CC1Value = $note ? $note->CC1 : null;
       $CC2Value = $note ? $note->CC2 : null;
       $RattValue = $note ? $note->Ratt : null;
@@ -55,6 +53,7 @@
       if( isset($CC1Value) && isset($CC2Value) && isset($RattValue)){
        
         $ccmoy = ( ((float)$CC1Value * 0.6 ) + ((float)$CC2Value * 0.4) )/2;
+       
         $noteFinal = $ccmoy >= $RattValue ? $ccmoy : $RattValue;
          
         if ($noteFinal >10) {
@@ -64,101 +63,24 @@
 
     @endphp
 
-    <td> {{$e->code_apogee}}</td>
-    <td> {{$e->user->name}}</td>
-    <td> {{$e->user->prenom}}</td>
+  <tr>
 
-    <td><input type="number" id='cc1' name="cc1" value="{{ $CC1Value  }}" @if(isset( $CC1Value )) readonly @endif></td>
-
-    <td><input type="number" id='cc2' name="cc2" value="{{ $CC2Value }}" @if(isset($CC2Value)) readonly @endif></td>
-
-    <td><input  type="number" id='ratt' name="ratt" value="{{ $RattValue }}" @if(isset($RattValue)) readonly @endif></td>
-    <td><input type="text"  value="{{$noteFinal}}" disabled></td>    
-
-    <td><button onclick="save(this,'{{$idmodule}}','{{$e->id}}');" style="background-color:rgb(62, 171, 254);padding:8px;color:rgb(239, 239, 239);border-radius:10px; display:none;">Save</button>
-           <button id="editbtn" onclick="update(this,'{{$idmodule}}','{{$e->id}}');" style="background-color:rgb(18, 131, 5);padding:8px;color:rgb(239, 239, 239);border-radius:10px;" >Edit</button>
-    </td>
-
+    <td>{{$nomModule}}</td>
+    <td>{{ $CC1Value  }}</td>
+    <td>{{ $CC2Value }}</td>
+    <td>{{ $RattValue }}</td>
+    <td>{{$noteFinal}}</td>    
+  
   </tr>
+  
+  
   @endforeach
 
 
   </tbody>
   </table>
 
-<script>
-async function update(element,idmodule,idetudiant){
-  element.style.display = 'none'; 
-  element.parentNode.children[0].style.display ='';
-  element.parentNode.parentNode.querySelector('td>input#cc1').removeAttribute('readonly');
-  element.parentNode.parentNode.querySelector('td>input#cc2').removeAttribute('readonly');
-  element.parentNode.parentNode.querySelector('td>input#ratt').removeAttribute('readonly');
 
-}
-
-async function save(element,idmodule,idetudiant){
-  await  savecc1(element,idmodule,idetudiant);
-  await  savecc2(element,idmodule,idetudiant);
-  await  saveratt(element,idmodule,idetudiant);
-  element.style.display = 'none'; 
-  element.parentNode.children[1].style.display ='';
-  location.reload();
-}
-
-
-async function savecc1(element,idmodule,idetudiant){
-
-  cc1 = element.parentNode.parentNode.querySelector('td>input#cc1').value;
-  
-  route = "/Notes/CC1/"+idetudiant+'/'+idmodule+'/'+cc1;
- 
-  if (cc1 > 20 || cc1 < 0 ) {
-    return;
-  }
-
-  const response = await fetch(route);
-
-  const res = await response.json();
-
-  console.log(res);
-}
-
-async function savecc2(element,idmodule,idetudiant){
-
-  cc2 = element.parentNode.parentNode.querySelector('td>input#cc2').value;
-  
-route = "/Notes/CC2/"+idetudiant+'/'+idmodule+'/'+cc2;
-
-if (cc2 > 20 ||  cc2 < 0 ) {
-  return;
-}
-
-const response = await fetch(route);
-
-const res = await response.json();
-
-console.log(res);
-}
-
-async function saveratt(element,idmodule,idetudiant){
-
-  ratt = element.parentNode.parentNode.querySelector('td>input#ratt').value;
- 
-route = "/Notes/RATT/"+idetudiant+'/'+idmodule+'/'+ratt;
-
-
-if (ratt > 20 || ratt < 0 ) {
-  return;
-}
-
-const response = await fetch(route);
-
-const res = await response.json();
-
-console.log(res);
-}
-
-</script>
 
 </div>
 

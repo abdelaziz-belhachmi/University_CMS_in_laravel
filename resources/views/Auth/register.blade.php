@@ -35,9 +35,7 @@
               @endforeach  
               
             </select>
-            @if(sizeof($filieresLibres) == 0 )
-            <p style="color: red">aucune modules libre <br> il faut cree un module avant associer au proffesseur </p>
-            @endif
+          
             </div>
 
 

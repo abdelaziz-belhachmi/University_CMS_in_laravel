@@ -46,19 +46,16 @@
 
       $module = $e->modules->where('id', $idmodule)->first();
       $note = $module ? $module->notes->where('etudiants_id', $e->id)->first() : null;
-      $CC1Value = $note ? $note->CC1 : null;
-      $CC2Value = $note ? $note->CC2 : null;
-      $RattValue = $note ? $note->Ratt : null;
-      $noteFinal = null;
+      $CC1Value = $note ? $note->CC1 : 0;
+      $CC2Value = $note ? $note->CC2 : 0;
+      $RattValue = $note ? $note->Ratt : 0;
+      $noteFinal = 0;
 
       if( isset($CC1Value) && isset($CC2Value) && isset($RattValue)){
        
-        $ccmoy = ( ((float)$CC1Value * 0.6 ) + ((float)$CC2Value * 0.4) )/2;
+        $ccmoy = ( ((float)$CC1Value * 0.4 ) + ((float)$CC2Value * 0.6) );
         $noteFinal = $ccmoy >= $RattValue ? $ccmoy : $RattValue;
-         
-        if ($noteFinal >10) {
-            $noteFinal = 10;
-          }
+        
       }
 
     @endphp
@@ -69,7 +66,7 @@
 
     <td><input type="number" id='cc1' name="cc1" value="{{ $CC1Value  }}"  readonly ></td>
 
-    <td><input type="number" id='cc2' name="cc2" value="{{ $CC2Value }}" eadonly ></td>
+    <td><input type="number" id='cc2' name="cc2" value="{{ $CC2Value }}" readonly ></td>
 
     <td><input  type="number" id='ratt' name="ratt" value="{{ $RattValue }}" readonly ></td>
     <td><input type="text"  value="{{$noteFinal}}" disabled></td>    

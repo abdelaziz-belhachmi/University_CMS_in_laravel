@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Etudiant;
 use App\Models\Notes;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class NotesController extends Controller
 {
@@ -100,7 +101,11 @@ class NotesController extends Controller
 
         }
 
-
+      function mesNotes(){
+      $modules = Auth::user()->etudiant->modules;
+      $eid =  Auth::user()->etudiant->id;
+        return view('/user/MesNotes',compact('modules','eid'));
+      }
 
 
 }
