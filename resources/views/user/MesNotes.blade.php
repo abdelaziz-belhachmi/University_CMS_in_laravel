@@ -1,5 +1,6 @@
-@extends('auth.home') <!-- Assuming you have a master layout, modify this as needed -->
-@section('frameContent')
+@extends('user.home') <!-- Assuming you have a master layout, modify this as needed -->
+@section('title', 'Mes Notes')
+@section('contents')
 <style>
   table{
     margin-top: 25px;
@@ -67,11 +68,11 @@
     <td> {{$e->user->name}}</td>
     <td> {{$e->user->prenom}}</td>
 
-    <td><input type="number" id='cc1' name="cc1" value="{{ $CC1Value  }}"  readonly ></td>
+    <td><input type="number" id='cc1' name="cc1" value="{{ $CC1Value  }}" @if(isset( $CC1Value )) readonly @endif></td>
 
-    <td><input type="number" id='cc2' name="cc2" value="{{ $CC2Value }}" eadonly ></td>
+    <td><input type="number" id='cc2' name="cc2" value="{{ $CC2Value }}" @if(isset($CC2Value)) readonly @endif></td>
 
-    <td><input  type="number" id='ratt' name="ratt" value="{{ $RattValue }}" readonly ></td>
+    <td><input  type="number" id='ratt' name="ratt" value="{{ $RattValue }}" @if(isset($RattValue)) readonly @endif></td>
     <td><input type="text"  value="{{$noteFinal}}" disabled></td>    
 
     <td><button onclick="save(this,'{{$idmodule}}','{{$e->id}}');" style="background-color:rgb(62, 171, 254);padding:8px;color:rgb(239, 239, 239);border-radius:10px; display:none;">Save</button>

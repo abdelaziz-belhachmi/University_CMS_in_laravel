@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('notes', function (Blueprint $table) {
             $table->id();
-            $table->float('CC1')->nullable();
-            $table->float('CC2')->nullable();
-            $table->float('Ratt')->nullable();
+            $table->float('CC1')->nullable()->default(0.0);
+            $table->float('CC2')->nullable()->default(0.0);
+            $table->float('Ratt')->nullable()->default(0.0);
             $table->foreignId('etudiants_id')->constrained('etudiants')->onDelete('cascade'); 
             $table->foreignId('modules_id')->constrained('modules')->onDelete('cascade'); 
             $table->timestamps();

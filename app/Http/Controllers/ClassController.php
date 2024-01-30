@@ -75,6 +75,7 @@ class ClassController extends Controller
     }
     function AfficherEtudiants($id){
         $etudiants=Etudiant::where('classes_id',$id)->get();
-        return view('/Auth/MesClasses/AfficherMesetudiants',compact('etudiants'));
+        $classID = $id;
+        return view('/Auth/MesClasses/AfficherMesetudiants',compact('etudiants','classID'));
     }
 }

@@ -42,25 +42,5 @@
     </div>
     
     
-    <script>
-        function supprimer(id) {
-            window.location.href='/etudiant/supprimer/'+id;
-
-        }
-        function modifier(id){
-            window.location.href='/etudiant/modifier/'+id;
-
-        }
-        function ajouter(id){
-            window.location.href='/Auth/filieres/etudiants/nouveau/'+id;
-        }
-
-        function gerer(id){
-            window.location.href='/associer/classe/etudiant/'+id;
-
-        }
-
-    </script>
-    
   
   @endsection

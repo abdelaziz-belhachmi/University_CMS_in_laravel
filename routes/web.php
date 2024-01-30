@@ -212,7 +212,6 @@ Route::middleware(['adminsMiddleware'])->group(function () {
     Route::get('/associer/classe/module/{id}', [ClassModuleController::class, 'afficherform']);
     Route::get('/associer/classe/module/{idModule}/{idClass}', [ClassModuleController::class, 'associer']);
 
-    Route::get('/MesClasses', [ClassModuleController::class, 'MesClasses'])->name('MesClasses');
 
     Route::get('/associer_prof_module/{id}', [RegisterController::class, 'associer_prof_module']);
     Route::get('/module/associer/{idprof}/{idmodule}', [RegisterController::class, 'associer']);
@@ -224,9 +223,9 @@ Route::middleware(['adminsMiddleware'])->group(function () {
     
     // les etudiants d'un prof 
     Route::get('/MesEtudiants/{id}',[ClassController::class,'AfficherEtudiants']);
-
+    Route::get('/MesClasses', [ClassModuleController::class, 'MesClasses'])->name('MesClasses');
     // Les Notes des etudiants d'une class
-    Route::get('/LesNotes/{idmodule}',[NotesController::class , 'afficherForm']);
+    Route::get('/LesNotes/{idmodule}/{classID}',[NotesController::class , 'afficherForm']);
     Route::get('/Notes/CC1/{idEtudiant}/{idModule}/{Note}', [NotesController::class ,'CC1']);
     Route::get('/Notes/CC2/{idEtudiant}/{idModule}/{Note}',  [NotesController::class ,'CC2']);
     Route::get('/Notes/RATT/{idEtudiant}/{idModule}/{Note}',  [NotesController::class ,'RATT']);

@@ -10,8 +10,10 @@ class NotesController extends Controller
 {
     //
 
-        function afficherForm($idmodule){
-        $etudiants=Etudiant::where('classes_id',$idmodule)->get();
+        function afficherForm($idmodule,$classID){
+        $etudiants=Etudiant::where('classes_id',$classID)->get();
+
+        
             return view('Auth/MesClasses/MesNotes',compact('etudiants','idmodule'));
         }
 

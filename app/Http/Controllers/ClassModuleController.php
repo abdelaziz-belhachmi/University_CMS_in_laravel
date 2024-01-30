@@ -51,7 +51,8 @@ function MesClasses(){
     $myID = Auth::user()->professeur->id;
     
     $Mymodule = module::where('professeurs_id',$myID)->first();
-
+    $id = '';
+    
     if($Mymodule){
     $id = $Mymodule->id;
     $Myclasses = Classe::whereHas('modules', function ($query) use ($id) {
@@ -59,7 +60,8 @@ function MesClasses(){
     })->get();
 
     // $Myclasses = Classe::where('modules',$Mymodule)->get();
-    return view('Auth/MesClasses/MesClasses',compact('Myclasses'));
+    return view('Auth/MesClasses/MesClasses',compact('Myclasses','id'));
+    
 }
 else{
     $Myclasses = [];
