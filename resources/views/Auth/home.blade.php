@@ -43,7 +43,7 @@
       </li>
     
       <li>
-        <a href="{{route('gere_departements')}}" data-title="Team">Gérer Les Départements</a>
+        <a href="{{route('gere_departements')}}" data-title="Team">Gérer Départements</a>
       </li>
       @endif
       

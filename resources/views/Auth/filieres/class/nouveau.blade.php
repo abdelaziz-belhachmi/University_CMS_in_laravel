@@ -130,6 +130,13 @@ body {
  
 </style>
 <div>
+
+
+  @if(session('error'))
+  <div style="width: 100%; background:rgb(200, 56, 56); color: white; font-size:20px;font-weight:700;padding:20px;display:flex;justify-content:center">
+      {{ session('error') }}
+  </div>
+@endif
   
     <section id="contact">
         <div class="content">
@@ -184,6 +191,8 @@ body {
       
   </div>
       
+    
+
 
       <script>
 
