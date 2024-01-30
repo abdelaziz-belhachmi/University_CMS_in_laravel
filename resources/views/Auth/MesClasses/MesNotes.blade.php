@@ -25,9 +25,9 @@
 
  <div style="display: flex;justify-content:center;">
 {{-- <form id="formnotes"> --}}
- <table>
+ <table style="font-family:'Times New Roman', Times, serif ">
 
- <thead>
+ <thead style="font-weight:bolder;color:white;background-color: rgb(88, 162, 171)">
  <td>Code d'apogee</td>
  <td>NOM</td>
  <td>PRENOM</td>
@@ -71,9 +71,10 @@
     <td><input  type="number" id='ratt' name="ratt" value="{{ $RattValue }}" readonly ></td>
     <td><input type="text"  value="{{$noteFinal}}" disabled></td>    
 
-    <td><button onclick="save(this,'{{$idmodule}}','{{$e->id}}');" style="background-color:rgb(62, 171, 254);padding:8px;color:rgb(239, 239, 239);border-radius:10px; display:none;">Save</button>
-           <button id="editbtn" onclick="update(this,'{{$idmodule}}','{{$e->id}}');" style="background-color:rgb(18, 131, 5);padding:8px;color:rgb(239, 239, 239);border-radius:10px;" >Edit</button>
+    <td><button onclick="save(this,'{{$idmodule}}','{{$e->id}}');" style="background-color:rgb(83, 165, 227);padding:8px;color:rgb(239, 239, 239);border-radius:10px; display:none;border:none;">Enregistrer</button>
+           <button id="editbtn" onclick="update(this,'{{$idmodule}}','{{$e->id}}');" style="background-color:rgb(85, 226, 69);padding:8px;color:rgb(239, 239, 239);border-radius:10px; border:none;" >Modifier</button>
     </td>
+    
 
   </tr>
   @endforeach

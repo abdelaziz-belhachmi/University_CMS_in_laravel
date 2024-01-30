@@ -52,13 +52,13 @@
 
       if( isset($CC1Value) && isset($CC2Value) && isset($RattValue)){
        
-        $ccmoy = ( ((float)$CC1Value * 0.6 ) + ((float)$CC2Value * 0.4) )/2;
+        $ccmoy =  ((float)$CC1Value * 0.6 ) + ((float)$CC2Value * 0.4) ;
        
         $noteFinal = $ccmoy >= $RattValue ? $ccmoy : $RattValue;
          
-        if ($noteFinal >10) {
-            $noteFinal = 10;
-          }
+       // if ($noteFinal >10) {
+           // $noteFinal = 10;
+         // }
       }
 
     @endphp
