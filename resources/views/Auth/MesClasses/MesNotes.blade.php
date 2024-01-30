@@ -107,12 +107,10 @@ async function save(element,idmodule,idetudiant){
 async function savecc1(element,idmodule,idetudiant){
 
   cc1 = element.parentNode.parentNode.querySelector('td>input#cc1').value;
-
+  
   route = "/Notes/CC1/"+idetudiant+'/'+idmodule+'/'+cc1;
  
-  // console.log(route);
-
-  if (cc1 > 20) {
+  if (cc1 > 20 || cc1 < 0 ) {
     return;
   }
 
@@ -126,12 +124,10 @@ async function savecc1(element,idmodule,idetudiant){
 async function savecc2(element,idmodule,idetudiant){
 
   cc2 = element.parentNode.parentNode.querySelector('td>input#cc2').value;
-
+  
 route = "/Notes/CC2/"+idetudiant+'/'+idmodule+'/'+cc2;
 
-// console.log(route);
-
-if (cc2 > 20) {
+if (cc2 > 20 ||  cc2 < 0 ) {
   return;
 }
 
@@ -145,12 +141,11 @@ console.log(res);
 async function saveratt(element,idmodule,idetudiant){
 
   ratt = element.parentNode.parentNode.querySelector('td>input#ratt').value;
-
+ 
 route = "/Notes/RATT/"+idetudiant+'/'+idmodule+'/'+ratt;
 
-// console.log(route);
 
-if (ratt > 20) {
+if (ratt > 20 || ratt < 0 ) {
   return;
 }
 
