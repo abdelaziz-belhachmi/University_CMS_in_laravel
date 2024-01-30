@@ -109,7 +109,6 @@ footer {
 footer .footer-container {
 	max-width: 1300px;
 	margin: auto;
-	padding: 0 20px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -172,6 +171,7 @@ footer .btn:hover {
 	opacity: .7;
 }
 
+
 </style>
 
 </head>
@@ -190,11 +190,11 @@ footer .btn:hover {
             @auth
             <div class="" style="color: #001959">
 
-               <a style="color: #001351;font-weight:700" href="{{route('home')}}">{{ Auth::user()->name}}</a>
+               <a style="color: white;font-weight:700" href="{{route('home')}}">{{ Auth::user()->name}}</a>
             
               </div>
             @else
-                <a href="{{ route('login') }}" class="" style="font-size:25px;color:#001959;padding:10px">Log in</a>
+                <a href="{{ route('login') }}" class="" style="font-size:25px;color:white;padding:10px"> Se Connecter</a>
             @endauth
 
             </div>
@@ -216,8 +216,8 @@ footer .btn:hover {
         <div class="left-col" style="margin-top: 20px ">
             <div style="display:flex; justify-content: stretch;">
             <div>
-            <img src="/images/icon/fst-1024x383.png" style="width:60px; margin-left: 30%; float:left">
-           </div><div style="margin-left:9%; float:right;color: #025b9b ; font-size: large;">
+            <img src="/images/icon/fst-1024x383.png" style="width:60px; margin-left: 30%; float:left;margin-top:10px;">
+           </div><div style="margin-left:9%; float:right;color: #005693 ; font-size: large;">
             <p><span> Université Abdelmalek Essaâdi</span><br><span> Faculté des Sciences et Techniques de Tanger </span> </p>           
             </div>
         </div>

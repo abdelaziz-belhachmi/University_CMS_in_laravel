@@ -10,9 +10,16 @@
     width: 60px !important;
   }
 
+  thead{
+    font-weight:bolder;
+    color:white;
+    background-color: rgb(135, 208, 218)
+  }
+  
   td, th {
       border: 1px solid #ddd;
       padding: 8px;
+      text-align:  center;
     }
 
   tbody{
@@ -27,7 +34,7 @@
 {{-- <form id="formnotes"> --}}
  <table style="font-family:'Times New Roman', Times, serif ">
 
- <thead style="font-weight:bolder;color:white;background-color: rgb(88, 162, 171)">
+ <thead>
  <td>Code d'apogee</td>
  <td>NOM</td>
  <td>PRENOM</td>
@@ -74,7 +81,7 @@
     <td><button onclick="save(this,'{{$idmodule}}','{{$e->id}}');" style="background-color:rgb(83, 165, 227);padding:8px;color:rgb(239, 239, 239);border-radius:10px; display:none;border:none;">Enregistrer</button>
            <button id="editbtn" onclick="update(this,'{{$idmodule}}','{{$e->id}}');" style="background-color:rgb(85, 226, 69);padding:8px;color:rgb(239, 239, 239);border-radius:10px; border:none;" >Modifier</button>
     </td>
-    
+
 
   </tr>
   @endforeach

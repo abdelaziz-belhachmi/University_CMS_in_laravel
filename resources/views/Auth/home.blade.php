@@ -9,7 +9,7 @@
 <header style="background-color:white;height:auto;min-height:80vh;">
   {{-- <h1 id="acc" style="justify-content: center;align-content:center;display:flex;background-color:white"></h1> --}}
   <nav style="">
-    <ul>
+    <ul style="text-align:center">
     
       <li>
         <a  href="{{route('Auth.accueil')}}">Accueil</a>
@@ -20,7 +20,7 @@
       </li>
 
       <li>
-        <a href="{{route('gerer.emploi')}}">Emploi de Temps</a>
+        <a href="{{route('gerer.emploi')}}">Emplois de Temps</a>
       </li>
 
     <li>
@@ -43,14 +43,14 @@
       </li>
     
       <li>
-        <a href="{{route('gere_departements')}}" data-title="Team">Gérer Départements</a>
+        <a href="{{route('gere_departements')}}" data-title="Team">Gérer Les Départements</a>
       </li>
       @endif
       
       @if(Auth::user()->role != 1)
       @if(Auth::user()->role != 2)
       <li>
-        <a href="{{route('gere_locals')}}" data-title="Diary">Gèrer salles</a>
+        <a href="{{route('gere_locals')}}" data-title="Diary">Gèrer Les locaux</a>
       </li>
       @endif
 
@@ -62,13 +62,13 @@
       @if(Auth::user()->role == 4)
 
       <li>
-        <a href="{{route('gerer_classes')}}" data-title="Settings">Gerer Les classes</a>
+        <a href="{{route('gerer_classes')}}" data-title="Settings">Gèrer Les classes</a>
       </li>
       @endif
     
         
       <li>
-         <a href="{{url('logout')}}" data-title="Logout">Logout</a>
+         <a href="{{url('logout')}}" data-title="Logout">Se déconnecter</a>
       </li>
     
     </ul>

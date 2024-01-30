@@ -8,7 +8,7 @@
 <header style="background-color:white;height:auto;min-height:80vh;">
   {{-- <h1 id="acc" style="justify-content: center;align-content:center;display:flex;background-color:white"></h1> --}}
   <nav style="">
-    <ul>
+    <ul style="text-align: center">
     
       <li>
         <a  href="{{route('user.accueil')}}">Accueil</a>
