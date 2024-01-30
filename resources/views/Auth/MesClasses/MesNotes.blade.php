@@ -5,6 +5,7 @@
     margin-top: 25px;
     font-size: 15px !important;
     width: 85%;
+    font-family:'Times New Roman', Times, serif ;
   }
   input{
     width: 60px !important;
@@ -32,7 +33,7 @@
 
  <div style="display: flex;justify-content:center;">
 {{-- <form id="formnotes"> --}}
- <table style="font-family:'Times New Roman', Times, serif ">
+ <table>
 
  <thead>
  <td>Code d'apogee</td>
@@ -62,8 +63,12 @@
        
         $ccmoy = ( ((float)$CC1Value * 0.4 ) + ((float)$CC2Value * 0.6) );
         $noteFinal = $ccmoy >= $RattValue ? $ccmoy : $RattValue;
-        
+        if ($RattValue>10) {
+            $noteFinal = 10;
+        }
       }
+        
+      
 
     @endphp
 

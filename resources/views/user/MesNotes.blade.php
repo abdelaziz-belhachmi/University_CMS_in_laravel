@@ -6,9 +6,15 @@
     margin-top: 25px;
     font-size: 15px !important;
     width: 85%;
+    text-align: center;
   }
   input{
     width: 60px !important;
+  }
+  thead{
+    font-weight:bolder;
+    color:white;
+    background-color: rgb(135, 208, 218)
   }
 
   td, th {
@@ -56,9 +62,9 @@
        
         $noteFinal = $ccmoy >= $RattValue ? $ccmoy : $RattValue;
          
-       // if ($noteFinal >10) {
-           // $noteFinal = 10;
-         // }
+      if ($RattValue>10) {
+            $noteFinal = 10;
+        }
       }
 
     @endphp
