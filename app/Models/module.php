@@ -31,4 +31,11 @@ class module extends Model
         return $this->belongsTo(Professeur::class);
     }
 
+
+    public function notes()
+    {
+        return $this->hasMany(Notes::class,'modules_id');
+    }
+
+
 }

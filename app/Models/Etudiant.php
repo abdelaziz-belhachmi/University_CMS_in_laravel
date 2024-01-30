@@ -19,9 +19,18 @@ class Etudiant extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function classe() {
-        return $this->belongsTo(classe::class);
+    public function classe()
+    {
+        return $this->belongsTo(Classe::class, 'classes_id'); //  foreign key is 'classes_id'
     }
     
+    public function Notes() {
+        return $this->hasOneThrough(Notes::class,module::class);
+    }
+
+    public function modules()
+    {
+        return $this->classe->modules();
+    }
 
 }

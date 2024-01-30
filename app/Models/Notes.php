@@ -17,9 +17,11 @@ class Notes extends Model
     ];
 
     use HasFactory;
+    
      public function etudiants() {
         return $this->belongsTo(Etudiant::class);
     }
+    
     public function modules() {
         return $this->belongsTo(module::class);
     }

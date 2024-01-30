@@ -13,6 +13,7 @@ use App\Http\Controllers\FilieresController;
 use App\Http\Controllers\LocalController;
 use App\Http\Controllers\materiauxController;
 use App\Http\Controllers\ModuleController;
+use App\Http\Controllers\NotesController;
 use App\Http\Controllers\PersonnellesController;
 use App\Http\Controllers\userController;
 use App\Models\Annonce;
@@ -218,7 +219,17 @@ Route::middleware(['adminsMiddleware'])->group(function () {
 
     Route::get('/gerer/emploi', [CalendrierController::class, 'emploiDutemps'])->name('gerer.emploi');
 
+    // demandes update
     Route::get('update/{id}/{nouveau_etat_demande}', [DemandesController::class, 'update']);
+    
+    // les etudiants d'un prof 
     Route::get('/MesEtudiants/{id}',[ClassController::class,'AfficherEtudiants']);
+
+    // Les Notes des etudiants d'une class
+    Route::get('/LesNotes/{idmodule}',[NotesController::class , 'afficherForm']);
+    Route::get('/Notes/CC1/{idEtudiant}/{idModule}/{Note}', [NotesController::class ,'CC1']);
+    Route::get('/Notes/CC2/{idEtudiant}/{idModule}/{Note}',  [NotesController::class ,'CC2']);
+    Route::get('/Notes/RATT/{idEtudiant}/{idModule}/{Note}',  [NotesController::class ,'RATT']);
+
 });
 /**** end middleware adminMiddleware ****/

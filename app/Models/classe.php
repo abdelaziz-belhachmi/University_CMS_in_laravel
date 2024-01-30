@@ -24,7 +24,7 @@ class classe extends Model
 
     public function etudiants()
     {
-        return $this->hasMany(Etudiant::class);
+        return $this->belongsToMany(Etudiant::class);
     }
 
     public function modules()
