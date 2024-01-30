@@ -25,16 +25,19 @@ class ClassController extends Controller
 
     public function nouveauClass(Request $request)
     {
+
+        $studentIds = request('student_ids');
+
+        if ($studentIds == null){
+          return redirect()->back()->with('error','veuillez choisir aux moins un etudiant pour créer une class !');
+        }
+
         $newClass = classe::create([
             'nom_classe' => $request->input('nom'),
         ]);
           
       $newClassId = $newClass->id;
-      $studentIds = request('student_ids');
-
-      if ($studentIds == null){
-        return redirect()->back()->with('error','veuillez choisir aux moins un etudiant pour créer une class !');
-      }
+     
      
         foreach ($studentIds as $studentId) {
             $student = Etudiant::where('user_id',$studentId);
