@@ -31,6 +31,9 @@ class module extends Model
         return $this->belongsTo(Professeur::class);
     }
 
+    public function reservations(){
+        return $this->hasMany(reservation::class,'modules_id');
+    }
 
     public function notes()
     {

@@ -179,6 +179,7 @@ Route::middleware(['adminsMiddleware'])->group(function () {
     Route::get('Auth/reservation/calendrier', [CalendrierController::class, 'calendrier'])->name('afficherCalendrier');
     Route::get('creneau/{year}/{month}/{day}', [CalendrierController::class, 'creneau'])->name('afficherCreneau');
     Route::get('creneau/{year}/{month}/{day}/{hour}', [CalendrierController::class, 'locaux'])->name('afficherlocauxLibres');
+    Route::get('creneau/{year}/{month}/{day}/{hour}/{module}', [CalendrierController::class, 'groups'])->name('affichergroupLibresdunModule');
     Route::post('Auth/reserver', [CalendrierController::class, 'reserver']);
 
     // ** locaux ** //

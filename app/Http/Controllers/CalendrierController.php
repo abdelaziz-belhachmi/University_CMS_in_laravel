@@ -103,6 +103,26 @@ class CalendrierController extends Controller {
             return view('/Auth/emploi', compact('structuredReservations'));
         } 
     }
+
+    function groups($year,$month,$day,$hour,$module){
+
+            $classesWithoutAnyReservation = Classe::doesntHave('reservations')->get();
+
+            $classesWithoutSpecificReservation = Classe::whereDoesntHave('reservations', function ($query) use ($year, $month, $day, $hour) {
+                $query->where('year', $year)
+                    ->where('month', $month)
+                    ->where('day', $day)
+                    ->where('start_time', $hour);
+            })->get();
+            
+            $combClasses = $classesWithoutAnyReservation->merge($classesWithoutSpecificReservation);
+
+            $combinedClasses = $combClasses->filter(function ($class) use ($module) {
+                return $class->modules->where('id', $module)->isNotEmpty();
+            });
+
+            return response()->json($combinedClasses);
+    }
         
 
 
@@ -120,17 +140,43 @@ class CalendrierController extends Controller {
             ->where('start_time',$hour)
             ->get();
 
-            $classesWithoutAnyReservation = Classe::doesntHave('reservations')->get();
+           
+            // // *******
+            // $moduleswithoutSpecificReservation = module::whereDoesntHave('reservations',function ($query) use ($year, $month, $day, $hour) {
+            //     $query->where('year', $year)
+            //         ->where('month', $month)
+            //         ->where('day', $day)
+            //         ->where('start_time', $hour);
+            // })->get();
 
-            $classesWithoutSpecificReservation = Classe::whereDoesntHave('reservations', function ($query) use ($year, $month, $day, $hour) {
-                $query->where('year', $year)
+            // $moduleswithoutReservation = module::whereDoesntHave('reservations')->get();
+
+            // $modules = $moduleswithoutReservation->merge($moduleswithoutSpecificReservation);
+            // // ********
+
+                $departmentId = $depID; // Assuming you have the department ID of the logged-in user
+
+                $moduleswithoutSpecificReservation = Module::whereHas('filiere', function ($query) use ($departmentId) {
+                $query->where('departement_id', $departmentId);
+                })
+                 ->whereDoesntHave('reservations', function ($query) use ($year, $month, $day, $hour) {
+                    $query->where('year', $year)
                     ->where('month', $month)
                     ->where('day', $day)
                     ->where('start_time', $hour);
-            })->get();
-            
-            $combinedClasses = $classesWithoutAnyReservation->merge($classesWithoutSpecificReservation);
+                })
+                 ->get();
 
+                $moduleswithoutReservation = Module::whereHas('filiere', function ($query) use ($departmentId) {
+                      $query->where('departement_id', $departmentId);
+                })
+                    ->whereDoesntHave('reservations')
+                    ->get();
+
+                $modules = $moduleswithoutReservation->merge($moduleswithoutSpecificReservation);
+
+
+            // *************
 
             $reservedLocalIds = $reservationDuJour->pluck('local_id')->toArray();
     
@@ -140,7 +186,7 @@ class CalendrierController extends Controller {
 
 
                          
-            return view('Auth/reservation/locauxLibres',compact('year','month','day','hour','locauxLibres','locauxreserve','combinedClasses'));
+            return view('Auth/reservation/locauxLibres',compact('year','month','day','hour','locauxLibres','locauxreserve','modules'));
         }
 
         else if(Auth::user()->role == 4){
@@ -248,9 +294,13 @@ function reserver(Request $r){
             'year' => $newYear,
             'local_id' => $r->input('local_id'),
             'classes_id' => $r->input('classe') ?? null,
+            'modules_id' => $r->input('modules') ?? null,
             'user_id' => Auth::user()->id
         ];
-        reservation::create($data);
+        $res = reservation::create($data);
+        $res->modules_id = $r->input('modules');
+        $res->save();
+        
         $desiredDate->addDays(7);
 
     }
@@ -258,6 +308,7 @@ function reserver(Request $r){
 }
 else
 {
+    
     $data = [
         'Titre_reservation'=> $r->input('Titre_reservation'),
         'sujet_reservation'=> $r->input('sujet_reservation'),
@@ -267,10 +318,16 @@ else
         'year'=> (int)$r->input('year'),
         'local_id'=> $r->input('local_id'),
         'classes_id' => $r->input('classe') ?? null,
+        'modules_id' => $r->input('modules') ?? null,
         'user_id' => Auth::user()->id
     ];
 
-reservation::create($data);
+    // dd($data);
+
+$res = reservation::create($data);
+
+$res->modules_id = $r->input('modules');
+$res->save();
 } 
 
 

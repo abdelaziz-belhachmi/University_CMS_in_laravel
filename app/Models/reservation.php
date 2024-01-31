@@ -37,6 +37,9 @@ class reservation extends Model
     public function user() {
         return $this->hasOne(User::class);
     }
-  
+    
+    public function modules(){
+        return $this->belongsTo(module::class);
+    }
 
 }

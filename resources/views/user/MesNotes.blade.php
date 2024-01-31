@@ -58,7 +58,7 @@
 
       if( isset($CC1Value) && isset($CC2Value) && isset($RattValue)){
        
-        $ccmoy =  ((float)$CC1Value * 0.6 ) + ((float)$CC2Value * 0.4) ;
+        $ccmoy =  ((float)$CC1Value * 0.4 ) + ((float)$CC2Value * 0.6) ;
        
         $noteFinal = $ccmoy >= $RattValue ? $ccmoy : $RattValue;
          
