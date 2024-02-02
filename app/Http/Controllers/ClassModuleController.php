@@ -19,17 +19,17 @@ class ClassModuleController extends Controller
         $module = module::findOrFail($id);
         $filiereID = $module->filiere_id;
 
-        $unregisteredClasses = classe::where(function ($query) use ($filiereID, $id) {
-            $query->whereHas('modules', function ($innerQuery) use ($filiereID, $id) {
-                $innerQuery->where('filiere_id', $filiereID)
-                    ->where('modules_id', '!=', $id);
-            })->orWhereDoesntHave('modules');
+        $registeredClasses = Classe::whereHas('modules', function ($query) use ($filiereID) {
+            $query->where('filiere_id', $filiereID);
         })
-        ->orWhereHas('modules', function ($query) use ($filiereID, $id) {
-            $query->where('filiere_id', $filiereID)
-                ->where('modules_id', '!=', $id);
+        ->whereDoesntHave('modules', function ($query) use ($id) {
+            $query->where('modules_id', $id);
         })
-        ->get();  
+        ->get();
+    
+        $resultClasses = Classe::whereDoesntHave('modules')->get();
+    
+        $unregisteredClasses = $registeredClasses->merge($resultClasses);
             
         return view('Auth/filieres/modules/associer', compact('unregisteredClasses', 'id'));
     }
