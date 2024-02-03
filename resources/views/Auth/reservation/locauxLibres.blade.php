@@ -20,7 +20,7 @@
         <input type="text" name="Titre_reservation" placeholder="Titre Reservation" required>
 
         <span>Sujet reservation</span>
-        <input type="text" name="sujet_reservation" placeholder="Titre Reservation" required>
+        <input type="text" name="sujet_reservation" placeholder="Sujet Reservation" required>
 
         <input type="text" style="display: none" name="day" id="day" value="{{$day}}">
         <input type="text" style="display: none" name="hour" id="hour" value="{{$hour}}">

@@ -11,10 +11,10 @@
             <form action="/Auth/local/new" id="contactForm" method="post">
               @csrf
               <span>Code Sale</span>
-              <input type="text" name="code_local" class="code_local" placeholder="Enter l'object" required />
+              <input type="text" name="code_local" class="code_local" placeholder="Code Sale" required />
               
               <span>Nom Sale</span>
-              <input type="text" name="nom_local" class="nom_local" placeholder="Enter l'object" required />
+              <input type="text" name="nom_local" class="nom_local" placeholder="Nom Sale" required />
               
               <select style="height: 45px;margin:15px" id="loc_type" name="loc_type" onclick="" required> 
                 <option disabled selected value> -- Select un Type -- </option>

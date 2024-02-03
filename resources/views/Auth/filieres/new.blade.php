@@ -11,10 +11,10 @@
             <form action="/Auth/filiers/new" id="contactForm" method="post">
               @csrf
               <span>Code Filiere</span>
-              <input type="text" name="code" class="code" placeholder="Enter l'object" required />
+              <input type="text" name="code" class="code" placeholder="Code Filiere" required />
               
               <span>Nom Filiere</span>
-              <input type="text" name="nom" class="nom" placeholder="Enter l'object" required />
+              <input type="text" name="nom" class="nom" placeholder="Nom Filiere" required />
               
               
               <span>description</span>

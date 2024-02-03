@@ -11,10 +11,10 @@
             <form action="/Auth/new/dep" id="contactForm" method="post">
               @csrf
               <span>Code Departement</span>
-              <input type="text" name="code" class="code" placeholder="Enter l'object"  />
+              <input type="text" name="code" class="code" placeholder="Code Departement"  />
               
               <span>Nom Departement</span>
-              <input type="text" name="nom" class="nom" placeholder="Enter l'object"  />
+              <input type="text" name="nom" class="nom" placeholder="Nom Departement"  />
               
               
               <span>description</span>

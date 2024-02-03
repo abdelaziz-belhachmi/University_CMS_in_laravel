@@ -39,15 +39,30 @@ use Illuminate\Support\Facades\Request as FacadesRequest;
 
 /*HOME*/
 
+// Route::get('/',  function () {
+//     $userRole = "visiteur";
+//     $annonces = Annonce::whereHas('audience', function ($query) use ($userRole) {
+
+//         $query->where($userRole, true);
+//     })->with(['audience'])->get();
+
+//     return view('welcome', compact('annonces'));
+// })->name('welcome');
+
 Route::get('/',  function () {
     $userRole = "visiteur";
-    $annonces = Annonce::whereHas('audience', function ($query) use ($userRole) {
 
+    $annonces = Annonce::whereHas('audience', function ($query) use ($userRole) {
         $query->where($userRole, true);
-    })->with(['audience'])->get();
+    })
+    ->with(['audience'])
+    ->orderBy('date_creation', 'desc')
+    ->take(5) // Limit the results to the latest 5
+    ->get();
 
     return view('welcome', compact('annonces'));
 })->name('welcome');
+
 
 // departements
 Route::get('departements', function () {
