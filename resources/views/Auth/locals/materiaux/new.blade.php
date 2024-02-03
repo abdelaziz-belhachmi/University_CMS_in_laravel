@@ -12,10 +12,10 @@
             <form action="/materiel/new" id="contactForm" method="post">
               @csrf
               <span>Nom Materiel</span>
-              <input type="text" name="nom_materiel" class="code" placeholder="Enter l'object"  />
+              <input type="text" name="nom_materiel" class="code" placeholder="Nom Materiel"  />
               
-              <span>categorie materiel</span>
-              <input type="text" name="categorie_materiel" class="nom" placeholder="Enter l'object"  />
+              <span>Categorie materiel</span>
+              <input type="text" name="categorie_materiel" class="nom" placeholder="Categorie materiel"  />
                 
               <span>Etat Materiel</span>
               <select name="etat" >

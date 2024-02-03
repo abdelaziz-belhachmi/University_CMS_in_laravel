@@ -58,9 +58,19 @@ class CalendrierController extends Controller {
                     $reservationsForDay = $reservationsForDay->where('modules_id', $modulesID);
 
                 } elseif ($userRole == 2) {
+                    $filiereID= Auth::user()->Chef_filiere->filieres_id;
+                    
+                    $reservationsForCHef = $reservationsForDay->where('user_id', Auth::user()->id);
+                    
+                    $reservationsForDay = $reservationsForDay->filter(function ($reservation) use ($filiereID) {
+                        if ($reservation->modules) {
+                            return $reservation->modules->first()->filiere->id == $filiereID;
+                        }
+                        return false;
+                    });
 
-                    $reservationsForDay = $reservationsForDay->where('user_id', Auth::user()->id);
-
+                    $reservationsForDay = $reservationsForDay->merge($reservationsForCHef);
+  
                 } elseif ($userRole == 3) {
                     
                     $userDepartementId = Auth::user()->Chef_Departement->departement_id;
