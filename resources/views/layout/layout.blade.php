@@ -213,7 +213,7 @@ footer .btn:hover {
    <!-- FOOTER -->
    <footer>
 <div class="footer-container" style="margin:0px;">
-        <div class="left-col" style="margin-top: 20px ">
+        <div class="left-col" style="margin-top: 20px; margin-left: 40px "">
             <div style="display:flex; justify-content: stretch;">
             <div>
             <img src="/images/icon/fst-1024x383.png" style="width:60px; margin-left: 30%; float:left;margin-top:10px;">

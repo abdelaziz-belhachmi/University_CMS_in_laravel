@@ -66,7 +66,7 @@
             <ul id="announcement-list">
                @foreach($annonces as $annoce)
                
-               <li onclick="show(this)">
+               <li onclick="show(this)" style="max-height: 80px">
 
                        <h3> {{ $annoce->titre }}</h3>
                        <h6> {{ $annoce->user->prenom  }} {{$annoce->user->name}}   <br>   {{ $annoce->date_creation  }}   </h6>
@@ -164,7 +164,7 @@
     <!-- FOOTER -->
     <footer>
         <div class="footer-container">
-            <div class="left-col">
+            <div class="left-col" style="margin-left: -80px ">
                 <div style="display:flex; justify-content: stretch;">
                     <div>
                         <img src="images/icon/fst-1024x383.png"

@@ -4,7 +4,18 @@
 
 <link rel="stylesheet" href="css/dep.css">
 
-
+<style>
+    body{
+    background-color: white !important;
+    }
+    #departements {
+        background-color: white;
+        margin-bottom: 40px;
+    }
+    .section__solg{
+        color: #8FB5E5;
+    }
+</style>
 <section class="section departements" id="departements" style="min-height: 50vh">
 
     <div class="wrapper">
